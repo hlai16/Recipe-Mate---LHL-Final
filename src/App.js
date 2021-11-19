@@ -4,9 +4,17 @@ import useApplicationData from "./hooks/useApplicationData";
 
 function App() {
   const { state } = useApplicationData();
+  const recipeList = state.recipes.map(recipe => {
+    return (
+      <li className="recipeInfo">
+        {recipe.name}
+      </li>
+    )
+  });
+
   return (
     <div className="App">
-      <h2>{state.recipes[0].name}</h2>
+      <ul>{recipeList}</ul>
     </div>
   );
 }

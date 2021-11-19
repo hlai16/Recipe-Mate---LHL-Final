@@ -11,10 +11,10 @@ export default function useApplicationData() {
         
     useEffect(() => {
         
-        axios.get('/recipes')
+        axios.get('/Recipes')
         .then((all) => {
             console.log(all.data)
-            setState({recipes: [...all.data]})
+            setState(prev => ({...prev, recipes: all.data}))
         });
     }, []);    // important to add [], if not, will be calling api in an infinite loop.
     return { state }
