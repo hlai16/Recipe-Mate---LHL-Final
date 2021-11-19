@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+## Setup
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Install dependencies with `yarn install`. or `npm install` if you don't have yarn.
+Git clone Recipe-Mate-Api. This is the server for getting API: https://github.com/C-Swain/Recipe-Mate-Api
+*Note: Might need to check the versions of some of the dependencies. Some dependencies might be deduped, and will need to remove the deduped versions. Follow the steps in the terminal if this happens.
 
 ## Available Scripts
 
@@ -21,8 +23,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builds the app for production to the `build` folder.\ Some dependencies correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
