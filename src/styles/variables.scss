@@ -10,9 +10,13 @@ $black: #52514f;
 // $dark-background: #222f3e;
 
 $bkg-colors: #43d7f8, #ff6347, #fef9fa, #cdf4fd;
-// $booked-color: #54a0ff;
+$accent-color: #ff6347;
 $danger-color: #ed0c0c;
 $error-color: #ff9f43;
 $confirm-color: #43d7f8;
 
 $spacing: 2rem;
+
+// border
+$border: 3px solid $black;
+$border-radius: 10px;
