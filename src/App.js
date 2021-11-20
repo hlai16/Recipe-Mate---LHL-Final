@@ -1,4 +1,3 @@
-
 import './App.scss';
 import useApplicationData from "./hooks/useApplicationData";
 import Buttons from './components/Buttons.js';
