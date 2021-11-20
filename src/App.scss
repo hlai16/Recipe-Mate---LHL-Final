@@ -1,5 +1,6 @@
 @import './styles/variables.scss';
 @import './index.scss';
+@import "~bootstrap/scss/bootstrap";
 
 .wood-bkg {
   background-color: #ffffff;
@@ -37,7 +38,7 @@
     border: 3px solid $accent-color;
     border-radius: $border-radius;
     box-shadow: 5px 5px 5px $black;
-    margin-right: 3em;
+    margin-right: 8em;
   }
   
   

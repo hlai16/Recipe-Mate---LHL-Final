@@ -1,4 +1,3 @@
-
 import './App.scss';
 import './index.scss';
 import useApplicationData from "./hooks/useApplicationData";
