@@ -14,6 +14,7 @@ const USERPROFILE = "USERPROFILE";
 export default function LandingForm(props) {
   const [login, setLogin] = useState('')
   const [signup, setSignup] = useState('')
+  const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const { mode, transition, back } = useVisualMode(
@@ -27,6 +28,10 @@ export default function LandingForm(props) {
       {mode === COLLAPSE && <Buttons onClick={() => { transition(LOGINSHOW, null) }}>Login</Buttons>}
       {mode === LOGINSHOW && <Form onSubmit={() => { transition(USERPROFILE, null) }}>
         <h4>Please Enter your login info:</h4>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>User Name</Form.Label>
+          <Form.Control type="username" placeholder="Enter username" username={username} onChange={(event) => setUsername(event.target.value)} />
+        </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email" email={email} onChange={(event) => setEmail(event.target.value)} />
