@@ -1,5 +1,5 @@
 
-import './App.css';
+
 import useApplicationData from "./hooks/useApplicationData";
 import Buttons from './components/Buttons.js';
 
