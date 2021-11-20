@@ -14,9 +14,11 @@ const USERPROFILE = "USERPROFILE";
 export default function LandingForm(props) {
   const [login, setLogin] = useState('')
   const [signup, setSignup] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const { mode, transition, back } = useVisualMode(
     login ? LOGINSHOW : COLLAPSE,
-    signup? SIGNUPSHOW : COLLAPSE
+    signup ? SIGNUPSHOW : COLLAPSE
   );
   // transition(SHOW, true);
 
@@ -24,10 +26,10 @@ export default function LandingForm(props) {
     <div className="LandingOptions">
       {mode === COLLAPSE && <Buttons onClick={() => { transition(LOGINSHOW, null) }}>Login</Buttons>}
       {mode === LOGINSHOW && <Form onSubmit={() => { transition(USERPROFILE, null) }}>
-        Please Enter your login info:
+        <h4>Please Enter your login info:</h4>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
+          <Form.Control type="email" placeholder="Enter email" email={email} onChange={(event) => setEmail(event.target.value)} />
           <Form.Text className="text-muted">
             We'll never share your email with anyone else.
           </Form.Text>
@@ -35,10 +37,10 @@ export default function LandingForm(props) {
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
+          <Form.Control type="password" placeholder="Password" password={password} onChange={(event) => setPassword(event.target.value)} />
         </Form.Group>
 
-        <Buttons type="submit">
+        <Buttons type="submit" onClick={(event) => setLogin(event.target.value)}>
           Submit
         </Buttons>
         <Buttons onClick={back}>
@@ -47,7 +49,7 @@ export default function LandingForm(props) {
       </Form>}
       {mode === COLLAPSE && <Buttons onClick={() => { transition(SIGNUPSHOW, null) }}>Signup</Buttons>}
       {mode === SIGNUPSHOW && <Form onSubmit={() => { transition(USERPROFILE, null) }}>
-        Please enter your signup info:
+        <h4>Please enter your signup info:</h4>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email" />
