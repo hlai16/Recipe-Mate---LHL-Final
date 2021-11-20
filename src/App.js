@@ -15,6 +15,13 @@ function App() {
 
   return (
     <main className="App layout">
+      <div className="heroImg">
+        <img 
+          src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/feature/landing/public/images/heroImg.jpeg?raw=true"
+          alt="logo"
+          width="500"
+        />
+      </div>
       <section className="sidebar">
         <img
           className="sidebar--centered"
