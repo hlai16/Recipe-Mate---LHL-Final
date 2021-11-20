@@ -1,5 +1,5 @@
 
-import './App.css';
+import './App.scss';
 import useApplicationData from "./hooks/useApplicationData";
 import Buttons from './components/Buttons.js';
 
@@ -14,10 +14,20 @@ function App() {
   });
 
   return (
-    <div className="App">
-      <ul>{recipeList}</ul>
-      <Buttons>Hello</Buttons>
-    </div>
+    <main className="App layout">
+      <section className="sidebar">
+        <img
+          className="sidebar--centered"
+          src="images/logo.png"
+          alt="Interview Scheduler"
+          width="300"
+        />
+
+      </section>
+      <section className="schedule">
+        
+      </section>
+    </main>
   );
 }
 
