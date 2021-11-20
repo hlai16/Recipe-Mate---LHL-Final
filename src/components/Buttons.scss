@@ -7,7 +7,7 @@
   font-size: 1.5rem;
   height: 2rem;
   line-height: 1.2rem;
-  margin-right: 1rem;
+  margin: 1rem;
   width: 8rem;
   border-width: 2px;
   border-style: solid;
@@ -44,10 +44,6 @@
 .button--confirm:hover {
   color: $white;
   background-color: $confirm-color;
-}
-
-.button:last-of-type {
-  margin-right: 0;
 }
 
 .button:focus {

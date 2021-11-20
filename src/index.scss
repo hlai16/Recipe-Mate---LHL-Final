@@ -6,6 +6,7 @@
 @import "styles/reset.scss";
 
 @import "styles/typography.scss";
+
 // @import "components/Buttons.scss";
 
 * {
@@ -19,20 +20,35 @@ body {
 .layout {
   display: flex;
   min-height: 100vh;
+  min-width: 100vw;
 }
 
 @media only screen and (max-width: 960px) {
   html {
-    font-size: 12px;
+    font-size: 20px;
   }
 
   .layout {
     flex-direction: column;
   }
+  .HeroImg {
+    visibility: collapse;
+  }
+  .sidebar {
+    position: relative;
+    top: -45em;
+    width: 85vw;
+  }
+  .button {
+    min-width: 10em;
+    padding: 1em auto;
+    min-height: 3em;
+  }
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 500px) {
   html {
     font-size: 10px;
   }
+  
 }
