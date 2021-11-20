@@ -20,7 +20,7 @@ export default function LandingForm(props) {
   return (
     <div className="LandingOptions">
       {mode === COLLAPSE && <Buttons onClick={() => { transition(SHOW, null) }}>Login</Buttons>}
-      {mode === SHOW && <Form onClick={() => { transition(USERPROFILE, null) }}>
+      {mode === SHOW && <Form onSubmit={() => { transition(USERPROFILE, null) }}>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
