@@ -1,6 +1,7 @@
 
 import './App.css';
 import useApplicationData from "./hooks/useApplicationData";
+import Buttons from './components/Buttons.js';
 
 function App() {
   const { state } = useApplicationData();
@@ -15,6 +16,7 @@ function App() {
   return (
     <div className="App">
       <ul>{recipeList}</ul>
+      <Buttons>Hello</Buttons>
     </div>
   );
 }
