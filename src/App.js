@@ -40,6 +40,7 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />
           <Route path="/user_profile" element={<UserProfile />} />
+          <Route path="/recipeList" element={<RecipeList />} />
 
         </Routes></BrowserRouter>
     </main >
