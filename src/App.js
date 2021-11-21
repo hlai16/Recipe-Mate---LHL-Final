@@ -38,8 +38,8 @@ function App() {
 
       {/* <form onSubmit={handleSubmit} /> */}
       <BrowserRouter>
-        <Navbar bg="light" expand="lg">
-          <Navbar.Brand><Link to={'/'} className="nav-link"><img src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/feature/search-index/public/images/logo32x32.png?raw=true" alt="logo" /></Link></Navbar.Brand>
+        <Navbar bg="white" expand="lg">
+          <Navbar.Brand><Link to={'/'} className="nav-link"><img src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/feature/search-index/public/images/logo.png?raw=true" alt="logo" width="100"></img></Link></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
