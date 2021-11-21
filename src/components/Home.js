@@ -5,11 +5,12 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Search from './Search/index';
 import { useState } from "react";
+import UserProfile from './UserProfile';
 
 function Home() {
 
     return (
-        <div className="layout wood-bkg">
+        <div className="wood-bkg">
             <div className="HeroImg">
                 <div className="redBorder"></div>
                 <img
@@ -27,6 +28,7 @@ function Home() {
                     width="200"
                 />
                 <LandingForm />
+               
                 
             </section>
         </div >

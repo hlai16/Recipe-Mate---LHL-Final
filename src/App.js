@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Search from './components/Search/index';
+import Create from './components/Create';
 import UserProfile from './components/UserProfile';
 import { useState } from "react";
 import RecipeItem from './components/RecipeItem';
@@ -18,6 +19,9 @@ const RequiresLogin = (props) => {
   } 
   return <Home />
 }
+
+import { Navbar, Form, Nav, NavDropdown, FormControl, Button } from "react-bootstrap";
+
 
 function App() {
   const { state } = useApplicationData();
@@ -43,17 +47,43 @@ function App() {
 
   return (
     <main className="App layout">
-       
-        {/* <form onSubmit={handleSubmit} /> */}
-        <BrowserRouter><Routes>
+
 
           <Route exact path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />
           <Route path="/user_profile" element={<UserProfile />} />
           <Route path="/recipeItem" element={<RecipeItem />} />
 
-        </Routes></BrowserRouter>
-    </main >
+      <BrowserRouter>
+        <Navbar bg="white" expand="lg">
+          <Navbar.Brand><Link to={'/'} className="nav-link"><img src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/feature/search-index/public/images/logo.png?raw=true" alt="logo" width="100"></img></Link></Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link><Link to={'/'} className="nav-link">Home</Link></Nav.Link>
+              <Nav.Link><Link to={'/search'} className="nav-link">Categories</Link></Nav.Link>
+              <Nav.Link><Link to={'/create'} className="nav-link">Create</Link></Nav.Link>
+        
+            </Nav>
+            <Form inline>
+              <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+              <Button variant="success">Search</Button>
+            </Form>
+          </Navbar.Collapse>
+        </Navbar>
+        <div classNAME="routesDiv">
+          <Routes>
+
+
+            <Route exact path="/" element={<Home />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/user_profile" element={<UserProfile />} />
+            <Route path="/create" element={<Create />} />
+
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </main>
   );
 }
 
