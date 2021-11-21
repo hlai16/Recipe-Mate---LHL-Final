@@ -10,7 +10,18 @@ import Search from './components/Search/index';
 import Create from './components/Create';
 import UserProfile from './components/UserProfile';
 import { useState } from "react";
+import RecipeItem from './components/RecipeItem';
+
+const RequiresLogin = (props) => {
+  const isLoggedIn = true;
+  if(isLoggedIn) { 
+    return props.children;
+  } 
+  return <Home />
+}
+
 import { Navbar, Form, Nav, NavDropdown, FormControl, Button } from "react-bootstrap";
+
 
 function App() {
   const { state } = useApplicationData();
@@ -33,10 +44,16 @@ function App() {
   //     navigate('success');
   //   }
   // }
+
   return (
     <main className="App layout">
 
-      {/* <form onSubmit={handleSubmit} /> */}
+
+          <Route exact path="/" element={<Home />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/user_profile" element={<UserProfile />} />
+          <Route path="/recipeItem" element={<RecipeItem />} />
+
       <BrowserRouter>
         <Navbar bg="white" expand="lg">
           <Navbar.Brand><Link to={'/'} className="nav-link"><img src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/feature/search-index/public/images/logo.png?raw=true" alt="logo" width="100"></img></Link></Navbar.Brand>
@@ -57,6 +74,7 @@ function App() {
         <div classNAME="routesDiv">
           <Routes>
 
+
             <Route exact path="/" element={<Home />} />
             <Route path="/search" element={<Search />} />
             <Route path="/user_profile" element={<UserProfile />} />
@@ -70,3 +88,4 @@ function App() {
 }
 
 export default App;
+
