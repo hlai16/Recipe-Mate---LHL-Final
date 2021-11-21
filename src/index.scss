@@ -1,0 +1,61 @@
+@import "~normalize.css/normalize.css";
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600&family=Grand+Hotel&display=swap');
+
+@import "styles/variables.scss";
+@import "styles/reset.scss";
+
+@import "styles/typography.scss";
+@import "~bootstrap/scss/bootstrap";
+
+// @import "components/Buttons.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family;
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+@media only screen and (max-width: 960px) {
+  html {
+    font-size: 20px;
+  }
+
+  .layout {
+    flex-direction: column;
+  }
+  .HeroImg {
+    visibility: collapse;
+  }
+  .sidebar {
+    position: relative;
+    top: -30em;
+    width: 85vw;
+    margin-left: 8em;
+    Form {
+      width: 95%;
+    }
+  }
+  .button {
+    min-width: 10em;
+    padding: 1em auto;
+    min-height: 3em;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  html {
+    font-size: 10px;
+  }
+  .sidebar {
+    top: -60em;
+  }
+}
