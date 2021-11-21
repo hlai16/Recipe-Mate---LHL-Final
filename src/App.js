@@ -33,15 +33,17 @@ function App() {
   // }
   return (
     <main className="App layout">
-       
-        {/* <form onSubmit={handleSubmit} /> */}
-        <BrowserRouter><Routes>
+
+      {/* <form onSubmit={handleSubmit} /> */}
+      <BrowserRouter>
+        <Routes>
 
           <Route exact path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />
           <Route path="/user_profile" element={<UserProfile />} />
 
-        </Routes></BrowserRouter>
+        </Routes>
+      </BrowserRouter>
     </main >
   );
 }

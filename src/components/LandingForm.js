@@ -78,9 +78,9 @@ export default function LandingForm(props) {
           Back
         </Buttons>
       </Form>}
-      {/* <Form method="GET" action="/search">
-      <Buttons>Search</Buttons>
-      </Form> */}
+      <Form method="GET" action="/search">
+        <Buttons>Search</Buttons>
+      </Form>
     </div>
   );
 }
