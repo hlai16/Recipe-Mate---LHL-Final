@@ -9,6 +9,15 @@ import { useNavigate } from 'react-router-dom';
 import Search from './components/Search/index';
 import UserProfile from './components/UserProfile';
 import { useState } from "react";
+import RecipeItem from './components/RecipeItem';
+
+const RequiresLogin = (props) => {
+  const isLoggedIn = true;
+  if(isLoggedIn) { 
+    return props.children;
+  } 
+  return <Home />
+}
 
 function App() {
   const { state } = useApplicationData();
@@ -31,6 +40,7 @@ function App() {
   //     navigate('success');
   //   }
   // }
+
   return (
     <main className="App layout">
        
@@ -40,7 +50,7 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />
           <Route path="/user_profile" element={<UserProfile />} />
-          <Route path="/recipeList" element={<RecipeList />} />
+          <Route path="/recipeItem" element={<RecipeItem />} />
 
         </Routes></BrowserRouter>
     </main >
@@ -48,3 +58,4 @@ function App() {
 }
 
 export default App;
+
