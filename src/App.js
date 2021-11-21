@@ -1,8 +1,14 @@
 import './App.scss';
 import './index.scss';
 import useApplicationData from "./hooks/useApplicationData";
-// import Buttons from './components/Buttons.js';
+import Buttons from './components/Buttons.js';
 import LandingForm from "./components/LandingForm.js";
+import Home from "./components/Home";
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import Search from './components/Search/index';
+import UserProfile from './components/UserProfile';
+import { useState } from "react";
 
 function App() {
   const { state } = useApplicationData();
@@ -13,29 +19,30 @@ function App() {
       </li>
     )
   });
+  // let navigate = useNavigate();
+  // let [error, setError] = useState(null);
 
+  // async function handleSubmit(event) {
+  //   event.preventDefault();
+  //   let result = await (event.target);
+  //   if (result.error) {
+  //     setError(result.error);
+  //   } else {
+  //     navigate('success');
+  //   }
+  // }
   return (
-    <main className="App layout wood-bkg">
-      <div className="HeroImg">
-        <div className="redBorder"></div>
-        <img
-          src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/feature/landing/public/images/heroImg.jpeg?raw=true"
-          alt="Hero Img"
-          width="550"
-        />
-      </div>
-      <section className="sidebar">
-        
-          <img
-            className="sidebar--centered"
-            src="images/logo.png"
-            alt="Recipe Mate"
-            width="200"
-          />
-          <LandingForm />
-        
-      </section>
-    </main>
+    <main className="App layout">
+       
+        {/* <form onSubmit={handleSubmit} /> */}
+        <BrowserRouter><Routes>
+
+          <Route exact path="/" element={<Home />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/user_profile" element={<UserProfile />} />
+
+        </Routes></BrowserRouter>
+    </main >
   );
 }
 

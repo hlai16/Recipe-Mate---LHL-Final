@@ -37,8 +37,12 @@ body {
   }
   .sidebar {
     position: relative;
-    top: -45em;
+    top: -30em;
     width: 85vw;
+    margin-left: 8em;
+    Form {
+      width: 95%;
+    }
   }
   .button {
     min-width: 10em;
@@ -51,5 +55,7 @@ body {
   html {
     font-size: 10px;
   }
-  
+  .sidebar {
+    top: -60em;
+  }
 }
