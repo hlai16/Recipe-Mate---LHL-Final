@@ -7,8 +7,10 @@ import Home from "./components/Home";
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Search from './components/Search/index';
+import Create from './components/Create';
 import UserProfile from './components/UserProfile';
 import { useState } from "react";
+import { Navbar, Form, Nav, NavDropdown, FormControl, Button } from "react-bootstrap";
 
 function App() {
   const { state } = useApplicationData();
@@ -36,15 +38,34 @@ function App() {
 
       {/* <form onSubmit={handleSubmit} /> */}
       <BrowserRouter>
-        <Routes>
+        <Navbar bg="light" expand="lg">
+          <Navbar.Brand><Link to={'/'} className="nav-link">Home</Link></Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link><Link to={'/'} className="nav-link">Home</Link></Nav.Link>
+              <Nav.Link><Link to={'/search'} className="nav-link">Categories</Link></Nav.Link>
+              <Nav.Link><Link to={'/create'} className="nav-link">Create</Link></Nav.Link>
+        
+            </Nav>
+            <Form inline>
+              <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+              <Button variant="success">Search</Button>
+            </Form>
+          </Navbar.Collapse>
+        </Navbar>
+        <div classNAME="routesDiv">
+          <Routes>
 
-          <Route exact path="/" element={<Home />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="/user_profile" element={<UserProfile />} />
+            <Route exact path="/" element={<Home />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/user_profile" element={<UserProfile />} />
+            <Route path="/create" element={<Create />} />
 
-        </Routes>
+          </Routes>
+        </div>
       </BrowserRouter>
-    </main >
+    </main>
   );
 }
 

@@ -20,6 +20,7 @@ body {
 
 .layout {
   display: flex;
+  flex-direction: column;
   min-height: 100vh;
   min-width: 100vw;
 }
@@ -29,17 +30,18 @@ body {
     font-size: 20px;
   }
 
-  .layout {
-    flex-direction: column;
+  .navSearchButton {
+    width: 30%;
   }
   .HeroImg {
     visibility: collapse;
   }
   .sidebar {
     position: relative;
-    top: -30em;
-    width: 85vw;
-    margin-left: 8em;
+    top: 0;
+    max-width: 85vw;
+    left: -35em;
+    // margin-left: 8em;
     Form {
       width: 95%;
     }
@@ -56,6 +58,9 @@ body {
     font-size: 10px;
   }
   .sidebar {
-    top: -60em;
+    left: -65em;
+    width: 95vw;
+    height: 90vh;
+    margin-left: 8em;
   }
 }

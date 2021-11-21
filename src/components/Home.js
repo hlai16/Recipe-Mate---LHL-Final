@@ -10,7 +10,7 @@ import UserProfile from './UserProfile';
 function Home() {
 
     return (
-        <div className="layout wood-bkg">
+        <div className="wood-bkg">
             <div className="HeroImg">
                 <div className="redBorder"></div>
                 <img

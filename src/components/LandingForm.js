@@ -8,7 +8,6 @@ import { useState } from "react";
 import { Form } from "react-bootstrap";
 import { BrowserRouter, Route, Switch, Router } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
-//import {BrowserRouter as Router,Route, Redirect,Switch} from 'react-router-dom';
 import Search from "./Search/index.js";
 //import getUserByEmail from "./Helpers/getUserByEmail";
 
@@ -16,6 +15,7 @@ const COLLAPSE = "COLLAPSE";
 const LOGINSHOW = "LOGINSHOW";
 const SIGNUPSHOW = "SIGNUPSHOW";
 const USERPROFILE = "USERPROFILE";
+
 
 export default function LandingForm(props) {
   const [login, setLogin] = useState('')
@@ -34,7 +34,7 @@ export default function LandingForm(props) {
     // WARNING: DEAD CODE AT src/components/Helpers/getUserByEmail.js
 
     event.preventDefault()
-    axios.get('/Users')
+    axios.post('/Users')
     .then((all) => {
         for (const user of all.data) {
           if (user.email === email) {
@@ -42,6 +42,7 @@ export default function LandingForm(props) {
               setUserId(user.id)
               document.cookie = `userId=${user.id}`
               // then redirect to /search
+              
             } 
           }
         }
@@ -51,7 +52,7 @@ export default function LandingForm(props) {
   return (
     <div className="LandingOptions">
       {mode === COLLAPSE && <Buttons onClick={() => { transition(LOGINSHOW, null) }}>Login</Buttons>}
-      {mode === LOGINSHOW && <Form onSubmit={handleLoginForm} >
+      {mode === LOGINSHOW && <Form onSubmit={handleLoginForm} method="POST" action="./search" >
         <h4>Please Enter your login info:</h4>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
