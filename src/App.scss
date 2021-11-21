@@ -2,14 +2,18 @@
 @import './index.scss';
 @import "~bootstrap/scss/bootstrap";
 
-
-.wood-bkg {
-  background-color: #ffffff;
-  background-image: url("https://www.transparenttextures.com/patterns/tileable-wood.png");
+.home-layout {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+.navDiv {
+  box-shadow: 0 5px 5px #777;
+}
+.wood-bkg {
+  background-color: #ffffff;
+  background-image: url("https://www.transparenttextures.com/patterns/tileable-wood.png");
 }
 .HeroImg {
   display: flex;

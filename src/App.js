@@ -45,25 +45,27 @@ function App() {
   // }
 
   return (
-    <main className="App layout">
+    <main className="App layout wood-bkg">
 
       <BrowserRouter>
-        <Navbar bg="white" expand="lg">
-          <Navbar.Brand><Link to={'/'} className="nav-link"><img src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/feature/search-index/public/images/logo.png?raw=true" alt="logo" width="100"></img></Link></Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
-              <Nav.Link><Link to={'/'} className="nav-link">Home</Link></Nav.Link>
-              <Nav.Link><Link to={'/search'} className="nav-link">Categories</Link></Nav.Link>
-              <Nav.Link><Link to={'/create'} className="nav-link">Create</Link></Nav.Link>
-        
-            </Nav>
-            <Form inline>
-              <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-              <Button variant="success">Search</Button>
-            </Form>
-          </Navbar.Collapse>
-        </Navbar>
+        <section className="navDiv">
+          <Navbar bg="white" expand="lg" sticky="top">
+            <Navbar.Brand><Link to={'/'} className="nav-link"><img src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/feature/search-index/public/images/logo.png?raw=true" alt="logo" width="100"></img></Link></Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="mr-auto">
+                <Nav.Link><Link to={'/'} className="nav-link">Home</Link></Nav.Link>
+                <Nav.Link><Link to={'/search'} className="nav-link">Categories</Link></Nav.Link>
+                <Nav.Link><Link to={'/create'} className="nav-link">Create</Link></Nav.Link>
+
+              </Nav>
+              <Form inline>
+                <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                <Button variant="success">Search</Button>
+              </Form>
+            </Navbar.Collapse>
+          </Navbar>
+        </section>
         <div classNAME="routesDiv">
           <Routes>
 
