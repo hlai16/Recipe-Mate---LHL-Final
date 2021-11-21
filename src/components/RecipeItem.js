@@ -4,7 +4,7 @@ import axios from "axios";
 
 export default function RecipeItem(props) {
   const userId = readCookie();
-  const [receipe, setRecipe] = useState([]);
+  const [recipe, setRecipe] = useState([]);
   useEffect(() => {
     axios.get(`/Recipes/${userId}`).then((results) => {
       setRecipe(results.data);
