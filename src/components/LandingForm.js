@@ -1,12 +1,16 @@
 import React from "react";
+import axios from "axios";
 import classNames from "classnames";
 import Buttons from "./Buttons";
 import "./LandingForm.scss";
 import useVisualMode from "../hooks/useVisualMode";
 import { useState } from "react";
 import { Form } from "react-bootstrap";
-import { BrowserRouter, Route, Switch, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Router } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
+//import {BrowserRouter as Router,Route, Redirect,Switch} from 'react-router-dom';
 import Search from "./Search/index.js";
+//import getUserByEmail from "./Helpers/getUserByEmail";
 
 const COLLAPSE = "COLLAPSE";
 const LOGINSHOW = "LOGINSHOW";
@@ -19,16 +23,35 @@ export default function LandingForm(props) {
   // const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [userId, setUserId] = useState(0)
   const { mode, transition, back } = useVisualMode(
     login ? LOGINSHOW : COLLAPSE,
     signup ? SIGNUPSHOW : COLLAPSE
   );
   // transition(SHOW, true);
 
+  const handleLoginForm = (event) => {
+    // WARNING: DEAD CODE AT src/components/Helpers/getUserByEmail.js
+
+    event.preventDefault()
+    axios.get('/Users')
+    .then((all) => {
+        for (const user of all.data) {
+          if (user.email === email) {
+            if (user.password === password) {
+              setUserId(user.id)
+              document.cookie = `userId=${user.id}`
+              // then redirect to /search
+            } 
+          }
+        }
+    })
+  }
+
   return (
     <div className="LandingOptions">
       {mode === COLLAPSE && <Buttons onClick={() => { transition(LOGINSHOW, null) }}>Login</Buttons>}
-      {mode === LOGINSHOW && <Form onSubmit={() => { transition(USERPROFILE, null) }}>
+      {mode === LOGINSHOW && <Form onSubmit={handleLoginForm} >
         <h4>Please Enter your login info:</h4>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
