@@ -1,6 +1,7 @@
 import React from 'react';
 import RecipeById from '../RecipeById';
-import NavBar from '../AuthPages/NavBar';
+import NavBar from '../NavBar';
+
 
 export default function SingleRecipe() {
 
