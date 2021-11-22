@@ -12,7 +12,9 @@ import { Navbar, Form, Nav, NavDropdown, FormControl, Button } from "react-boots
 
 
 function NavBar() {
-
+  const clearSession = function() {
+    sessionStorage.clear();
+  }
   return (
     <section>
       <section className="navDiv">
@@ -25,7 +27,7 @@ function NavBar() {
               <Nav.Link><Link to={'/search'} className="nav-link">Categories</Link></Nav.Link>
               <Nav.Link><Link to={'/create'} className="nav-link">Create</Link></Nav.Link>
               <Nav.Link><Link to={'/SingleRecipe'} className="nav-link">Single Recipe</Link></Nav.Link>
-              <Buttons small><Link to={'/'} className="nav-link text-white">Logout</Link></Buttons>
+              <Buttons small onClick={clearSession}><Link to={'/'} className="nav-link text-white">Logout</Link></Buttons>
 
             </Nav>
             <Form inline>
