@@ -12,6 +12,7 @@ import Create from './components/AuthPages/Create';
 import AuthPages from './components/AuthPages';
 import Login from './components/Login';
 import { useState } from 'react';
+import useToken from './hooks/useToken';
 // import Login from './components/Login';
 
 
@@ -22,19 +23,11 @@ import { useState } from 'react';
 //   } 
 //   return <Home />
 // }
-function setToken(userToken) {
-  sessionStorage.setItem('token', JSON.stringify(userToken));
-}
-
-function getToken() {
-  const tokenString = sessionStorage.getItem('token');
-  const userToken = JSON.parse(tokenString);
-  return userToken?.token
-}
 
 function App() {
   const { state } = useApplicationData();
-  const token = getToken();
+  const { token, setToken } = useToken();
+ 
   if (!token) {
     return <Home setToken={setToken} />
   }
