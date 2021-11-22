@@ -28,7 +28,7 @@ function Login(props) {
         return setEmail(''), setPassword('');
     }
     const cancel = function () {
-        return props.onBack(reset());
+        return props.onCancel(reset());
     }
     return (
         <Form method="GET" action="/user_profile" onSubmit={props.onSubmit}>

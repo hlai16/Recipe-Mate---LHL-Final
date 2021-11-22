@@ -59,6 +59,7 @@ export default function LandingForm(props) {
         // email={props.email}
         // password={props.password}
         // onSave={event => setSignup(event.target.value)}
+        onCancel={back}
       />}
       {mode === COLLAPSE && <Buttons onClick={() => { transition(SIGNUPSHOW, null) }}>Signup</Buttons>}
       {mode === SIGNUPSHOW && <Form onSubmit={() => { transition(USERPROFILE, null) }}>
