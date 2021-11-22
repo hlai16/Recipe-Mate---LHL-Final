@@ -1,9 +1,5 @@
-
-
+import Buttons from './Buttons';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import Search from './Search/index';
-import Create from './Create';
-import UserProfile from './UserProfile';
 import { Navbar, Form, Nav, NavDropdown, FormControl, Button } from "react-bootstrap";
 
 // const RequiresLogin = (props) => {
@@ -28,11 +24,13 @@ function NavBar() {
               <Nav.Link><Link to={'/user_profile'} className="nav-link">Home</Link></Nav.Link>
               <Nav.Link><Link to={'/search'} className="nav-link">Categories</Link></Nav.Link>
               <Nav.Link><Link to={'/create'} className="nav-link">Create</Link></Nav.Link>
+              <Nav.Link><Link to={'/SingleRecipe'} className="nav-link">Single Recipe</Link></Nav.Link>
+              <Buttons small><Link to={'/'} className="nav-link text-white">Logout</Link></Buttons>
 
             </Nav>
             <Form inline>
               <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-              <Button variant="success">Search</Button>
+              <Buttons small>Search</Buttons>
             </Form>
           </Navbar.Collapse>
         </Navbar>

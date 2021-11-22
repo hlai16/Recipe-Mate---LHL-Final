@@ -6,7 +6,6 @@ import Signup from "./SignUp";
 import "./LandingForm.scss";
 import useVisualMode from "../hooks/useVisualMode";
 import { useState } from "react";
-import { Form } from "react-bootstrap";
 
 
 
@@ -21,6 +20,7 @@ const USERPROFILE = "USERPROFILE";
 export default function LandingForm(props) {
   const [login, setLogin] = useState('')
   const [signup, setSignup] = useState('')
+  
   // const [username, setUsername] = useState('')
   const [userId, setUserId] = useState(0)
   const { mode, transition, back } = useVisualMode(
@@ -56,6 +56,7 @@ export default function LandingForm(props) {
         // email={props.email}
         // password={props.password}
         // onSave={event => setSignup(event.target.value)}
+        setToken={props.setToken}
         onCancel={back}
       />}
       {mode === COLLAPSE && <Buttons onClick={() => { transition(SIGNUPSHOW, null) }}>Signup</Buttons>}

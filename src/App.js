@@ -6,10 +6,11 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import RecipeItem from './components/RecipeItem';
 import SingleRecipe from './components/SingleRecipe';
 import { Navbar, Form, Nav, NavDropdown, FormControl, Button } from "react-bootstrap";
-import Search from './components/AuthPages/Search';
+import Search from './Search';
 import UserProfile from './components/AuthPages/UserProfile';
 import Create from './components/AuthPages/Create';
 import AuthPages from './components/AuthPages';
+import Login from './components/Login';
 import { useState } from 'react';
 // import Login from './components/Login';
 
@@ -25,7 +26,7 @@ import { useState } from 'react';
 
 function App() {
   const { state } = useApplicationData();
-  // const [token, setToken] = useState();
+  const [token, setToken] = useState();
   // if (!token) {
   //   return <Home setToken={setToken} />
   // }

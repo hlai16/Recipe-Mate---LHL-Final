@@ -1,5 +1,6 @@
 @import "../styles/mixins.scss";
 @import "../styles/variables.scss";
+@import "../styles/typography.scss";
 
 .button {
   border-radius: 1rem;
@@ -22,6 +23,15 @@
   color: $black;
   background-color: $confirm-color;
   // border: 2px solid #ff6347;
+}
+
+.button--small {
+  border-radius: 1rem;
+  border: 0;
+  font-size: 1rem;
+  height: 2rem;
+  margin: 1rem;
+  border-width: 2px;
 }
 
 .button--danger {

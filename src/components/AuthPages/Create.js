@@ -1,3 +1,4 @@
+
 import React, {useState, Component} from 'react';
 import { readCookie } from '../../util';
 import axios from 'axios';
@@ -19,6 +20,7 @@ const handleSubmit = (user_id, recName, category, description, ingredients, step
   console.log("Data to be posted ", data);
   axios.post(`users/${user_id}/recipes`, {...data })
 }
+
 
 export default function Create() {
   

@@ -3,18 +3,17 @@ import Buttons from './Buttons.js';
 import LandingForm from "./LandingForm.js";
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import Search from '../Search/index';
+import Search from './Search/index';
 import { useState } from "react";
-import UserProfile from './AuthPages/UserProfile';
 
-function Home(props) {
+function Home() {
 
     return (
-        <div className="home-layout wood-bkg">
+        <div className="layout wood-bkg">
             <div className="HeroImg">
                 <div className="redBorder"></div>
                 <img
-                    src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/feature/login/public/images/heroImg%20Large.jpeg?raw=true"
+                    src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/feature/landing/public/images/heroImg.jpeg?raw=true"
                     alt="Hero Img"
                     width="550"
                 />
@@ -27,10 +26,7 @@ function Home(props) {
                     alt="Recipe Mate"
                     width="200"
                 />
-                <LandingForm 
-                    setToken={props.setToken}
-                />
-                
+                <LandingForm />
                 
             </section>
         </div >

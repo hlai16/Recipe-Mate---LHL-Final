@@ -1,5 +1,8 @@
 import React from 'react';
-import RecipeById from '../RecipeById';
+import RecipeById from './RecipeById';
+import Comments from './Comments';
+import NavBar from '../NavBar';
+
 
 export default function SingleRecipe() {
 
@@ -7,7 +10,9 @@ export default function SingleRecipe() {
 
   return(
     <>
+    <NavBar />
     <h2>Recipe Presentation</h2>
     <RecipeById recipeId={recipeId}/>
+    <Comments recipeId={recipeId}/>
   </>);
 }
