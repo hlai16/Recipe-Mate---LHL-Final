@@ -6,7 +6,10 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import RecipeItem from './components/RecipeItem';
 import SingleRecipe from './components/SingleRecipe';
 import { Navbar, Form, Nav, NavDropdown, FormControl, Button } from "react-bootstrap";
-
+import Search from './components/AuthPages/Search';
+import UserProfile from './components/AuthPages/UserProfile';
+import Create from './components/AuthPages/Create';
+import AuthPages from './components/AuthPages';
 
 
 // const RequiresLogin = (props) => {
@@ -37,7 +40,7 @@ function App() {
 
             <Route exact path="/" element={<Home />} />
             <Route path="/search" element={<Search />} />
-            <Route path="/user_profile" element={<UserProfile />} />
+            <Route path="/user_profile" element={<AuthPages />} />
             <Route path="/create" element={<Create />} />
             <Route path="/recipeItem" element={<RecipeItem />} />
             <Route path="/SingleRecipe" element={<SingleRecipe />} />
