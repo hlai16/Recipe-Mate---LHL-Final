@@ -21,21 +21,10 @@ export default function useApplicationData() {
     // need to return the above keys in order to use them in Application.js
 }
 
-  // // function to book appointment
-  // function createRecipe(user, name, category, description, ingredients, steps, servings, time) {
-  //   console.log(user, name, category, description, ingredients, steps, servings, time);
-
-  //   const recipe = {
-  //     ...state.appointments[id],
-  //     recipe: { ...recipe },
-  //   };
-
-  //   const newRecips = {
-  //     ...state,
-  //   recipes,
-  //   };
-  //   return axios.put(`/recipes/`, { recipe}).then(() => {
-  //    updateSpots(newRecipes, id);
+  // function createRecipe(recipe) {
+    
+ 
+  //   return axios.put(`/users/${user_id}/recipes`, {...recipe })
     
   //   });
   // }
