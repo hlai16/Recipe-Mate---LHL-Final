@@ -26,9 +26,9 @@ import { useState } from 'react';
 function App() {
   const { state } = useApplicationData();
   const [token, setToken] = useState();
-  if (!token) {
-    return <Home setToken={setToken} />
-  }
+  // if (!token) {
+  //   return <Home setToken={setToken} />
+  // }
   const recipeList = state.recipes.map(recipe => {
     return (
       <li className="recipeInfo">
