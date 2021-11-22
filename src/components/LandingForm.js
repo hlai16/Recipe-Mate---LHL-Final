@@ -2,6 +2,8 @@ import React from "react";
 import axios from "axios";
 import classNames from "classnames";
 import Buttons from "./Buttons";
+import Login from "./Login";
+import UserProfile from "./UserProfile";
 import "./LandingForm.scss";
 import useVisualMode from "../hooks/useVisualMode";
 import { useState } from "react";
@@ -52,29 +54,9 @@ export default function LandingForm(props) {
   return (
     <div className="LandingOptions">
       {mode === COLLAPSE && <Buttons onClick={() => { transition(LOGINSHOW, null) }}>Login</Buttons>}
-      {mode === LOGINSHOW && <Form onSubmit={handleLoginForm} method="POST" action="./search" >
-        <h4>Please Enter your login info:</h4>
+      {mode === LOGINSHOW && <Login onSubmit={handleLoginForm} 
 
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" email={email} onChange={(event) => setEmail(event.target.value)} required />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" password={password} onChange={(event) => setPassword(event.target.value)} required />
-        </Form.Group>
-
-        <Buttons type="submit" onClick={(event) => setLogin(event.target.value)}>
-          Submit
-        </Buttons>
-        <Buttons onClick={back}>
-          Back
-        </Buttons>
-      </Form>}
+      />}
       {mode === COLLAPSE && <Buttons onClick={() => { transition(SIGNUPSHOW, null) }}>Signup</Buttons>}
       {mode === SIGNUPSHOW && <Form onSubmit={() => { transition(USERPROFILE, null) }}>
         <h4>Please enter your signup info:</h4>
