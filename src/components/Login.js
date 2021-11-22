@@ -51,7 +51,7 @@ function Login(props, { setToken }) {
           email,
           password
         });
-        setToken(token);
+        props.setToken(token);
       }
     
     return (
@@ -84,7 +84,7 @@ function Login(props, { setToken }) {
     );
 }
 
-Login.propTypes = {
-    setToken: PropTypes.func.isRequired
-}
+// Login.propTypes = {
+//     setToken: PropTypes.func.isRequired
+// }
 export default Login;
