@@ -22,14 +22,22 @@ import { useState } from 'react';
 //   } 
 //   return <Home />
 // }
+function setToken(userToken) {
+  sessionStorage.setItem('token', JSON.stringify(userToken));
+}
 
+function getToken() {
+  const tokenString = sessionStorage.getItem('token');
+  const userToken = JSON.parse(tokenString);
+  return userToken?.token
+}
 
 function App() {
   const { state } = useApplicationData();
-  const [token, setToken] = useState();
-  // if (!token) {
-  //   return <Home setToken={setToken} />
-  // }
+  const token = getToken();
+  if (!token) {
+    return <Home setToken={setToken} />
+  }
   const recipeList = state.recipes.map(recipe => {
     return (
       <li className="recipeInfo">
