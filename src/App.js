@@ -10,6 +10,7 @@ import Search from './Search';
 import UserProfile from './components/AuthPages/UserProfile';
 import Create from './components/AuthPages/Create';
 import AuthPages from './components/AuthPages';
+import Login from './components/Login';
 import { useState } from 'react';
 // import Login from './components/Login';
 

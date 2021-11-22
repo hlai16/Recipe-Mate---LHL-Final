@@ -7,7 +7,7 @@ import Search from '../Search/index';
 import { useState } from "react";
 import UserProfile from './AuthPages/UserProfile';
 
-function Home() {
+function Home(props) {
 
     return (
         <div className="home-layout wood-bkg">
@@ -27,8 +27,10 @@ function Home() {
                     alt="Recipe Mate"
                     width="200"
                 />
-                <LandingForm />
-               
+                <LandingForm 
+                    setToken={props.setToken}
+                />
+                
                 
             </section>
         </div >

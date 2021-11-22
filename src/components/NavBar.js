@@ -24,6 +24,7 @@ function NavBar() {
               <Nav.Link><Link to={'/user_profile'} className="nav-link">Home</Link></Nav.Link>
               <Nav.Link><Link to={'/search'} className="nav-link">Categories</Link></Nav.Link>
               <Nav.Link><Link to={'/create'} className="nav-link">Create</Link></Nav.Link>
+              <Nav.Link><Link to={'/SingleRecipe'} className="nav-link">Single Recipe</Link></Nav.Link>
               <Buttons small><Link to={'/'} className="nav-link text-white">Logout</Link></Buttons>
 
             </Nav>
