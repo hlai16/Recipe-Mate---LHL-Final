@@ -1,5 +1,4 @@
 import React, {useState, Component} from 'react';
-import NavBar from './NavBar';
 import { readCookie } from '../../util';
 import axios from 'axios';
 
