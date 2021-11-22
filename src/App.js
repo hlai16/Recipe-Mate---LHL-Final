@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import RecipeItem from './components/RecipeItem';
 import SingleRecipe from './components/SingleRecipe';
 import { Navbar, Form, Nav, NavDropdown, FormControl, Button } from "react-bootstrap";
-import Search from './components/AuthPages/Search';
+import Search from './Search';
 import UserProfile from './components/AuthPages/UserProfile';
 import Create from './components/AuthPages/Create';
 import AuthPages from './components/AuthPages';
