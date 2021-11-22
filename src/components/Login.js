@@ -7,11 +7,31 @@ import UserProfile from './UserProfile';
 import { Form } from "react-bootstrap";
 
 function Login(props) {
-    const [login, setLogin] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [error, setError] = useState('')
+
+    function validate() {
+        if (email === "") {
+            setError("Email cannot be blank");
+            return;
+        }
+        if (password === "") {
+            setError('Please enter your password');
+            return;
+        }
+        setError('');
+        props.onSave(email, password);
+        // form proceed to save if student != "" || interviewer is selected
+    }
+    const reset = function () {
+        return setEmail(''), setPassword('');
+    }
+    const cancel = function () {
+        return props.onBack(reset());
+    }
     return (
-        <Form method="POST" action="/user_profile" onSubmit={props.onSubmit}>
+        <Form method="GET" action="/user_profile" onSubmit={props.onSubmit}>
             <h4>Please Enter your login info:</h4>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -27,10 +47,10 @@ function Login(props) {
                 <Form.Control type="password" placeholder="Password" password={password} onChange={(event) => setPassword(event.target.value)} required />
             </Form.Group>
 
-            <Buttons type="submit" onClick={(event) => setLogin(event.target.value)}>
+            <Buttons type="submit" onClick={validate}>
                 Submit
             </Buttons>
-            <Buttons onClick={props.back}>
+            <Buttons onClick={cancel}>
                 Back
             </Buttons>
         </Form>
