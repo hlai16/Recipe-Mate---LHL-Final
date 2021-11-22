@@ -3,14 +3,14 @@ import axios from "axios";
 import classNames from "classnames";
 import Buttons from "./Buttons";
 import Login from "./Login";
-import UserProfile from "./UserProfile";
+import UserProfile from "./AuthPages/UserProfile";
 import "./LandingForm.scss";
 import useVisualMode from "../hooks/useVisualMode";
 import { useState } from "react";
 import { Form } from "react-bootstrap";
 import { BrowserRouter, Route, Switch, Router } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
-import Search from "./Search/index.js";
+import Search from "./AuthPages/Search/index.js";
 //import getUserByEmail from "./Helpers/getUserByEmail";
 
 const COLLAPSE = "COLLAPSE";

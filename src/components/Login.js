@@ -3,7 +3,7 @@ import Buttons from './Buttons.js';
 // import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 // import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
-import UserProfile from './UserProfile';
+import UserProfile from './AuthPages/UserProfile';
 import { Form } from "react-bootstrap";
 
 function Login(props) {

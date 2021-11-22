@@ -3,9 +3,9 @@ import Buttons from './Buttons.js';
 import LandingForm from "./LandingForm.js";
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import Search from './Search/index';
+import Search from './AuthPages/Search/index';
 import { useState } from "react";
-import UserProfile from './UserProfile';
+import UserProfile from './AuthPages/UserProfile';
 
 function Home() {
 
