@@ -2,7 +2,7 @@
 // import Search from './components/Search/index';
 // import Create from './components/Create';
 import UserProfile from './UserProfile';
-import NavBar from "./NavBar";
+import NavBar from '../NavBar';
 
 
 // const RequiresLogin = (props) => {

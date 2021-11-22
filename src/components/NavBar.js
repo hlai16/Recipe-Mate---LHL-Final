@@ -1,9 +1,6 @@
 
 
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import Search from './Search/index';
-import Create from './Create';
-import UserProfile from './UserProfile';
 import { Navbar, Form, Nav, NavDropdown, FormControl, Button } from "react-bootstrap";
 
 // const RequiresLogin = (props) => {
