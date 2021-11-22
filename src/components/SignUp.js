@@ -5,8 +5,9 @@ import Buttons from './Buttons.js';
 import { useState } from "react";
 import UserProfile from './AuthPages/UserProfile';
 import { Form } from "react-bootstrap";
+import { Navigate } from 'react-router-dom';
 
-async function loginUser(credentials) {
+async function signupUser(credentials) {
     return fetch('http://localhost:3001/login', {
         method: 'POST',
         headers: {
@@ -44,11 +45,12 @@ function Signup(props) {
 
     const handleSubmit = async e => {
         e.preventDefault();
-        const token = await loginUser({
+        const token = await signupUser({
             email,
             password
         });
         props.setToken(token);
+        <Navigate to="/" />
     }
     return (
         <Form onSubmit={handleSubmit}>

@@ -54,10 +54,10 @@ function App() {
       <BrowserRouter>
         <Routes>
 
-            <Route exact path="/" element={<Home />} />
+            <Route exact path="/" element={<AuthPages setToken={ setToken } token={token}/>} />
             <Route path="/search" element={<Search />} />
-            <Route path="/user_profile" element={<AuthPages />} />
-            <Route path="/create" element={<Create />} />
+            <Route path="/login" element={<Home setToken={setToken} />} />
+            <Route path="/create" element={<Create setToken={ setToken } token={token}/>} />
             <Route path="/recipeItem" element={<RecipeItem />} />
             <Route path="/SingleRecipe" element={<SingleRecipe />} />
 

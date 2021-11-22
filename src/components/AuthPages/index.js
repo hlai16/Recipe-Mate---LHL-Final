@@ -3,6 +3,8 @@
 // import Create from './components/Create';
 import UserProfile from './UserProfile';
 import NavBar from '../NavBar';
+import Home from '../Home';
+
 
 
 // const RequiresLogin = (props) => {
@@ -14,8 +16,10 @@ import NavBar from '../NavBar';
 // }
 
 
-function AuthPages() {
-
+function AuthPages(props) {
+  if (!props.token) {
+    return <Home setToken={props.setToken} />
+   } 
   return (
     <section className="authPages">
         <NavBar />
