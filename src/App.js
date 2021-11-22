@@ -30,7 +30,16 @@ function App() {
  
   if (!token) {
     return <Home setToken={setToken} />
-  }
+   } 
+  //  else {
+  //   return (
+  //     <Login
+  //       // setToken={setToken}
+  //       // onCancel={back}
+  //     />
+  //   );
+  // }
+  
   const recipeList = state.recipes.map(recipe => {
     return (
       <li className="recipeInfo">
@@ -44,7 +53,6 @@ function App() {
       {/* <Home /> */}
       <BrowserRouter>
         <Routes>
-
 
             <Route exact path="/" element={<Home />} />
             <Route path="/search" element={<Search />} />

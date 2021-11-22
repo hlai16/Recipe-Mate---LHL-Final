@@ -52,15 +52,12 @@ export default function LandingForm(props) {
     <div className="LandingOptions">
       {mode === COLLAPSE && <Buttons onClick={() => { transition(LOGINSHOW, null) }}>Login</Buttons>}
       {mode === LOGINSHOW && <Login
-        // onSubmit={handleLoginForm} 
-        // email={props.email}
-        // password={props.password}
-        // onSave={event => setSignup(event.target.value)}
-        setToken={props.setToken}
+        // setToken={props.setToken}
         onCancel={back}
       />}
       {mode === COLLAPSE && <Buttons onClick={() => { transition(SIGNUPSHOW, null) }}>Signup</Buttons>}
       {mode === SIGNUPSHOW && <Signup
+        setToken={props.setToken}
         onCancel={back}
       />}
       <form method="GET" action="/search">
