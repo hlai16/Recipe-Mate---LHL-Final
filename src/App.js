@@ -8,6 +8,8 @@ import UserProfile from './components/AuthPages/UserProfile';
 import Search from './components/AuthPages/Search';
 import Create from './components/AuthPages/Create';
 import AuthPages from './components/AuthPages';
+import { useState } from 'react';
+// import Login from './components/Login';
 
 
 // const RequiresLogin = (props) => {
@@ -21,6 +23,10 @@ import AuthPages from './components/AuthPages';
 
 function App() {
   const { state } = useApplicationData();
+  const [token, setToken] = useState();
+  if (!token) {
+    return <Home setToken={setToken} />
+  }
   const recipeList = state.recipes.map(recipe => {
     return (
       <li className="recipeInfo">

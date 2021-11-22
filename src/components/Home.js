@@ -10,7 +10,7 @@ import UserProfile from './AuthPages/UserProfile';
 function Home() {
 
     return (
-        <div className="home-layout">
+        <div className="home-layout wood-bkg">
             <div className="HeroImg">
                 <div className="redBorder"></div>
                 <img
