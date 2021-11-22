@@ -11,6 +11,7 @@ import Create from './components/Create';
 import UserProfile from './components/UserProfile';
 import { useState } from "react";
 import RecipeItem from './components/RecipeItem';
+import SingleRecipe from './components/SingleRecipe';
 import { Navbar, Form, Nav, NavDropdown, FormControl, Button } from "react-bootstrap";
 
 const RequiresLogin = (props) => {
@@ -75,6 +76,7 @@ function App() {
             <Route path="/user_profile" element={<UserProfile />} />
             <Route path="/create" element={<Create />} />
             <Route path="/recipeItem" element={<RecipeItem />} />
+            <Route path="/SingleRecipe" element={<SingleRecipe />} />
 
           </Routes>
         </div>
