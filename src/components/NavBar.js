@@ -23,7 +23,7 @@ function NavBar() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link><Link to={'/user_profile'} className="nav-link">Home</Link></Nav.Link>
+              <Nav.Link><Link to={'/'} className="nav-link">Home</Link></Nav.Link>
               <Nav.Link><Link to={'/search'} className="nav-link">Categories</Link></Nav.Link>
               <Nav.Link><Link to={'/create'} className="nav-link">Create</Link></Nav.Link>
               <Nav.Link><Link to={'/SingleRecipe'} className="nav-link">Single Recipe</Link></Nav.Link>
