@@ -1,6 +1,7 @@
 import React, {useState, Component} from 'react';
 import { readCookie } from '../../util';
 import axios from 'axios';
+import NavBar from '../NavBar';
 
 const handleSubmit = (user_id, recName, category, description, ingredients, steps, servings, time, likes, image) => {
   // e.preventDefault();
@@ -37,7 +38,7 @@ export default function Create() {
 
   return (
     <div>
-  
+      <NavBar />
       <div className="create">
       <h2>Create Recipe</h2>
       <form onSubmit={handleSubmit}>
