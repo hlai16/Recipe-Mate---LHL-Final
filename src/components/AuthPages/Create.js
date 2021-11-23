@@ -1,4 +1,3 @@
-
 import React, { useState, Component } from 'react';
 import { readCookie } from '../../util';
 import axios from 'axios';
@@ -10,22 +9,22 @@ export default function Create(props) {
     <div>
       <NavBar setToken={props.setToken} />
       <h2>Create Recipe</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={props.handleSubmit}>
         <label>Recipe Name:</label>
         <input
           type="text"
           name="name"
           required
-          value={recName}
-          onChange={(e) => setrecName(e.target.value)}
+          value={props.recName}
+          onChange={(e) => props.setrecName(e.target.value)}
         />
         <label>Category:</label>
         <input
           type="text"
           name="category"
           required
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
+          value={props.category}
+          onChange={(e) => props.setCategory(e.target.value)}
         />
         <label>Description:</label>
         <input
