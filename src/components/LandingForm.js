@@ -71,9 +71,9 @@ export default function LandingForm(props) {
         setToken={props.setToken}
         onCancel={back}
       />}
-      <form method="GET" action="/search">
+      {/* <form method="GET" action="/search">
         <Buttons>Search</Buttons>
-      </form>
+      </form> */}
    </div>
   );
 }
