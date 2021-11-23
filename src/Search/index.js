@@ -39,14 +39,14 @@ export default function Search(props) {
           <div className="homeScientistOptions">
             <div className="homeScientistOption homeScientistOption1">
               <div className="homeScientistOptionImg homeScientistOptionImg1">
-                <img src=""
+                <img src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/feature/search-index/public/images/personalCare.jpeg?raw=true"
                   alt="personal care" width="100" />
               </div>
               <h3>Personal Care</h3>
             </div>
             <div className="homeScientistOption homeScientistOption2">
               <div className="homeScientistOptionImg homeScientistOptionImg2">
-                <img src=""
+                <img src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/feature/search-index/public/images/otherRecipe.jpeg?raw=true"
                   alt="other recipe ideas" width="100" />
               </div>
               <h3>Other</h3>
