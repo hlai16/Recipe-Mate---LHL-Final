@@ -1,10 +1,33 @@
-import React, {useState, Component} from 'react';
-import { readCookie } from '../../util';
-import axios from 'axios';
-import NavBar from '../NavBar';
+import React, { useState, Component } from "react";
+import axios from "axios";
+import NavBar from "../NavBar";
+import Buttons from "../Buttons.js";
 
 
-const handleSubmit = (user_id, recName, category, description, ingredients, steps, servings, time, likes, image) => {
+import "./";
+import {
+  Form,
+  Nav,
+  Container,
+  Col,
+  Row,
+  NavDropdown,
+  FormControl,
+  Button,
+} from "react-bootstrap";
+
+const handleSubmit = (
+  user_id,
+  recName,
+  category,
+  description,
+  ingredients,
+  steps,
+  servings,
+  time,
+  likes,
+  image
+) => {
   // e.preventDefault();
   let data = {
     user_id: user_id,
@@ -16,102 +39,143 @@ const handleSubmit = (user_id, recName, category, description, ingredients, step
     servings: servings,
     time: time,
     likes: likes,
-    image: image
+    image: image,
   };
   console.log("Data to be posted ", data);
-  axios.post(`users/${user_id}/recipes`, {...data })
-}
-
+  axios.post(`users/${user_id}/recipes`, { ...data });
+};
 
 export default function Create(props) {
-  
   // const userId = readCookie();
-  const [user_id, setUser] = useState('2');
-  const [category, setCategory] = useState('');
-  const [recName, setrecName] = useState('');
-  const [description, setDescription] = useState('');
-  const [ingredients, setIngredients] = useState('');
-  const [steps, setSteps] =useState('');
-  const [servings, setServings] = useState('');
-  const [time, setTime] = useState(''); 
-  const [likes, setLikes] = useState('0')
-  const [image, setImage] = useState('')
+  const [user_id, setUser] = useState("2");
+  const [category, setCategory] = useState("");
+  const [recName, setrecName] = useState("");
+  const [description, setDescription] = useState("");
+  const [ingredients, setIngredients] = useState("");
+  const [steps, setSteps] = useState("");
+  const [servings, setServings] = useState("");
+  const [time, setTime] = useState("");
+  const [likes, setLikes] = useState("0");
+  const [image, setImage] = useState("");
 
   return (
     <div>
-      <NavBar setToken={ props.setToken }/>
-      <div className="create">
-      <h2>Create Recipe</h2>
-      <form onSubmit={handleSubmit}>
-        <label>Recipe Name:</label>
-        <input
-        type="text"
-        name="name"
-        required 
-        value={recName}
-        onChange={(e) => setrecName(e.target.value)}
-      />
-      <label>Category:</label>
-          <input
-        type="text"
-        name="category"
-        required 
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
-      />
-         <label>Description:</label>
-          <input
-        type="text"
-        name="description"
-        required 
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-      />
-         <label> Ingredients:</label>
-          <input
-        type="text"
-        name="ingredients"
-        required 
-        value={ingredients}
-        onChange={(e) => setIngredients(e.target.value)}
-      />
-           <label> Steps:</label>
-          <input
-        type="text"
-        name="steps"
-        required 
-        value={steps}
-        onChange={(e) => setSteps(e.target.value)}
-      />
-            <label> Servings:</label>
-          <input
-        type="text"
-        name="servings"
-        required 
-        value={servings}
-        onChange={(e) => setServings(e.target.value)}
-      />
-           <label> Time:</label>
-          <input
-        type="text"
-        name="time"
-        required 
-        value={time}
-        onChange={(e) => setTime(e.target.value)}
-      />
-           <label> Image:</label>
-          <input
-        type="text"
-        name="image"
-        required 
-        value={image}
-        onChange={(e) => setImage(e.target.value)}
-        required
-      />
-      </form>
-      <input type="button" className="btn btn-success" value="Submit Recipe" onClick={()=>handleSubmit(user_id, recName, category, description, ingredients, steps, servings, time, likes, image)} />
-      </div>
+      <NavBar setToken={props.setToken} />
+      <Container>
+        <Row>
+          <Col></Col>
+          <Col>
+            <h2>Create Recipe</h2>
+            <Form onSubmit={handleSubmit}>
+              <Form.Group className="mb- 3">
+                <Form.Label>Recipe Name:</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="name"
+                  required
+                  value={recName}
+                  onChange={(e) => setrecName(e.target.value)}
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Label>Category:</Form.Label>
+                <Form.Select
+                  name="Category"
+                  onChange={(e) => setCategory(e.target.value)}
+                >
+                  <option value="">--Please choose an option--</option>
+                  <option value="1">Breakfast </option>
+                  <option value="2">Lunch</option>
+                  <option value="3">Dinner</option>
+                  <option value="4">Personal Care</option>
+                  <option value="5">Other</option>
+                </Form.Select>
+              </Form.Group>
+              <Form.Group>
+                <Form.Label> Description:</Form.Label>
+                <FormControl
+                  type="text"
+                  name="description"
+                  required
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                />
+              </Form.Group>
+              <Form.Group>
+              <Form.Label> Ingredients:</Form.Label>
+              <Form.Control
+                type="text"
+                name="ingredients"
+                required
+                value={ingredients}
+                onChange={(e) => setIngredients(e.target.value)}
+              />
+              </Form.Group>
+              <Form.Group>
+              <Form.Label> Steps:</Form.Label>
+              <Form.Control
+                type="text"
+                name="steps"
+                required
+                value={steps}
+                onChange={(e) => setSteps(e.target.value)}
+              />
+              </Form.Group>
+              <Form.Group>
+              <Form.Label> Servings:</Form.Label>
+              <Form.Control
+                type="text"
+                name="servings"
+                required
+                value={servings}
+                onChange={(e) => setServings(e.target.value)}
+              />
+              </Form.Group>
+              <Form.Group>
+              <Form.Label> Time:</Form.Label>
+              <Form.Control
+                type="text"
+                name="time"
+                required
+                value={time}
+                onChange={(e) => setTime(e.target.value)}
+              />
+              </Form.Group>
+              <Form.Group>
+              <Form.Label> Image:</Form.Label>
+              <Form.Control
+                type="text"
+                name="image"
+                required
+                value={image}
+                onChange={(e) => setImage(e.target.value)}
+                required
+              />
+              </Form.Group>
+            </Form>
+            <input
+              type="button"
+              className="button button--small"
+              value="Submit Recipe"
+              onClick={() =>
+                handleSubmit(
+                  user_id,
+                  recName,
+                  category,
+                  description,
+                  ingredients,
+                  steps,
+                  servings,
+                  time,
+                  likes,
+                  image
+                )
+              }
+            />
+          </Col>
+          <Col></Col>
+        </Row>
+      </Container>
     </div>
   );
-
-  }
+}
