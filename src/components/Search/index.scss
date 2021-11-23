@@ -1,3 +1,19 @@
 @import '../../styles/mixins.scss';
 @import '../../styles/variables.scss';
 @import '../../styles/reset.scss';
+
+.search-categories {
+
+    .search-categories--inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .search-categories--inner--inner {
+            width: 75%;
+            background-color: #fff;
+            border: 3px solid $black;
+        }
+    }
+}
+
