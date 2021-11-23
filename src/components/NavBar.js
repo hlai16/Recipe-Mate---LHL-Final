@@ -1,6 +1,7 @@
 import Buttons from './Buttons';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { Navbar, Form, Nav, NavDropdown, FormControl, Button } from "react-bootstrap";
+import { propTypes } from 'react-bootstrap/esm/Image';
 
 // const RequiresLogin = (props) => {
 //   const isLoggedIn = true;
@@ -11,8 +12,9 @@ import { Navbar, Form, Nav, NavDropdown, FormControl, Button } from "react-boots
 // }
 
 
-function NavBar() {
+function NavBar(props) {
   const clearSession = function() {
+    props.setToken('')
     sessionStorage.clear();
   }
   return (
@@ -27,7 +29,7 @@ function NavBar() {
               <Nav.Link><Link to={'/search'} className="nav-link">Categories</Link></Nav.Link>
               <Nav.Link><Link to={'/create'} className="nav-link">Create</Link></Nav.Link>
               <Nav.Link><Link to={'/SingleRecipe'} className="nav-link">Single Recipe</Link></Nav.Link>
-              <Buttons small onClick={clearSession}><Link to={'/login'} className="nav-link text-white">Logout</Link></Buttons>
+              <Buttons small onClick={clearSession}><Link to={'/'} className="nav-link text-white">Logout</Link></Buttons>
 
             </Nav>
             <Form inline>

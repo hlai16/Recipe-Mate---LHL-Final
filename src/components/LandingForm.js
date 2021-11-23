@@ -47,7 +47,7 @@ export default function LandingForm(props) {
             if (user.password === password) {
               console.log('pwd', password)
               props.setToken(user.id)
-              return <Navigate to="/" />
+      
             }
           }
         }

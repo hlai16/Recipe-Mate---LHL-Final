@@ -17,12 +17,10 @@ import Home from '../Home';
 
 
 function AuthPages(props) {
-  if (!props.token) {
-    return <Home setToken={props.setToken} />
-   } 
+ 
   return (
     <section className="authPages">
-        <NavBar />
+        <NavBar setToken={ props.setToken } />
         <UserProfile />
     </section>
   );
