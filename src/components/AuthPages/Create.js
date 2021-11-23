@@ -38,7 +38,7 @@ export default function Create() {
 
   return (
     <div>
-      <NavBar />
+      <NavBar setToken={ props.setToken }/>
       <div className="create">
       <h2>Create Recipe</h2>
       <form onSubmit={handleSubmit}>
