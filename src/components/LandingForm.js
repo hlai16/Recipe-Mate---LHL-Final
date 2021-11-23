@@ -6,6 +6,7 @@ import Signup from "./SignUp";
 import "./LandingForm.scss";
 import useVisualMode from "../hooks/useVisualMode";
 import { useState } from "react";
+import { Navigate} from 'react-router-dom';
 
 
 
@@ -23,44 +24,51 @@ export default function LandingForm(props) {
   
   // const [username, setUsername] = useState('')
   const [userId, setUserId] = useState(0)
-  const { mode, transition, back } = useVisualMode(
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+   const { mode, transition, back } = useVisualMode(
     login ? LOGINSHOW : COLLAPSE,
     signup ? SIGNUPSHOW : COLLAPSE
   );
   // transition(SHOW, true);
 
-  // const handleLoginForm = (event) => {
-  //   // WARNING: DEAD CODE AT src/components/Helpers/getUserByEmail.js
+  const handleLoginForm = (event) => {
+    // WARNING: DEAD CODE AT src/components/Helpers/getUserByEmail.js
 
-  //   event.preventDefault()
-  //   axios.post('/Users')
-  //     .then((all) => {
-  //       for (const user of all.data) {
-  //         if (user.email === email) {
-  //           if (user.password === password) {
-  //             setUserId(user.id)
-  //             document.cookie = `userId=${user.id}`
-  //             // then redirect to /search
-
-  //           }
-  //         }
-  //       }
-  //     })
-  // }
+    event.preventDefault()
+    axios.get('/Users')
+      .then((all) => {
+      
+        for (const user of all.data) {
+          
+          
+          if (user.email === email) {
+            console.log('email', email)
+            if (user.password === password) {
+              console.log('pwd', password)
+              props.setToken(user.id)
+      
+            }
+          }
+        }
+      })
+  }
 
   return (
     <div className="LandingOptions">
       {mode === COLLAPSE && <Buttons onClick={() => { transition(LOGINSHOW, null) }}>Login</Buttons>}
       {mode === LOGINSHOW && <Login
-        // onSubmit={handleLoginForm} 
-        // email={props.email}
-        // password={props.password}
-        // onSave={event => setSignup(event.target.value)}
+        onSubmit={handleLoginForm}
         setToken={props.setToken}
         onCancel={back}
+        setEmail={setEmail}
+        setPassword={setPassword}
+        email={email}
+        password={password}
       />}
       {mode === COLLAPSE && <Buttons onClick={() => { transition(SIGNUPSHOW, null) }}>Signup</Buttons>}
       {mode === SIGNUPSHOW && <Signup
+        setToken={props.setToken}
         onCancel={back}
       />}
       <form method="GET" action="/search">

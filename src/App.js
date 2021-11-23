@@ -30,7 +30,16 @@ function App() {
  
   if (!token) {
     return <Home setToken={setToken} />
-  }
+   } 
+  //  else {
+  //   return (
+  //     <Login
+  //       // setToken={setToken}
+  //       // onCancel={back}
+  //     />
+  //   );
+  // }
+  
   const recipeList = state.recipes.map(recipe => {
     return (
       <li className="recipeInfo">
@@ -45,13 +54,12 @@ function App() {
       <BrowserRouter>
         <Routes>
 
-
-            <Route exact path="/" element={<Home />} />
-            <Route path="/search" element={<Search />} />
-            <Route path="/user_profile" element={<AuthPages />} />
-            <Route path="/create" element={<Create />} />
-            <Route path="/recipeItem" element={<RecipeItem />} />
-            <Route path="/SingleRecipe" element={<SingleRecipe />} />
+            <Route exact path="/" element={<AuthPages setToken={ setToken } />} />
+            <Route path="/search" element={<Search setToken={ setToken } />} />
+            <Route path="/login" element={<Home setToken={setToken} />} />
+            <Route path="/create" element={<Create setToken={ setToken } />} />
+            <Route path="/recipeItem" element={<RecipeItem setToken={ setToken } />} />
+            <Route path="/SingleRecipe" element={<SingleRecipe setToken={ setToken }/>} />
 
         </Routes>
       </BrowserRouter>

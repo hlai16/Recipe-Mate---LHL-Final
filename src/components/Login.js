@@ -17,10 +17,10 @@ async function loginUser(credentials) {
       .then(data => data.json())
    }
 
-function Login(props, { setToken }) {
+function Login({ setToken, onCancel, onSubmit, setEmail, setPassword, email, password }) {
     const [username, setUserName] = useState();
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    // const [email, setEmail] = useState('')
+    // const [password, setPassword] = useState('')
     const [error, setError] = useState('')
     
 
@@ -41,21 +41,11 @@ function Login(props, { setToken }) {
         return setEmail(''), setPassword('');
     }
     const cancel = function () {
-        return props.onCancel(reset());
+        return onCancel(reset());
     }
-
-    const handleSubmit = async e => {
-        e.preventDefault();
-        const token = await loginUser({
-        //   username,
-          email,
-          password
-        });
-        props.setToken(token);
-      }
     
     return (
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={onSubmit}>
             <h4>Please Enter your login info:</h4>
             {/* <Form.Group className="mb-3" controlId="formBasicUsername">
                 <Form.Label>User Name</Form.Label>
@@ -84,7 +74,7 @@ function Login(props, { setToken }) {
     );
 }
 
-// Login.propTypes = {
-//     setToken: PropTypes.func.isRequired
-// }
+Login.propTypes = {
+    setToken: PropTypes.func.isRequired
+}
 export default Login;
