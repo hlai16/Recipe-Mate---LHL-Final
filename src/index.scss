@@ -60,6 +60,10 @@ h6 {
     padding: 1em auto;
     min-height: 3em;
   }
+  .search-categories--homeChefOptions, 
+  .search-categories--homeScientistOptions {
+    flex-direction: column;
+  }
 }
 
 @media only screen and (max-width: 500px) {
