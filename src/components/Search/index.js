@@ -1,6 +1,6 @@
 import React from 'react';
-import NavBar from '../components/NavBar';
-import Buttons from '../components/Buttons';
+import NavBar from '../NavBar';
+import Buttons from '../Buttons';
 
 export default function Search(props) {
   return (
