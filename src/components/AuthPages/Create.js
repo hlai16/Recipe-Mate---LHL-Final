@@ -2,6 +2,7 @@ import React, { useState, Component } from "react";
 import axios from "axios";
 import NavBar from "../NavBar";
 import Buttons from "../Buttons.js";
+import './create.scss';
 
 
 import "./";
