@@ -1,7 +1,8 @@
 import Buttons from './Buttons';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { Navbar, Form, Nav, NavDropdown, FormControl, Button } from "react-bootstrap";
+import { Navbar, Form, Nav, NavDropdown, FormControl, Button, Row, Col } from "react-bootstrap";
 import { propTypes } from 'react-bootstrap/esm/Image';
+import getRecipesWithSearch from './Helpers/getRecipesWithSearch';
 
 // const RequiresLogin = (props) => {
 //   const isLoggedIn = true;
@@ -32,9 +33,11 @@ function NavBar(props) {
               <Buttons small onClick={clearSession}><Link to={'/'} className="nav-link text-white">Logout</Link></Buttons>
 
             </Nav>
-            <Form inline>
-              <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-              <Buttons small>Search</Buttons>
+            <Form inline onSubmit={getRecipesWithSearch}>
+              <Row>
+                <Col><FormControl type="text" placeholder="Search" className="mr-sm-2" /></Col>
+                <Col><Buttons small>Search</Buttons></Col>
+              </Row>
             </Form>
           </Navbar.Collapse>
         </Navbar>
