@@ -9,10 +9,39 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        .search-categories--inner--inner {
-            width: 75%;
-            background-color: #fff;
+        h2 {
+            margin-top: 3rem;
+        }
+        .search-categories--categories {
+            // display: flex;
+            // justify-content: center;
+            max-width: 75%;
+            // width: 100%;
             border: 3px solid $black;
+            border-radius: $border-radius;
+            padding: 5em;
+            // background: linear-gradient($bkg-colors);
+            background-color: #ffffffc9;
+            .search-categories--homeChefOptions, 
+            .search-categories--homeScientistOptions {
+                display: flex;
+                .search-categories--homeChefOption, 
+                .search-categories--homeScientistOption {
+                    margin: 2em;
+                    
+                    .search-categories--homeChefOptionImg,
+                    .search-categories--homeScientistOptionImg {
+                        border-radius: 100%;
+                        width: 80%;
+                        
+                        img {
+                            width: 100%;
+                            border-radius: 100%;
+                            motion-rotation: 90deg;
+                        }
+                    }
+                } 
+            }
         }
     }
 }

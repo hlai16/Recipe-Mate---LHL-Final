@@ -3,6 +3,7 @@ import { readCookie } from '../../util';
 import axios from 'axios';
 import NavBar from '../NavBar';
 
+
 const handleSubmit = (user_id, recName, category, description, ingredients, steps, servings, time, likes, image) => {
   // e.preventDefault();
   let data = {
