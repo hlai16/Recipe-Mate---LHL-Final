@@ -22,7 +22,7 @@ const handleSubmit = (user_id, recName, category, description, ingredients, step
 }
 
 
-export default function Create() {
+export default function Create(props) {
   
   // const userId = readCookie();
   const [user_id, setUser] = useState('2');
