@@ -1,3 +1,65 @@
 @import '../../styles/mixins.scss';
 @import '../../styles/variables.scss';
 @import '../../styles/reset.scss';
+
+.search-categories {
+
+    .search-categories--inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5rem;
+        h2 {
+            padding-top: 3rem;
+            font-size: $h2;
+        }
+        .search-categories--categories {
+            // display: flex;
+            // justify-content: center;
+            max-width: 75%;
+            // width: 100%;
+            border: 3px solid $black;
+            border-radius: $border-radius;
+            padding: 5em;
+            // background: linear-gradient($bkg-colors);
+            background-color: #ffffffc9;
+            .search-categories--homeChefOptions, 
+            .search-categories--homeScientistOptions {
+                display: flex;
+                .search-categories--homeChefOption, 
+                .search-categories--homeScientistOption {
+                    margin: 2em;
+                    h3 {
+                        font-size: $h3;
+                    }
+                    .search-categories--homeChefOptionImg,
+                    .search-categories--homeScientistOptionImg {
+                        border-radius: 100%;
+                        width: 80%;
+                        border: $border;
+                        
+                        img {
+                            width: 100%;
+                            border-radius: 100%;
+                        }
+                    }
+                    
+                } 
+                .homeChefOption1 {
+                    margin-right: -4rem;
+                    .homeChefOptionImg1 {
+                        width: 55%;
+                    }
+                }
+                .search-categories--homeChefOptionImg:hover,
+                .search-categories--homeChefOptionImg:focus-within,
+                .search-categories--homeScientistOptionImg:hover,
+                .search-categories--homeScientistOptionImg:focus-within {
+                    border: 5px solid $confirm-color;
+                }
+            }
+        }
+    }
+}
+
