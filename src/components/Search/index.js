@@ -2,6 +2,8 @@ import React from 'react';
 import NavBar from '../NavBar';
 import Buttons from '../Buttons';
 import './index.scss';
+import useVisualMode from "../../hooks/useVisualMode";
+import { useState } from "react";
 
 
 
