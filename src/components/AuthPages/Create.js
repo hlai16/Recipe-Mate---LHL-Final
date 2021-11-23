@@ -2,7 +2,9 @@ import React, {useState, Component} from 'react';
 import { readCookie } from '../../util';
 import axios from 'axios';
 import NavBar from '../NavBar';
-import './create.scss';
+import Buttons from '../Buttons.js'
+// import './create.scss';
+import './'
 
 
 const handleSubmit = (user_id, recName, category, description, ingredients, steps, servings, time, likes, image) => {
