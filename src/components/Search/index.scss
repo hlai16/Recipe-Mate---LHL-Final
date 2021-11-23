@@ -9,8 +9,10 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin-top: 5rem;
         h2 {
-            margin-top: 3rem;
+            padding-top: 3rem;
+            font-size: $h2;
         }
         .search-categories--categories {
             // display: flex;
@@ -28,19 +30,34 @@
                 .search-categories--homeChefOption, 
                 .search-categories--homeScientistOption {
                     margin: 2em;
-                    
+                    h3 {
+                        font-size: $h3;
+                    }
                     .search-categories--homeChefOptionImg,
                     .search-categories--homeScientistOptionImg {
                         border-radius: 100%;
                         width: 80%;
+                        border: $border;
                         
                         img {
                             width: 100%;
                             border-radius: 100%;
-                            motion-rotation: 90deg;
                         }
                     }
+                    
                 } 
+                .homeChefOption1 {
+                    margin-right: -4rem;
+                    .homeChefOptionImg1 {
+                        width: 55%;
+                    }
+                }
+                .search-categories--homeChefOptionImg:hover,
+                .search-categories--homeChefOptionImg:focus-within,
+                .search-categories--homeScientistOptionImg:hover,
+                .search-categories--homeScientistOptionImg:focus-within {
+                    border: 5px solid $confirm-color;
+                }
             }
         }
     }
