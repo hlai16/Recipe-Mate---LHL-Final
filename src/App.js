@@ -13,6 +13,8 @@ import AuthPages from './components/AuthPages';
 import Login from './components/Login';
 import { useState } from 'react';
 import useToken from './hooks/useToken';
+import getRecipesWithSearch from './components/Helpers/getRecipesWithSearch';
+import RecipeList from './components/RecipeList';
 // import Login from './components/Login';
 
 
@@ -60,6 +62,7 @@ function App() {
             <Route path="/create" element={<Create setToken={ setToken } />} />
             <Route path="/recipeItem" element={<RecipeItem setToken={ setToken } />} />
             <Route path="/SingleRecipe" element={<SingleRecipe setToken={ setToken }/>} />
+            <Route path="/recipes" element={<RecipeList recipes={ getRecipesWithSearch }/>} />
 
         </Routes>
       </BrowserRouter>
