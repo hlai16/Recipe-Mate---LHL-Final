@@ -3,7 +3,7 @@ import { readCookie } from '../../util';
 import axios from 'axios';
 import NavBar from '../NavBar';
 import Buttons from '../Buttons.js'
-// import './create.scss';
+import './create.scss';
 import './'
 
 
@@ -55,14 +55,16 @@ export default function Create(props) {
         onChange={(e) => setrecName(e.target.value)}
       />
       <label>Category:</label>
-          <input
-        type="text"
-        name="category"
-        required 
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
-      />
-         <label>Description:</label>
+       <select name="Category" onChange={(e) => setCategory(e.target.value)}>
+       <option value="">--Please choose an option--</option>
+       <option value="1">Breakfast </option>
+       <option value="2">Lunch</option>
+       <option value="3">Dinner</option>
+       <option value="4">Personal Care</option>
+       <option value="5">Other</option>
+         </select>
+  
+         <label> Description:</label>
           <input
         type="text"
         name="description"
