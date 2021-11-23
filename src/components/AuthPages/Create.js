@@ -2,6 +2,8 @@ import React, {useState, Component} from 'react';
 import { readCookie } from '../../util';
 import axios from 'axios';
 import NavBar from '../NavBar';
+import './create.scss';
+
 
 const handleSubmit = (user_id, recName, category, description, ingredients, steps, servings, time, likes, image) => {
   // e.preventDefault();
@@ -108,7 +110,7 @@ export default function Create(props) {
         required
       />
       </form>
-      <input type="button" className="btn btn-success" value="Submit Recipe" onClick={()=>handleSubmit(user_id, recName, category, description, ingredients, steps, servings, time, likes, image)} />
+      <input type="button" className="button button--small" value="Submit Recipe" onClick={()=>handleSubmit(user_id, recName, category, description, ingredients, steps, servings, time, likes, image)} />
       </div>
     </div>
   );
