@@ -28,9 +28,9 @@ function App() {
   const { state } = useApplicationData();
   const { token, setToken } = useToken();
  
-  // if (!token) {
-  //   return <Home setToken={setToken} />
-  //  } 
+  if (!token) {
+    return <Home setToken={setToken} />
+   } 
   //  else {
   //   return (
   //     <Login
@@ -69,4 +69,3 @@ function App() {
 }
 
 export default App;
-
