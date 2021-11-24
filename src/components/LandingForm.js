@@ -53,7 +53,7 @@ export default function LandingForm(props) {
           }
         }
         setError(<Alert variant="danger">
-              Email is already registered.
+              Invalid login info.
             </Alert>);
             return;
       })
@@ -97,6 +97,7 @@ export default function LandingForm(props) {
         setPassword={setPassword}
         email={email}
         password={password}
+        error={error}
       />}
       {mode === COLLAPSE && <Buttons onClick={() => { transition(SIGNUPSHOW, null) }}>Signup</Buttons>}
       {mode === SIGNUPSHOW && <Signup
