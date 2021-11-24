@@ -33,8 +33,10 @@ export default function RecipeById(props) {
     <div className="likesDiv">
       <span className="likes"><FontAwesomeIcon icon={faThumbsUp} />{recipeById.likes}</span>
     </div>
+    <div className="recipeUrlDiv--img">
+      <img src={recipeById.image} alt="display image" />
+    </div>
 
-    <img src={recipeById.image_link} alt="display image" height="300" width="400" />
     <h4>About</h4>
     <p>{recipeById.description}</p>
     <table className="table recipe-presentation">
@@ -64,12 +66,12 @@ export default function RecipeById(props) {
         </tr>
       </tbody>
 
-      <div>***All Recipes from This User:***</div>
+      <div className="otherRecipesBySameUser">***All Recipes from This User:***</div>
       <div>{moreFromUser.map(recipe => (
         <div>
           <div>Recipe ID: {recipe.id}</div>
           <div>Name: {recipe.name}</div>
-          <div>Image: <img src={recipe.image_link} alt="display image" height="50" width="80" /></div>
+          <div><img src={recipeById.image} alt="display image" height="50" width="80" /></div>
         </div>))}
       </div>
 
