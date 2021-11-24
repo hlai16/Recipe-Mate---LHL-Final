@@ -63,10 +63,9 @@ export default function LandingForm(props) {
     event.preventDefault()
     axios.get('/Users')
       .then((all, res) => {
-        const result = [];
-        for (const user of all.data) {
-
-          if (user.email === email) {
+        const mapData = all.data.map(user => user.email);
+          
+          if (mapData.includes(email)) {
             console.log('email', email);
             console.log('email has already in db')
             setError(<Alert variant="danger">
@@ -76,12 +75,13 @@ export default function LandingForm(props) {
           }
           setError('');
           props.setToken(email);
-          axios.post(`/Users`, { user })
+          
+          axios.post(`/Users`, { email: email, password: password })
             .then(res => {
               console.log(res);
               console.log(res.data);
             })
-        }
+        
       })
   }
 
