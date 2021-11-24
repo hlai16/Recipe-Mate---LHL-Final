@@ -18,12 +18,8 @@ async function signupUser(credentials) {
         .then(data => data.json())
 }
 
-function Signup({setToken, onCancel, onSubmit, setEmail, setPassword, email, password }) {
-    const [username, setUserName] = useState();
-    // const [email, setEmail] = useState('')
-    // const [password, setPassword] = useState('')
-    const [error, setError] = useState('')
-
+function Signup({ setToken, error, onCancel, onSubmit, setEmail, setPassword, email, password }) {
+    
     // function validate() {
     //     if (email === "") {
     //         setError("Email cannot be blank");
@@ -44,22 +40,14 @@ function Signup({setToken, onCancel, onSubmit, setEmail, setPassword, email, pas
         return onCancel(reset());
     }
 
-    const handleSubmit = async e => {
-        e.preventDefault();
-        const token = await signupUser({
-            email,
-            password
-        });
-        setToken(token);
-        <Navigate to="/" />
-    }
     return (
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={onSubmit}>
             <h4>Please enter your signup info:</h4>
             {/* <Form.Group className="mb-3" controlId="formBasicUsername">
                 <Form.Label>User Name</Form.Label>
                 <Form.Control type="username" placeholder="Enter username" username={username} onChange={(event) => setUsername(event.target.value)} />
             </Form.Group> */}
+            <p>{error}</p>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" placeholder="Enter email" email={email} onChange={(event) => setEmail(event.target.value)} required />
