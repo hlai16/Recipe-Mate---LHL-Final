@@ -48,9 +48,9 @@ const handleSubmit = (
 };
 
 export default function Create(props) {
-  const userIdToken = useToken();
-  const userId = userIdToken.token;
-  const [user_id, setUser] = useState(`${userId}`);
+  const userEmailToken = useToken();
+  const userEmail = userEmailToken.token;
+  const [user_id, setUser] = useState('');
   const [category, setCategory] = useState("");
   const [recName, setrecName] = useState("");
   const [description, setDescription] = useState("");
@@ -61,6 +61,36 @@ export default function Create(props) {
   const [likes, setLikes] = useState("0");
   const [image, setImage] = useState("");
 
+
+  const handleCreateRecipe = (event) => {
+
+    event.preventDefault()
+    axios.get('/Users')
+      .then((all, res) => {
+        const filterDataForEmail = all.data.filter(user => user.email === userEmail)
+        console.log('filterDataForEmail', filterDataForEmail)
+        setUser(filterDataForEmail[0].id);
+      })
+    let data = {
+      user_id: user_id,
+      name: recName,
+      category: category,
+      description: description,
+      ingredients: ingredients,
+      steps: steps,
+      servings: servings,
+      time: time,
+      likes: likes,
+      image: image,
+    };
+    axios.post(`/users/${user_id}/recipes`, data)
+      .then((all, res) => {
+        console.log('res', res);
+        console.log('all', all);
+        // console.log(res.data);
+      })
+  };
+
   return (
     <div>
       <NavBar setToken={props.setToken} />
@@ -70,7 +100,7 @@ export default function Create(props) {
             <Col></Col>
             <Col>
               <h2>Create Recipe</h2>
-              <Form onSubmit={handleSubmit}>
+              <Form onSubmit={handleCreateRecipe}>
                 <Form.Group className="mb- 3">
                   <Form.Label>Recipe Name:</Form.Label>
                   <Form.Control
@@ -161,20 +191,21 @@ export default function Create(props) {
                 type="button"
                 className="button button--small"
                 value="Submit Recipe"
-                onClick={() =>
-                  handleSubmit(
-                    user_id,
-                    recName,
-                    category,
-                    description,
-                    ingredients,
-                    steps,
-                    servings,
-                    time,
-                    likes,
-                    image
-                  )
-                }
+                onClick={handleCreateRecipe}
+              // onClick={() =>
+              //   handleSubmit(
+              //     user_id,
+              //     recName,
+              //     category,
+              //     description,
+              //     ingredients,
+              //     steps,
+              //     servings,
+              //     time,
+              //     likes,
+              //     image
+              //   )
+              // }
               />
             </Col>
             <Col></Col>

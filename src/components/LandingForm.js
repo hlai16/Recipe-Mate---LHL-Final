@@ -47,7 +47,7 @@ export default function LandingForm(props) {
             console.log('email', email)
             if (user.password === password) {
               console.log('pwd', password)
-              props.setToken(user.id)
+              props.setToken(user.email)
               setError('');
             }
           }
