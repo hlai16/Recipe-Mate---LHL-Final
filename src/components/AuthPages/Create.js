@@ -67,9 +67,9 @@ export default function Create(props) {
     event.preventDefault()
     axios.get('/Users')
       .then((all, res) => {
-        const filterDataForEmail = all.data.filter(user => user.email === userId)
-        console.log('filterDataForEmail', filterDataForEmail)
-        setUser(filterDataForEmail[0].id);
+        const filterDataByEmail = all.data.filter(user => user.email === userId)
+        console.log('filterDataByEmail', filterDataByEmail)
+        setUser(filterDataByEmail[0].id);
         console.log('user_id', user_id)
       })
     const data = {
