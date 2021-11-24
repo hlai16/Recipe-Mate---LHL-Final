@@ -4,7 +4,7 @@ import NavBar from "./NavBar";
 export default function RecipeList(props) {
   
   const location = useLocation();
-  const recipes = location.state
+  const recipes = location.state || []
   
   return (< > 
     <NavBar setToken={props.setToken} />
