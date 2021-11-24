@@ -10,7 +10,7 @@ function Home(props) {
                 <img
                     src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/master/public/images/heroImg%20Large.jpeg?raw=true"
                     alt="Hero Img"
-                    width="630"
+                    width="550"
                 />
             </div>
             <section className="sidebar">
