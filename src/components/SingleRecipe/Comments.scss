@@ -1,0 +1,50 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.new-tweet {
+    width: 100%;
+    /* adding width after project got rejected. I am not sure if this fix the issue, as when I checked my app, I don't see the problem mentioned by the evaulator */
+    margin-top: 3em;
+}
+
+.new-tweet form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.new-tweet textarea {
+    border: none;
+    border-bottom: 5px solid #545149;
+    background: none;
+    margin: 2rem 0;
+    word-wrap: break-word;
+    /* not sure if it's needed here as I don't see words escaping the textarea with my laptop, but since I got rejected on the layout on width issue, I thought best to put a word-wrap: break-word here. */
+}
+
+.buttonDiv {
+    display: flex;
+    justify-content: space-between;
+}
+ 
+// Posted Comments:
+
+.postedCommentsDiv {
+    border: $border;
+    border-radius: $border-radius;
+    margin: 1em auto;
+    padding: 1em;
+    background-color: #cdf4fd;
+    .commentHeader {
+        border: 0;
+        border-bottom: 1px solid lighten($black, 55%);
+        width: 100%;
+        // margin-left: 1rem;
+        div > span {
+            color: $accent-color;
+        }
+      }
+      .postedComments--comments {
+          margin-top: 1em;
+      }
+}

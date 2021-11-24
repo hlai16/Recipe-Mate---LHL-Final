@@ -66,12 +66,12 @@ export default function RecipeById(props) {
         </tr>
       </tbody>
 
-      <div className="otherRecipesBySameUser">***All Recipes from This User:***</div>
+      <div className="otherRecipesBySameUser"><h4>***All Recipes from This User:***</h4></div>
       <div>{moreFromUser.map(recipe => (
         <div>
-          <div>Recipe ID: {recipe.id}</div>
-          <div>Name: {recipe.name}</div>
-          <div><img src={recipeById.image} alt="display image" height="50" width="80" /></div>
+          {/* <div>Recipe ID: {recipe.id}</div> */}
+          <div>{recipe.name}</div>
+          <div className="recipeUrlDiv--thumbnail"><img src={recipeById.image} alt="display image" /></div>
         </div>))}
       </div>
 

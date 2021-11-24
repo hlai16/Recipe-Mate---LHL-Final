@@ -31,8 +31,30 @@
             border-radius: $border-radius;
         }
     }
+    tbody {
+        border-bottom: 3px dashed $black;
+    }
     .otherRecipesBySameUser {
+        margin-top: 3em;
         
     }
-    
+    .recipeUrlDiv--thumbnail {
+        max-width: 15%;
+        border-radius: $border-radius;
+        img {
+            max-width: 100%;
+            border-radius: $border-radius;
+        }
+    }
+    .recipeUrlDiv--thumbnail:hover,
+    .recipeUrlDiv--thumbnail:focus-within {
+        border: 3px solid $confirm-color;
+    }
+    .leaveCommentsDiv {
+        background-color: #fef9fa9b;
+        margin-top: 3em;
+        padding: 2em;
+        border: $border;
+        border-radius: $border-radius;
+    }
 }
