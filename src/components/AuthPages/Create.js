@@ -4,9 +4,8 @@ import NavBar from "../NavBar";
 import Buttons from "../Buttons.js";
 import useToken from "../../hooks/useToken";
 import './create.scss';
-
-
 import "./";
+
 import {
   Form,
   Nav,
@@ -49,8 +48,7 @@ const handleSubmit = (
 
 export default function Create(props) {
   const userIdToken = useToken();
-  const userId = userIdToken.token;
-  const [user_id, setUser] = useState(`${userId}`);
+  const user_id = userIdToken.token;
   const [category, setCategory] = useState("");
   const [recName, setrecName] = useState("");
   const [description, setDescription] = useState("");
@@ -58,39 +56,39 @@ export default function Create(props) {
   const [steps, setSteps] = useState("");
   const [servings, setServings] = useState("");
   const [time, setTime] = useState("");
-  const [likes, setLikes] = useState("0");
+  const likes = 0;
   const [image, setImage] = useState("");
 
 
-  const handleCreateRecipe = (event) => {
+  // const handleCreateRecipe = (event) => {
 
-    event.preventDefault()
-    axios.get('/Users')
-      .then((all, res) => {
-        const filterDataByEmail = all.data.filter(user => user.email === userId)
-        console.log('filterDataByEmail', filterDataByEmail)
-        setUser(filterDataByEmail[0].id);
-        console.log('user_id', user_id)
-      })
-    const data = {
-      user_id: user_id,
-      name: recName,
-      category: category,
-      description: description,
-      ingredients: ingredients,
-      steps: steps,
-      servings: servings,
-      time: time,
-      likes: likes,
-      image: image,
-    };
-    axios.post(`/users/${user_id}/recipes`, data)
-      .then((all, res) => {
-        console.log('res', res);
-        console.log('all', all);
-        // console.log(res.data);
-      })
-  };
+  //   event.preventDefault()
+  //   axios.get('/Users')
+  //     .then((all, res) => {
+  //       const filterDataByEmail = all.data.filter(user => user.email === userId)
+  //       console.log('filterDataByEmail', filterDataByEmail)
+  //       setUser(filterDataByEmail[0].id);
+  //       console.log('user_id', user_id)
+  //     })
+  //   const data = {
+  //     user_id: user_id,
+  //     name: recName,
+  //     category: category,
+  //     description: description,
+  //     ingredients: ingredients,
+  //     steps: steps,
+  //     servings: servings,
+  //     time: time,
+  //     likes: likes,
+  //     image: image,
+  //   };
+  //   axios.post(`/users/${user_id}/recipes`, data)
+  //     .then((all, res) => {
+  //       console.log('res', res);
+  //       console.log('all', all);
+  //       // console.log(res.data);
+  //     })
+  // };
 
   return (
     <div>

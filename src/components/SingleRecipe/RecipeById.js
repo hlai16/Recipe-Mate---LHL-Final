@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
-import useToken from "../../hooks/useToken";
 import axios from "axios";
 
 export default function RecipeById(props) {
-  //const userIdToken = useToken()
-  //const userId = userIdToken.token;
   const [recipeById, setRecipeById] = useState('');
   const [moreFromUser, setMoreFromUser] = useState([]);
 

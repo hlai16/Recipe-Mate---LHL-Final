@@ -1,9 +1,5 @@
 import './Home.scss';
 import LandingForm from "./LandingForm.js";
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import { useState } from "react";
-
 
 function Home(props) {
 
