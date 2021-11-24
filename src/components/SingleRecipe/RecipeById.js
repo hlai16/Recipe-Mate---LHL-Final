@@ -11,16 +11,15 @@ export default function RecipeById(props) {
     axios
       .get(`/Recipes/${recipeId}`)
       .then((results) => setRecipeById(results.data[0]))
-    }, []);
+  }, []);
     
-    useEffect(() => {
-      if (recipeById.user_id) {
-        axios.get(`/Users/${recipeById.user_id}/recipes`)
-        .then((results) => (
-          setMoreFromUser(results.data)
-          ))
-      }
-    }, [recipeById])
+  useEffect(() => {
+    if (recipeById.user_id) {
+      axios
+        .get(`/Users/${recipeById.user_id}/recipes`)
+        .then((results) => (setMoreFromUser(results.data)))
+    }
+  }, [recipeById])
 
   return (< >
     <h3>{recipeById.name}</h3>
@@ -60,7 +59,7 @@ export default function RecipeById(props) {
         <div>
           <div>Recipe ID: {recipe.id}</div>
           <div>Name: {recipe.name}</div>
-          <div>Image: <img src={recipe.image_link} alt="display image" height="50" width="80"/></div>
+          <div>Image: <img src={recipe.image} alt="display image" height="50" width="80"/></div>
         </div>))}
       </div>
     

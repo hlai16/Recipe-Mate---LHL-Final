@@ -9,7 +9,7 @@ export default function RecipeList(props) {
 
   let navigate = useNavigate()
   const handleClick = function(event) {
-    navigate(`/SingleRecipe`, { state: event.target.id })
+    navigate(`/SingleRecipe`, { state: Number(event.target.id) })
   }
   
   return (< > 
