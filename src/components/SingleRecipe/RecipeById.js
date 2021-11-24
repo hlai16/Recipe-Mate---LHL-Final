@@ -18,13 +18,12 @@ export default function RecipeById(props) {
       .get(`/Recipes/${recipeId}`)
       .then((results) => setRecipeById(results.data[0]))
   }, []);
-
+    
   useEffect(() => {
     if (recipeById.user_id) {
-      axios.get(`/Users/${recipeById.user_id}/recipes`)
-        .then((results) => (
-          setMoreFromUser(results.data)
-        ))
+      axios
+        .get(`/Users/${recipeById.user_id}/recipes`)
+        .then((results) => (setMoreFromUser(results.data)))
     }
   }, [recipeById])
 
@@ -34,7 +33,7 @@ export default function RecipeById(props) {
       <span className="likes"><FontAwesomeIcon icon={faThumbsUp} />{recipeById.likes}</span>
     </div>
 
-    <img src={recipeById.image_link} alt="display image" height="300" width="400" />
+    <img src={recipeById.image} alt="display image" height="300" width="400" />
     <h4>About</h4>
     <p>{recipeById.description}</p>
     <table className="table recipe-presentation">
@@ -69,7 +68,7 @@ export default function RecipeById(props) {
         <div>
           <div>Recipe ID: {recipe.id}</div>
           <div>Name: {recipe.name}</div>
-          <div>Image: <img src={recipe.image_link} alt="display image" height="50" width="80" /></div>
+          <div>Image: <img src={recipe.image} alt="display image" height="50" width="80"/></div>
         </div>))}
       </div>
 
