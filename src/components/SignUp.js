@@ -3,9 +3,9 @@ import Buttons from './Buttons.js';
 // import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 // import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
-import UserProfile from './AuthPages/UserProfile';
 import { Form } from "react-bootstrap";
 import { Navigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 async function signupUser(credentials) {
     return fetch('http://localhost:3001/login', {
@@ -18,9 +18,10 @@ async function signupUser(credentials) {
         .then(data => data.json())
 }
 
-function Signup(props) {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+function Signup({setToken, onCancel, onSubmit, setEmail, setPassword, email, password }) {
+    const [username, setUserName] = useState();
+    // const [email, setEmail] = useState('')
+    // const [password, setPassword] = useState('')
     const [error, setError] = useState('')
 
     // function validate() {
@@ -40,7 +41,7 @@ function Signup(props) {
         return setEmail(''), setPassword('');
     }
     const cancel = function () {
-        return props.onCancel(reset());
+        return onCancel(reset());
     }
 
     const handleSubmit = async e => {
@@ -49,7 +50,7 @@ function Signup(props) {
             email,
             password
         });
-        props.setToken(token);
+        setToken(token);
         <Navigate to="/" />
     }
     return (
@@ -80,6 +81,10 @@ function Signup(props) {
             </Buttons>
         </Form>
     );
+}
+
+Signup.propTypes = {
+    setToken: PropTypes.func.isRequired
 }
 
 export default Signup;

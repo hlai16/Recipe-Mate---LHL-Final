@@ -68,8 +68,13 @@ export default function LandingForm(props) {
       />}
       {mode === COLLAPSE && <Buttons onClick={() => { transition(SIGNUPSHOW, null) }}>Signup</Buttons>}
       {mode === SIGNUPSHOW && <Signup
+        // onSubmit={}
         setToken={props.setToken}
         onCancel={back}
+        setEmail={setEmail}
+        setPassword={setPassword}
+        email={email}
+        password={password}
       />}
       {/* <form method="GET" action="/search">
         <Buttons>Search</Buttons>
