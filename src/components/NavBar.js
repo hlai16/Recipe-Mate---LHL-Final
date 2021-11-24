@@ -1,19 +1,8 @@
 import Buttons from './Buttons';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Navbar, Form, Nav, NavDropdown, FormControl, Button, Row, Col } from "react-bootstrap";
-import { propTypes } from 'react-bootstrap/esm/Image';
-import getRecipesWithSearch from './Helpers/getRecipesWithSearch';
+
 import SearchRecipes from './SearchRecipes';
-
-// const RequiresLogin = (props) => {
-//   const isLoggedIn = true;
-//   if(isLoggedIn) { 
-//     return props.children;
-//   } 
-//   return <Home />
-// }
-
-
 function NavBar(props) {
   const clearSession = function() {
     props.setToken('')

@@ -6,7 +6,7 @@ import Signup from "./SignUp";
 import "./LandingForm.scss";
 import useVisualMode from "../hooks/useVisualMode";
 import { useState } from "react";
-import { Navigate } from 'react-router-dom';
+// import { Navigate } from 'react-router-dom';
 import { Alert } from "react-bootstrap";
 
 
@@ -16,7 +16,7 @@ import { Alert } from "react-bootstrap";
 const COLLAPSE = "COLLAPSE";
 const LOGINSHOW = "LOGINSHOW";
 const SIGNUPSHOW = "SIGNUPSHOW";
-const USERPROFILE = "USERPROFILE";
+// const USERPROFILE = "USERPROFILE";
 
 
 export default function LandingForm(props) {
