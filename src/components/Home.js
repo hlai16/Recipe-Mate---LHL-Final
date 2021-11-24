@@ -14,7 +14,7 @@ function Home(props) {
                 <img
                     src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/master/public/images/heroImg%20Large.jpeg?raw=true"
                     alt="Hero Img"
-                    width="1200"
+                    width="630"
                 />
             </div>
             <section className="sidebar">
