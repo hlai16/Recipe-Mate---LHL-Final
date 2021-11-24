@@ -1,21 +1,11 @@
-import React, { useState, Component } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import NavBar from "../NavBar";
-import Buttons from "../Buttons.js";
 import useToken from "../../hooks/useToken";
-import './create.scss';
+import "./create.scss";
 import "./";
 
-import {
-  Form,
-  Nav,
-  Container,
-  Col,
-  Row,
-  NavDropdown,
-  FormControl,
-  Button,
-} from "react-bootstrap";
+import { Form, Container, Col, Row, FormControl } from "react-bootstrap";
 
 const handleSubmit = (
   user_id,
@@ -58,6 +48,7 @@ export default function Create(props) {
   const [time, setTime] = useState("");
   const likes = 0;
   const [image, setImage] = useState("");
+
 
   return (
     <div>
@@ -151,14 +142,13 @@ export default function Create(props) {
                     required
                     value={image}
                     onChange={(e) => setImage(e.target.value)}
-                    required
                   />
                 </Form.Group>
               </Form>
               <input
                 type="button"
                 className="button button--small"
-                value="Submit Recipe"
+                value="Submit Recipe"          
                 onClick={() =>
                   handleSubmit(
                     user_id,

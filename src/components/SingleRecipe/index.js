@@ -12,9 +12,11 @@ export default function SingleRecipe(props) {
 
   return(
     <>
-    <NavBar setToken={ props.setToken } />
-    <h2>Recipe Presentation</h2>
-    <RecipeById recipeId={recipeId}/>
-    <Comments recipeId={recipeId}/>
-  </>);
+      <NavBar setToken={props.setToken} />
+      <div className="recipeUrlDiv">
+        <h2>Recipe Presentation</h2>
+        <RecipeById recipeId={recipeId} />
+        <Comments recipeId={recipeId} />
+      </div>
+    </>);
 }

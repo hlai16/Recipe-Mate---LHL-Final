@@ -6,7 +6,7 @@ import Signup from "./SignUp";
 import "./LandingForm.scss";
 import useVisualMode from "../hooks/useVisualMode";
 import { useState } from "react";
-import { Navigate } from 'react-router-dom';
+// import { Navigate } from 'react-router-dom';
 import { Alert } from "react-bootstrap";
 
 
@@ -16,7 +16,7 @@ import { Alert } from "react-bootstrap";
 const COLLAPSE = "COLLAPSE";
 const LOGINSHOW = "LOGINSHOW";
 const SIGNUPSHOW = "SIGNUPSHOW";
-const USERPROFILE = "USERPROFILE";
+// const USERPROFILE = "USERPROFILE";
 
 
 export default function LandingForm(props) {
@@ -63,10 +63,10 @@ export default function LandingForm(props) {
     event.preventDefault()
     axios.get('/Users')
       .then((all, res) => {
-        const mapData = all.data.map(user => user.email);
+        const filterData = all.data.filter(user => user.email === email);
           
-          if (mapData.includes(email)) {
-            console.log('email', email);
+          if (filterData.length > 0) {
+            console.log('filterData', filterData);
             console.log('email has already in db')
             setError(<Alert variant="danger">
               Email is already registered.
@@ -74,12 +74,16 @@ export default function LandingForm(props) {
             return;
           }
           setError('');
-          props.setToken(email);
+          
+          
           
           axios.post(`/Users`, { email: email, password: password })
             .then(res => {
               console.log(res);
               console.log(res.data);
+              // props.setToken(password);
+              setUserId(res.data);
+              props.setToken(res.data);
             })
         
       })

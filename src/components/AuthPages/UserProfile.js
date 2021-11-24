@@ -1,15 +1,16 @@
 import React from 'react';
-import RecipeItem from '../UserRecipes';
+import useToken from '../../hooks/useToken';
 // User Profile needs to read from the cookie and return the users Recipes based on the ID 
 
 
 export default function UserProfile() {
-
+const userIdToken = useToken();
+const user_Id = userIdToken.token;
 
   return (
     <div>
       <h2> User Login Profile</h2>
-      {/* <li> ${cookie.userId}  </li>  */}
+      <li> {user_Id} </li> 
     </div>
   );
 }
