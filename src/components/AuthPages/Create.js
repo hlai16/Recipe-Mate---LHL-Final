@@ -43,12 +43,13 @@ const handleSubmit = (
     likes: likes,
     image: image,
   };
-  console.log("Data to be posted ", data);
+  console.log("Data to be posted ", { ...data });
   axios.post(`users/${user_id}/recipes`, { ...data });
 };
 
 export default function Create(props) {
-  const userId = useToken();
+  const userIdToken = useToken();
+  const userId = userIdToken.token;
   const [user_id, setUser] = useState(`${userId}`);
   const [category, setCategory] = useState("");
   const [recName, setrecName] = useState("");
