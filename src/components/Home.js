@@ -12,9 +12,9 @@ function Home(props) {
             <div className="HeroImg">
                 <div className="redBorder"></div>
                 <img
-                    src=""
+                    src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/master/public/images/heroImg%20Large.jpeg?raw=true"
                     alt="Hero Img"
-                    width="550"
+                    width="1200"
                 />
             </div>
             <section className="sidebar">
