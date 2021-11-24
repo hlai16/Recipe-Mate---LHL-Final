@@ -12,7 +12,7 @@ function Home(props) {
             <div className="HeroImg">
                 <div className="redBorder"></div>
                 <img
-                    src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/feature/login/public/images/heroImg%20Large.jpeg?raw=true"
+                    src=""
                     alt="Hero Img"
                     width="550"
                 />
