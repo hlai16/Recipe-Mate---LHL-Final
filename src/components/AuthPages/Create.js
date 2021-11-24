@@ -1,21 +1,11 @@
-import React, { useState, Component } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import NavBar from "../NavBar";
-import Buttons from "../Buttons.js";
 import useToken from "../../hooks/useToken";
-import './create.scss';
+import "./create.scss";
 import "./";
 
-import {
-  Form,
-  Nav,
-  Container,
-  Col,
-  Row,
-  NavDropdown,
-  FormControl,
-  Button,
-} from "react-bootstrap";
+import { Form, Container, Col, Row, FormControl } from "react-bootstrap";
 
 const handleSubmit = (
   user_id,
@@ -59,36 +49,6 @@ export default function Create(props) {
   const likes = 0;
   const [image, setImage] = useState("");
 
-
-  // const handleCreateRecipe = (event) => {
-
-  //   event.preventDefault()
-  //   axios.get('/Users')
-  //     .then((all, res) => {
-  //       const filterDataByEmail = all.data.filter(user => user.email === userId)
-  //       console.log('filterDataByEmail', filterDataByEmail)
-  //       setUser(filterDataByEmail[0].id);
-  //       console.log('user_id', user_id)
-  //     })
-  //   const data = {
-  //     user_id: user_id,
-  //     name: recName,
-  //     category: category,
-  //     description: description,
-  //     ingredients: ingredients,
-  //     steps: steps,
-  //     servings: servings,
-  //     time: time,
-  //     likes: likes,
-  //     image: image,
-  //   };
-  //   axios.post(`/users/${user_id}/recipes`, data)
-  //     .then((all, res) => {
-  //       console.log('res', res);
-  //       console.log('all', all);
-  //       // console.log(res.data);
-  //     })
-  // };
 
   return (
     <div>
@@ -182,29 +142,27 @@ export default function Create(props) {
                     required
                     value={image}
                     onChange={(e) => setImage(e.target.value)}
-                    required
                   />
                 </Form.Group>
               </Form>
               <input
                 type="button"
                 className="button button--small"
-                value="Submit Recipe"
-                // onClick={handleCreateRecipe}
-              onClick={() =>
-                handleSubmit(
-                  user_id,
-                  recName,
-                  category,
-                  description,
-                  ingredients,
-                  steps,
-                  servings,
-                  time,
-                  likes,
-                  image
-                )
-              }
+                value="Submit Recipe"          
+                onClick={() =>
+                  handleSubmit(
+                    user_id,
+                    recName,
+                    category,
+                    description,
+                    ingredients,
+                    steps,
+                    servings,
+                    time,
+                    likes,
+                    image
+                  )
+                }
               />
             </Col>
             <Col></Col>
