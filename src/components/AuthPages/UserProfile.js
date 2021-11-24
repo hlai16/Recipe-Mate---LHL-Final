@@ -1,5 +1,5 @@
 import React from 'react';
-import RecipeItem from '../RecipeItem';
+import RecipeItem from '../UserRecipes';
 // User Profile needs to read from the cookie and return the users Recipes based on the ID 
 
 

@@ -4,9 +4,8 @@ import NavBar from "../NavBar";
 import Buttons from "../Buttons.js";
 import useToken from "../../hooks/useToken";
 import './create.scss';
-
-
 import "./";
+
 import {
   Form,
   Nav,
@@ -49,8 +48,7 @@ const handleSubmit = (
 
 export default function Create(props) {
   const userIdToken = useToken();
-  const userId = userIdToken.token;
-  const [user_id, setUser] = useState(`${userId}`);
+  const user_id = userIdToken.token;
   const [category, setCategory] = useState("");
   const [recName, setrecName] = useState("");
   const [description, setDescription] = useState("");
@@ -58,7 +56,7 @@ export default function Create(props) {
   const [steps, setSteps] = useState("");
   const [servings, setServings] = useState("");
   const [time, setTime] = useState("");
-  const [likes, setLikes] = useState("0");
+  const likes = 0;
   const [image, setImage] = useState("");
 
   return (
