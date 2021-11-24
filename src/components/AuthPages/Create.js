@@ -48,9 +48,9 @@ const handleSubmit = (
 };
 
 export default function Create(props) {
-  const userEmailToken = useToken();
-  const userEmail = userEmailToken.token;
-  const [user_id, setUser] = useState('');
+  const userIdToken = useToken();
+  const userId = userIdToken.token;
+  const [user_id, setUser] = useState(`${userId}`);
   const [category, setCategory] = useState("");
   const [recName, setrecName] = useState("");
   const [description, setDescription] = useState("");
@@ -67,11 +67,12 @@ export default function Create(props) {
     event.preventDefault()
     axios.get('/Users')
       .then((all, res) => {
-        const filterDataForEmail = all.data.filter(user => user.email === userEmail)
+        const filterDataForEmail = all.data.filter(user => user.email === userId)
         console.log('filterDataForEmail', filterDataForEmail)
         setUser(filterDataForEmail[0].id);
+        console.log('user_id', user_id)
       })
-    let data = {
+    const data = {
       user_id: user_id,
       name: recName,
       category: category,
@@ -100,7 +101,7 @@ export default function Create(props) {
             <Col></Col>
             <Col>
               <h2>Create Recipe</h2>
-              <Form onSubmit={handleCreateRecipe}>
+              <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb- 3">
                   <Form.Label>Recipe Name:</Form.Label>
                   <Form.Control
@@ -191,21 +192,21 @@ export default function Create(props) {
                 type="button"
                 className="button button--small"
                 value="Submit Recipe"
-                onClick={handleCreateRecipe}
-              // onClick={() =>
-              //   handleSubmit(
-              //     user_id,
-              //     recName,
-              //     category,
-              //     description,
-              //     ingredients,
-              //     steps,
-              //     servings,
-              //     time,
-              //     likes,
-              //     image
-              //   )
-              // }
+                // onClick={handleCreateRecipe}
+              onClick={() =>
+                handleSubmit(
+                  user_id,
+                  recName,
+                  category,
+                  description,
+                  ingredients,
+                  steps,
+                  servings,
+                  time,
+                  likes,
+                  image
+                )
+              }
               />
             </Col>
             <Col></Col>

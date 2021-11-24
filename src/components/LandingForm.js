@@ -47,7 +47,7 @@ export default function LandingForm(props) {
             console.log('email', email)
             if (user.password === password) {
               console.log('pwd', password)
-              props.setToken(user.email)
+              props.setToken(user.id)
               setError('');
             }
           }
@@ -63,10 +63,10 @@ export default function LandingForm(props) {
     event.preventDefault()
     axios.get('/Users')
       .then((all, res) => {
-        const mapData = all.data.map(user => user.email);
+        const filterData = all.data.filter(user => user.email === email);
           
-          if (mapData.includes(email)) {
-            console.log('email', email);
+          if (filterData.length > 0) {
+            console.log('filterData', filterData);
             console.log('email has already in db')
             setError(<Alert variant="danger">
               Email is already registered.
@@ -74,12 +74,16 @@ export default function LandingForm(props) {
             return;
           }
           setError('');
-          props.setToken(email);
+          
+          
           
           axios.post(`/Users`, { email: email, password: password })
             .then(res => {
               console.log(res);
               console.log(res.data);
+              // props.setToken(password);
+              setUserId(res.data);
+              props.setToken(res.data);
             })
         
       })
