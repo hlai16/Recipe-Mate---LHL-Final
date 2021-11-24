@@ -5,6 +5,7 @@ import './index.scss';
 
 
 
+
 export default function Search(props) {
   return (
     <div className="search-categories">

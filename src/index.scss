@@ -39,8 +39,9 @@ h6 {
     font-size: 20px;
   }
 
-  .navSearchButton {
-    width: 30%;
+  .navDiv {
+    position: fixed;
+    top: 0;
   }
   .HeroImg {
     visibility: collapse;
@@ -54,12 +55,23 @@ h6 {
     Form {
       width: 95%;
     }
+
   }
   .button {
     min-width: 10em;
     padding: 1em auto;
     min-height: 3em;
   }
+  .search-categories--inner {
+    h2 {
+      margin-top: 2em;
+    }
+  }
+  .search-categories--homeChefOptions, 
+  .search-categories--homeScientistOptions {
+    flex-direction: column;
+  }
+  
 }
 
 @media only screen and (max-width: 500px) {
