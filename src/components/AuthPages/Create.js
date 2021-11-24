@@ -2,6 +2,7 @@ import React, { useState, Component } from "react";
 import axios from "axios";
 import NavBar from "../NavBar";
 import Buttons from "../Buttons.js";
+import useToken from "../../hooks/useToken";
 
 
 import "./";
@@ -46,8 +47,8 @@ const handleSubmit = (
 };
 
 export default function Create(props) {
-  // const userId = readCookie();
-  const [user_id, setUser] = useState("2");
+  const userId = useToken();
+  const [user_id, setUser] = useState(`${userId}`);
   const [category, setCategory] = useState("");
   const [recName, setrecName] = useState("");
   const [description, setDescription] = useState("");
