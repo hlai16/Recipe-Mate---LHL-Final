@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import './RecipeById.scss';
 
 export default function RecipeById(props) {
   const [recipeById, setRecipeById] = useState('');
