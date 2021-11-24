@@ -1,3 +1,22 @@
 @import '../../styles/mixins.scss';
 @import '../../styles/variables.scss';
 
+.recipeUrlDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5em;
+    background-color: $bkg-color;
+    border-radius: $border-radius;
+    padding: 5em;
+    .likesDiv {
+        width: 9%;
+        border: $border;
+        border-radius: $border-radius;
+        .likes {
+            padding: 30px;
+            padding-left: 1em;
+        }
+    }
+    
+}
