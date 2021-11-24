@@ -7,12 +7,14 @@ import NavBar from '../NavBar';
 export default function SingleRecipe(props) {
 
   const recipeId = 1; // hardcoded. Should be replaced with search, link, whatever. props, maybe?
-  
-  return(
+
+  return (
     <>
-    <NavBar setToken={ props.setToken } />
-    <h2>Recipe Presentation</h2>
-    <RecipeById recipeId={recipeId}/>
-    <Comments recipeId={recipeId}/>
-  </>);
+      <NavBar setToken={props.setToken} />
+      <div className="recipeUrlDiv">
+        <h2>Recipe Presentation</h2>
+        <RecipeById recipeId={recipeId} />
+        <Comments recipeId={recipeId} />
+      </div>
+    </>);
 }
