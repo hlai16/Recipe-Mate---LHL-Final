@@ -1,11 +1,10 @@
 
 import Buttons from './Buttons.js';
-// import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-// import { useNavigate } from 'react-router-dom';
-import { useState } from "react";
 import { Form } from "react-bootstrap";
-import { Navigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
+// import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+// import { useNavigate, Navigate } from 'react-router-dom';
+// import { useState } from "react";
 
 async function signupUser(credentials) {
     return fetch('http://localhost:3001/login', {
@@ -43,10 +42,7 @@ function Signup({ setToken, error, onCancel, onSubmit, setEmail, setPassword, em
     return (
         <Form onSubmit={onSubmit}>
             <h4>Please enter your signup info:</h4>
-            {/* <Form.Group className="mb-3" controlId="formBasicUsername">
-                <Form.Label>User Name</Form.Label>
-                <Form.Control type="username" placeholder="Enter username" username={username} onChange={(event) => setUsername(event.target.value)} />
-            </Form.Group> */}
+      
             <p>{error}</p>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
