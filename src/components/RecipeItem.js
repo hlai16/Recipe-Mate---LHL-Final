@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { readCookie } from "../util";
+import useToken from "../hooks/useToken";
 import axios from "axios";
 import { Navbar } from "react-bootstrap";
 
 export default function RecipeItem(props) {
-  const userId = readCookie();
+  const userIdToken = useToken();
+  const userId = userIdToken.token;
   const [recipe, setRecipe] = useState([]);
   useEffect(() => {
     axios.get(`/users/${userId}/recipes`).then((results) => {

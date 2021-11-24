@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { readCookie } from "../../util";
+import useToken from "../../hooks/useToken";
 import axios from "axios";
 
 export default function Comments(props) {
-  //const userId = readCookie();
+  const userIdToken = useToken();
+  const userId = userIdToken.token;
   const [commentsByRecipeId, setCommentsByRecipeId] = useState([]);
 
   const recipeId = props.recipeId
