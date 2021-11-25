@@ -6,10 +6,10 @@
     flex-direction: column;
     justify-content: center;
     align-content: stretch;
-    margin: 5em;
+    margin: 5em 2.5em;
     background-color: $bkg-color;
     border-radius: $border-radius;
-    padding: 5em;
+    padding: 2.5em;
     box-shadow: 0 5px 10px #777;
     .likesDiv {
         width: 9%;
@@ -22,7 +22,7 @@
         }
     }
     .recipeUrlDiv--img {
-        max-width: 90%;
+        min-width: 70%;
         border: $border;
         border-radius: $border-radius;
         margin: 3em auto;
@@ -39,7 +39,7 @@
         
     }
     .recipeUrlDiv--thumbnail {
-        max-width: 15%;
+        width: 15%;
         border-radius: $border-radius;
         img {
             max-width: 100%;
