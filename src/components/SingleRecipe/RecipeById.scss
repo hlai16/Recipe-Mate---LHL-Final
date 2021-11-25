@@ -43,17 +43,6 @@
         }
     }
     
-    // .favoriteDiv {
-    //     width: 9%;
-    //     border: $border;
-    //     border-radius: $border-radius;
-    //     background-color: $accent-color;
-    //     color: #fff;
-    //     .favorite {
-    //         padding: 30px;
-    //         padding-left: 1em;
-    //     }
-    // }
     .recipeUrlDiv--img {
         min-width: 70%;
         border: $border;
@@ -63,6 +52,16 @@
             width: 100%;
             border-radius: $border-radius;
         }
+    }
+    // th, td {
+    //     border: $border;
+    // }
+    th {
+        width: 30%;
+    }
+
+    td {
+        max-width: 75%;
     }
     tbody {
         border-bottom: 3px dashed $black;
@@ -74,8 +73,10 @@
     }
     .otherRecipesBySameUser--inner {
         display: flex;
-        // flex-wrap:wrap;
-        flex-shrink: 2;
+        flex-wrap:wrap;
+        // justify-content: center;
+        // align-items: center;
+        // flex-shrink: 2;
         width: 90%;
         > div {
             border: $border;

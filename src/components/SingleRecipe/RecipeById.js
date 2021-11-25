@@ -45,11 +45,11 @@ export default function RecipeById(props) {
     <div className="likesDiv">
       <button><h1 className="likes"><FontAwesomeIcon icon={faThumbsUp} /></h1>{recipeById.likes}</button>
     </div>
-    <form className="favoriteDiv">
+    <div className="favoriteDiv">
       <button onClick={populateFavorite}>
         <h1 className="favorite"><FontAwesomeIcon icon={faHeart} /></h1>
       </button>
-    </form>
+    </div>
     <div className="recipeUrlDiv--img">
       <img src={recipeById.image} alt="display image" />
     </div>
