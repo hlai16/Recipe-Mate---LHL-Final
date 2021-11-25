@@ -27,7 +27,7 @@ function NavBar(props) {
           </Navbar.Collapse>
         </Navbar>
       </section>
-      <div classNAME="routesDiv">
+      <div className="routesDiv">
         
       </div>
     </section>

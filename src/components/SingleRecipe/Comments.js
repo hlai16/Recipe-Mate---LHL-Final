@@ -5,21 +5,21 @@ import axios from "axios";
 export default function Comments(props) {
   const userIdToken = useToken();
   const userId = userIdToken.token;
-  const [commentsByRecipeId, setCommentsByRecipeId] = useState([]);
+  
 
   const recipeId = props.recipeId
 
   useEffect(() => {
     axios
       .get(`/Recipes/${recipeId}/comments`)
-      .then((results) => setCommentsByRecipeId(results.data))
+      .then((results) => props.setCommentsByRecipeId(results.data))
     }, []);
 
   return (
     <div>
 
-      <div>{commentsByRecipeId.map(comment => (
-        <div>
+      <div>{props.commentsByRecipeId.map(comment => (
+        <div key={comment.id}>
           <div>User ID of comment: {comment.user_id}</div>
           <div>Comment description: {comment.description}</div>
         </div>))}    

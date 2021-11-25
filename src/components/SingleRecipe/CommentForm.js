@@ -3,21 +3,6 @@ import useToken from "../../hooks/useToken";
 import axios from "axios";
 import { Form } from "react-bootstrap";
 
-const handleSubmit = (
-  recipe_id,
-  user_id,
-  description
-
-) => {
-  
-  let data = {
-    recipe_id: recipe_id,
-    user_id: user_id,
-    description: description
-  };
-  console.log("Data to be posted ", { ...data });
-  axios.post(`/Recipes/${recipe_id}/comments`, { ...data })
-};
 
 export default function CommentForm(props) {
   const userIdToken = useToken();
@@ -25,9 +10,27 @@ export default function CommentForm(props) {
   const recipe_id = props.recipeId
   const [description, setDescription] = useState([]);
 
+  const handleSubmit = (
+    recipe_id,
+    user_id,
+    description
+  
+  ) => {
+    
+    let data = {
+      recipe_id: recipe_id,
+      user_id: user_id,
+      description: description
+    };
+    console.log("Data to be posted ", { ...data });
+    axios.post(`/Recipes/${recipe_id}/comments`, { ...data })
+    .then(response => props.setCommentsByRecipeId(prev => [...prev, response.data[0]]))
+    .then(()=> setDescription(''));
+  };
+
   return (
     <div>
-      <Form onSubmit={handleSubmit}>
+      <Form>
         <Form.Group className="mb- 3">
           <Form.Label>Recipe Name:</Form.Label>
           <Form.Control
@@ -48,3 +51,4 @@ export default function CommentForm(props) {
     </div>
   );
 }
+
