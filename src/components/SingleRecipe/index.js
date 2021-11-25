@@ -8,8 +8,8 @@ import NavBar from '../NavBar';
 
 export default function SingleRecipe(props) {
   const [commentsByRecipeId, setCommentsByRecipeId] = useState([]);
-  const location = useLocation();
-  const recipeId = location.state || []
+ 
+  const recipeId = 1;
 
   return(
     <>
