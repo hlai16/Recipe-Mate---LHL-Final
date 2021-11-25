@@ -13,15 +13,31 @@
     padding: 2.5em;
     box-shadow: 0 5px 10px #777;
     .likesDiv {
-        width: 9%;
-        border: $border;
-        border-radius: $border-radius;
-        background-color: $confirm-color;
-        .likes {
-            padding: 30px;
-            padding-left: 1em;
+        button {
+            border: none;
+            // border-radius: $border-radius;
+            background-color: transparent;
+            display: flex;
+        }
+        h1 {
+            color: $confirm-color;
+        }
+        h1:hover,
+        h1:focus-within {
+            color: #006aff;
         }
     }
+    // .favoriteDiv {
+    //     width: 9%;
+    //     border: $border;
+    //     border-radius: $border-radius;
+    //     background-color: $accent-color;
+    //     color: #fff;
+    //     .favorite {
+    //         padding: 30px;
+    //         padding-left: 1em;
+    //     }
+    // }
     .recipeUrlDiv--img {
         min-width: 70%;
         border: $border;

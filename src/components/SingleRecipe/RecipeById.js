@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import './RecipeById.scss';
+import Favorite from "../Favorite";
 
 
 // get our fontawesome imports
-import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import { faThumbsUp,faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function RecipeById(props) {
@@ -31,8 +32,12 @@ export default function RecipeById(props) {
   return (< >
     <h3>{recipeById.name}</h3>
     <div className="likesDiv">
-      <span className="likes"><FontAwesomeIcon icon={faThumbsUp} />{recipeById.likes}</span>
+    <button><h1 className="likes"><FontAwesomeIcon icon={faThumbsUp} /></h1>{recipeById.likes}</button>
     </div>
+    {/* <div className="favoriteDiv">
+      <span className="favorite"><FontAwesomeIcon icon={faHeart} />Add</span>
+    </div> */}
+    <Favorite />
     <div className="recipeUrlDiv--img">
       <img src={recipeById.image} alt="display image" />
     </div>
