@@ -18,12 +18,13 @@ export default function RecipeById(props) {
       .get(`/Recipes/${recipeId}`)
       .then((results) => setRecipeById(results.data[0]))
   }, []);
-    
+
   useEffect(() => {
     if (recipeById.user_id) {
-      axios
-        .get(`/Users/${recipeById.user_id}/recipes`)
-        .then((results) => (setMoreFromUser(results.data)))
+      axios.get(`/Users/${recipeById.user_id}/recipes`)
+        .then((results) => (
+          setMoreFromUser(results.data)
+        ))
     }
   }, [recipeById])
 
