@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import useToken from "../../hooks/useToken";
 import axios from "axios";
 import { Form } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faComment } from "@fortawesome/free-solid-svg-icons";
 
 
 export default function CommentForm(props) {
@@ -32,9 +34,11 @@ export default function CommentForm(props) {
     <div>
       <Form>
         <Form.Group className="mb- 3">
-          <Form.Label>Recipe Name:</Form.Label>
+        <h2>Leave a Comment  <FontAwesomeIcon icon={faComment} /></h2>
+
           <Form.Control
             type="text"
+            placeholder="Tell me about what you think of my recipe :)"
             name="decription"
             required
             value={description}
