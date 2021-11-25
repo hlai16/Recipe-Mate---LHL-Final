@@ -37,7 +37,7 @@ export default function RecipeById(props) {
       <img src={recipeById.image} alt="display image" />
     </div>
 
-    <img src={recipeById.image} alt="display image" height="300" width="400" />
+    {/* <img src={recipeById.image} alt="display image" height="300" width="400" /> */}
     <h4>About</h4>
     <p>{recipeById.description}</p>
     <table className="table recipe-presentation">
