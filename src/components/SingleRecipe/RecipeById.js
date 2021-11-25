@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import './RecipeById.scss';
-import { render } from "react-dom";
+
 
 // get our fontawesome imports
-import { faHome, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function RecipeById(props) {
@@ -33,8 +33,11 @@ export default function RecipeById(props) {
     <div className="likesDiv">
       <span className="likes"><FontAwesomeIcon icon={faThumbsUp} />{recipeById.likes}</span>
     </div>
+    <div className="recipeUrlDiv--img">
+      <img src={recipeById.image} alt="display image" />
+    </div>
 
-    <img src={recipeById.image_link} alt="display image" height="300" width="400" />
+    {/* <img src={recipeById.image} alt="display image" height="300" width="400" /> */}
     <h4>About</h4>
     <p>{recipeById.description}</p>
     <table className="table recipe-presentation">
@@ -64,12 +67,16 @@ export default function RecipeById(props) {
         </tr>
       </tbody>
 
-      <div>***All Recipes from This User:***</div>
-      <div>{moreFromUser.map((recipe, i) => (
-        <div key={i}>
-          <div>Recipe ID: {recipe.id}</div>
-          <div>Name: {recipe.name}</div>
-          <div>Image: <img src={recipe.image_link} alt="display image" height="50" width="80" /></div>
+      <div className="otherRecipesBySameUser"><h4>***All Recipes from This User:***</h4></div>
+      <div className="otherRecipesBySameUser--inner">{moreFromUser.map(recipe => (
+        <div>
+          {/* <div>Recipe ID: {recipe.id}</div> */}
+
+          <div className="recipeUrlDiv--thumbnail"><img src={recipe.image} alt="display image" /></div>
+          <div className="otherRecipesBySameUser--text">
+            <h5>{recipe.name}</h5>
+            <div>{recipe.description}</div>
+          </div>
         </div>))}
       </div>
 

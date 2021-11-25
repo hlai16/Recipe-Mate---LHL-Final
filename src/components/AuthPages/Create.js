@@ -87,6 +87,8 @@ export default function Create(props) {
                 <Form.Group>
                   <Form.Label> Description:</Form.Label>
                   <FormControl
+                    as="textarea"
+                    aria-label="With textarea"
                     type="text"
                     name="description"
                     required
@@ -97,6 +99,8 @@ export default function Create(props) {
                 <Form.Group>
                   <Form.Label> Ingredients:</Form.Label>
                   <Form.Control
+                    as="textarea"
+                    aria-label="With textarea"
                     type="text"
                     name="ingredients"
                     required
@@ -107,6 +111,8 @@ export default function Create(props) {
                 <Form.Group>
                   <Form.Label> Steps:</Form.Label>
                   <Form.Control
+                    as="textarea"
+                    aria-label="With textarea"
                     type="text"
                     name="steps"
                     required
@@ -148,7 +154,7 @@ export default function Create(props) {
               <input
                 type="button"
                 className="button button--small"
-                value="Submit Recipe"          
+                value="Submit Recipe"
                 onClick={() =>
                   handleSubmit(
                     user_id,

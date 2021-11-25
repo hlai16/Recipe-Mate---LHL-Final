@@ -5,18 +5,92 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 5em;
+    align-content: stretch;
+    margin: 5em 2.5em;
+    margin-top: 12em;
     background-color: $bkg-color;
     border-radius: $border-radius;
-    padding: 5em;
+    padding: 2.5em;
+    box-shadow: 0 5px 10px #777;
     .likesDiv {
         width: 9%;
         border: $border;
         border-radius: $border-radius;
+        background-color: $confirm-color;
         .likes {
             padding: 30px;
             padding-left: 1em;
         }
     }
-    
+    .recipeUrlDiv--img {
+        min-width: 70%;
+        border: $border;
+        border-radius: $border-radius;
+        margin: 3em auto;
+        img {
+            width: 100%;
+            border-radius: $border-radius;
+        }
+    }
+    tbody {
+        border-bottom: 3px dashed $black;
+    }
+    .otherRecipesBySameUser {
+        margin-top: 3em;
+        margin-bottom: 1.5em;
+    }
+    .otherRecipesBySameUser--inner {
+        display: flex;
+        > div {
+            border: $border;
+            border: 3px solid #3736369f;
+            border-radius: $border-radius;
+            background-color: $white;
+            margin-right: 1em;
+            margin-bottom: 1em;
+            // padding: .5em auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            // grid-template-rows: 1fr 2fr;
+            grid-gap: .5em;
+        }
+        > div:hover,
+        > div:focus-within {
+            border: 5px solid $confirm-color;
+        }
+        div {
+            min-width: 30%;
+        }
+    }
+    .recipeUrlDiv--thumbnail {
+        min-width: 100%;
+        grid-row: 1/-1;
+        border-radius: $border-radius;
+        
+        img {
+            max-width: 100%;
+            border-radius: $border-radius;
+            border: 3px solid $white;
+        }
+    }
+    // .recipeUrlDiv--thumbnail:hover,
+    // .recipeUrlDiv--thumbnail:focus-within {
+    //     border: 3px solid $confirm-color;
+    // }
+    .otherRecipesBySameUser--text {
+        // border: $border;
+        width: 90%;
+        grid-column: 2/-1;
+        padding-right: .5em;
+        div {
+            width: 100%;
+        }
+    }
+    .leaveCommentsDiv {
+        background-color: #fef9fa9b;
+        margin-top: 3em;
+        padding: 2em;
+        border: $border;
+        border-radius: $border-radius;
+    }
 }
