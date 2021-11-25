@@ -1,6 +1,7 @@
 import React from 'react';
 import RecipeById from './RecipeById';
 import Comments from './Comments';
+import CommentForm from './CommentForm';
 import NavBar from '../NavBar';
 
 
@@ -15,6 +16,7 @@ export default function SingleRecipe(props) {
         <h2>Recipe Presentation</h2>
         <RecipeById recipeId={recipeId} />
         <Comments recipeId={recipeId} />
+        <CommentForm recipeId={recipeId}/>
       </div>
     </>);
 }
