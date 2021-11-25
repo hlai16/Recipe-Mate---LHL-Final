@@ -12,7 +12,6 @@ function SearchRecipes() {
       .get(`/search_recipes?search=${event.target[0].value}`)
       .then((res) => {
         navigate("/recipes", { state: res.data })
-      }).then(() => {
       })
   }
 

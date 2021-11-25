@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation } from "react-router";
 import RecipeById from './RecipeById';
 import Comments from './Comments';
 import NavBar from '../NavBar';
@@ -6,9 +7,10 @@ import NavBar from '../NavBar';
 
 export default function SingleRecipe(props) {
 
-  const recipeId = 1; // hardcoded. Should be replaced with search, link, whatever. props, maybe?
+  const location = useLocation();
+  const recipeId = location.state || []
 
-  return (
+  return(
     <>
       <NavBar setToken={props.setToken} />
       <div className="recipeUrlDiv">

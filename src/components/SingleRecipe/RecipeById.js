@@ -18,13 +18,12 @@ export default function RecipeById(props) {
       .get(`/Recipes/${recipeId}`)
       .then((results) => setRecipeById(results.data[0]))
   }, []);
-
+    
   useEffect(() => {
     if (recipeById.user_id) {
-      axios.get(`/Users/${recipeById.user_id}/recipes`)
-        .then((results) => (
-          setMoreFromUser(results.data)
-        ))
+      axios
+        .get(`/Users/${recipeById.user_id}/recipes`)
+        .then((results) => (setMoreFromUser(results.data)))
     }
   }, [recipeById])
 
@@ -37,6 +36,7 @@ export default function RecipeById(props) {
       <img src={recipeById.image} alt="display image" />
     </div>
 
+    <img src={recipeById.image} alt="display image" height="300" width="400" />
     <h4>About</h4>
     <p>{recipeById.description}</p>
     <table className="table recipe-presentation">
@@ -69,9 +69,9 @@ export default function RecipeById(props) {
       <div className="otherRecipesBySameUser"><h4>***All Recipes from This User:***</h4></div>
       <div>{moreFromUser.map(recipe => (
         <div>
-          {/* <div>Recipe ID: {recipe.id}</div> */}
-          <div>{recipe.name}</div>
-          <div className="recipeUrlDiv--thumbnail"><img src={recipeById.image} alt="display image" /></div>
+          <div>Recipe ID: {recipe.id}</div>
+          <div>Name: {recipe.name}</div>
+          <div>Image: <img src={recipe.image} alt="display image" height="50" width="80"/></div>
         </div>))}
       </div>
 
