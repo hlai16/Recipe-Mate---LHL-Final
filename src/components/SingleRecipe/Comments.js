@@ -12,7 +12,7 @@ export default function Comments(props) {
   useEffect(() => {
     axios
       .get(`/Recipes/${recipeId}/comments`)
-      .then((results) => props.setComments
+      .then((results) => props.setCommentsByRecipeId
       
       (results.data))
     }, []);
