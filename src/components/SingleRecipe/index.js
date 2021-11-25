@@ -7,7 +7,7 @@ import NavBar from '../NavBar';
 
 export default function SingleRecipe(props) {
 
-  const recipeId = 1; // hardcoded. Should be replaced with search, link, whatever. props, maybe?
+  const recipeId = 2; // hardcoded. Should be replaced with search, link, whatever. props, maybe?
 
   return (
     <>

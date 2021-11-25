@@ -9,7 +9,7 @@ const handleSubmit = (
   description
 
 ) => {
-  // e.preventDefault();
+  
   let data = {
     recipe_id: recipe_id,
     user_id: user_id,
@@ -43,7 +43,7 @@ export default function CommentForm(props) {
         type="button"
         className="button button--small"
         value="comment"
-        onClick={() => handleSubmit(user_id, recipe_id, description)}
+        onClick={() => handleSubmit (recipe_id, user_id, description)}
       />
     </div>
   );
