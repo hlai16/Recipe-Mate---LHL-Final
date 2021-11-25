@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import './RecipeById.scss';
-import { render } from "react-dom";
+
 
 // get our fontawesome imports
-import { faHome, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function RecipeById(props) {
@@ -68,11 +68,15 @@ export default function RecipeById(props) {
       </tbody>
 
       <div className="otherRecipesBySameUser"><h4>***All Recipes from This User:***</h4></div>
-      <div>{moreFromUser.map(recipe => (
+      <div className="otherRecipesBySameUser--inner">{moreFromUser.map(recipe => (
         <div>
-          <div>Recipe ID: {recipe.id}</div>
-          <div>Name: {recipe.name}</div>
-          <div>Image: <img src={recipe.image} alt="display image" height="50" width="80"/></div>
+          {/* <div>Recipe ID: {recipe.id}</div> */}
+
+          <div className="recipeUrlDiv--thumbnail"><img src={recipe.image} alt="display image" /></div>
+          <div className="otherRecipesBySameUser--text">
+            <h5>{recipe.name}</h5>
+            <div>{recipe.description}</div>
+          </div>
         </div>))}
       </div>
 

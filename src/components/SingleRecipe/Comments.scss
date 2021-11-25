@@ -30,7 +30,7 @@
 // Posted Comments:
 
 .postedCommentsDiv {
-    border: $border;
+    border: 3px solid #54514979;
     border-radius: $border-radius;
     margin: 1em auto;
     padding: 1em;
@@ -40,9 +40,6 @@
         border-bottom: 1px solid lighten($black, 55%);
         width: 100%;
         // margin-left: 1rem;
-        div > span {
-            color: $accent-color;
-        }
       }
       .postedComments--comments {
           margin-top: 1em;
