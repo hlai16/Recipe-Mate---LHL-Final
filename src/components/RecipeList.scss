@@ -1,0 +1,11 @@
+@import '../styles/mixins.scss';
+@import '../styles/variables.scss';
+
+.recipeListDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    margin: 5em;
+    margin-top: 12em;
+}

@@ -9,7 +9,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: 5rem;
+        margin-top: 10rem;
         h2 {
             padding-top: 3rem;
             font-size: $h2;
@@ -21,7 +21,7 @@
             // width: 100%;
             border: 3px solid $black;
             border-radius: $border-radius;
-            padding: 5em;
+            padding: 2.5em;
             // background: linear-gradient($bkg-colors);
             background-color: $bkg-color;
             .search-categories--homeChefOptions, 
