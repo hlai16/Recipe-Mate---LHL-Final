@@ -25,10 +25,10 @@ export default function Search(props) {
       <NavBar setToken={props.setToken} />
       <div className="search-categories--inner">
         {/* <div classname="search-categories--inner--inner"> */}
-        <h2>Browse Recipes:</h2>
+        <h1>Browse Recipes:</h1>
         <section className="search-categories--categories">
           <section className="search-category search-categories--homeChef">
-            <Buttons medium>Home Chef:</Buttons>
+            <h2>Home Chef:</h2>
 
             <div className="search-categories--homeChefOptions">
               <div className="search-categories--homeChefOption homeChefOption1">
@@ -36,33 +36,33 @@ export default function Search(props) {
                   <img src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/feature/search-index/public/images/breakfast.jpeg?raw=true"
                     alt="breakfast" onClick={handleClick} id={1}/>
                 </div>
-                <h3>Breakfast</h3>
+                <p>Breakfast</p>
               </div>
               <div className="search-categories--homeChefOption homeChefOption2">
                 <div className="search-categories--homeChefOptionImg homeChefOptionImg2">
                   <img src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/feature/search-index/public/images/lunch.jpg?raw=true"
                     alt="lunch" onClick={handleClick} id={2}/>
                 </div>
-                <h3>Lunch</h3>
+                <p>Lunch</p>
               </div>
               <div className="search-categories--homeChefOption homeChefOption3">
                 <div className="search-categories--homeChefOptionImg homeChefOptionImg3">
                   <img src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/feature/search-index/public/images/dinner.jpg?raw=true"
                     alt="dinner" onClick={handleClick} id={3}/>
                 </div>
-                <h3>Dinner</h3>
+                <p>Dinner</p>
               </div>
             </div>
           </section>
           <section className="search-categories--homeScientist search-category">
-            <Buttons medium>Home Scientist:</Buttons>
+            <h2>Home Scientist:</h2>
             <div className="search-categories--homeScientistOptions">
               <div className="search-categories--homeScientistOption homeScientistOption1">
                 <div className="search-categories--homeScientistOptionImg homeScientistOptionImg1">
                   <img src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/feature/search-index/public/images/personalCare.jpg?raw=true"
                     alt="personal care" onClick={handleClick} id={4}/>
                 </div>
-                <h3>Personal Care</h3>
+                <p>Personal Care</p>
               </div>
               <div className="search-categories--homeScientistOption homeScientistOption2">
                 <div className="make-circle">
@@ -71,7 +71,7 @@ export default function Search(props) {
                       alt="other recipe ideas" onClick={handleClick} id={5}/>
                   </div>
                 </div>
-                <h3>Other</h3>
+                <p>Other</p>
               </div>
 
             </div>
