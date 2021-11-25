@@ -27,6 +27,21 @@
             color: #006aff;
         }
     }
+    .favoriteDiv {
+        button {
+            border: none;
+            // border-radius: $border-radius;
+            background-color: transparent;
+        }
+        h1 {
+            color: $accent-color;
+        }
+        h1:hover,
+        h1:focus-within {
+            color: red;
+        }
+    }
+    
     // .favoriteDiv {
     //     width: 9%;
     //     border: $border;
