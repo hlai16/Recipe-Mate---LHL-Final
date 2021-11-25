@@ -92,9 +92,13 @@ h4 {
   .recipeUrlDiv--thumbnail {
     min-width: 70%;
   }
+  .otherRecipesBySameUser {
+    min-width: 100%;
+  }
   .otherRecipesBySameUser--inner {
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    min-width: 130%;
   }
 }
 

@@ -13,6 +13,7 @@
     padding: 2.5em;
     box-shadow: 0 5px 10px #777;
     .likesDiv {
+        margin-top: 2em;
         button {
             border: none;
             // border-radius: $border-radius;
@@ -69,9 +70,13 @@
     .otherRecipesBySameUser {
         margin-top: 3em;
         margin-bottom: 1.5em;
+        width: 100%;
     }
     .otherRecipesBySameUser--inner {
         display: flex;
+        // flex-wrap:wrap;
+        flex-shrink: 2;
+        width: 90%;
         > div {
             border: $border;
             border: 3px solid #3736369f;
@@ -81,7 +86,7 @@
             margin-bottom: 1em;
             // padding: .5em auto;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             // grid-template-rows: 1fr 2fr;
             grid-gap: .5em;
         }
@@ -95,7 +100,7 @@
     }
     .recipeUrlDiv--thumbnail {
         min-width: 100%;
-        grid-row: 1/-1;
+        grid-row: 1/2;
         border-radius: $border-radius;
         
         img {
@@ -111,10 +116,11 @@
     .otherRecipesBySameUser--text {
         // border: $border;
         width: 90%;
-        grid-column: 2/-1;
-        padding-right: .5em;
+        grid-column: 1/-1;
+        margin: auto .5em;
         div {
             width: 100%;
+            
         }
     }
     .leaveCommentsDiv {

@@ -17,8 +17,13 @@ export default function RecipeById(props) {
   useEffect(() => {
     axios
       .get(`/Recipes/${recipeId}`)
-      .then((results) => setRecipeById(results.data[0]))
-    console.log('recipeById.id', recipeById.id)
+      .then((results) => {
+        // console.log('results.data[0] before setRecipeById', results.data[0])
+        setRecipeById(results.data[0])
+        console.log('results.data[0] after setRecipeById', results.data[0])
+        console.log('results.data[0].id after setRecipeById', results.data[0].id)
+      })
+
   }, []);
 
   useEffect(() => {
@@ -30,13 +35,18 @@ export default function RecipeById(props) {
     }
   }, [recipeById])
 
+  const populateFavorite = () => {
+    let favorites = JSON.parse(localStorage.getItem('favorites'));
+    console.log('favorites', favorites)
+  }
+
   return (< >
     <h3>{recipeById.name}</h3>
     <div className="likesDiv">
       <button><h1 className="likes"><FontAwesomeIcon icon={faThumbsUp} /></h1>{recipeById.likes}</button>
     </div>
     <form className="favoriteDiv">
-      <button type="submit">
+      <button onClick={populateFavorite}>
         <h1 className="favorite"><FontAwesomeIcon icon={faHeart} /></h1>
       </button>
     </form>
