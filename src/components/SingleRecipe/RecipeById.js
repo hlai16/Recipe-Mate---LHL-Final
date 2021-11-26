@@ -3,6 +3,7 @@ import axios from "axios";
 import './RecipeById.scss';
 import { Card, Button } from "react-bootstrap";
 import Buttons from '../Buttons';
+import { useNavigate } from "react-router";
 // import Favorite from "../Favorite";
 
 
@@ -38,6 +39,9 @@ export default function RecipeById(props) {
     }
   }, [recipeById])
 
+
+  const handleClick = function() {setRecipeById(3)
+  }
 
 
   const addToProfile = function () {
@@ -103,19 +107,21 @@ export default function RecipeById(props) {
       </tbody>
 
       <div className="otherRecipesBySameUser"><h4>***All Recipes from This User:***</h4></div>
-      <div className="otherRecipesBySameUser--inner">{moreFromUser.map(recipe => (
+      <div className="otherRecipesBySameUser--inner">{moreFromUser.map((recipe) => (
         <div>
-
+           
           <Card style={{ width: '18rem' }}>
+ 
             <Card.Img variant="top" src={recipe.image} alt={recipe.name} />
             <Card.Body>
               <Card.Title>{recipe.name}</Card.Title>
               <Card.Text>
                 {recipe.description}
               </Card.Text>
-              <Buttons small>Go</Buttons>
+              <Buttons small submit={handleClick} id={recipe.id}>Go</Buttons>
             </Card.Body>
           </Card>
+          
         </div>
 
       ))}
