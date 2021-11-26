@@ -52,6 +52,13 @@ export default function Search(props) {
                 </div>
                 <p>Dinner</p>
               </div>
+              <div className="search-categories--homeChefOption homeChefOption1">
+                <div className="search-categories--homeChefOptionImg homeChefOptionImg1">
+                  <img src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/feature/search-index/public/images/logo.png?raw=true"
+                    alt="other" onClick={handleClick} id={7}/>
+                </div>
+                <p>Other</p>
+              </div>
             </div>
           </section>
           <section className="search-categories--homeScientist search-category">
@@ -63,6 +70,15 @@ export default function Search(props) {
                     alt="personal care" onClick={handleClick} id={4}/>
                 </div>
                 <p>Personal Care</p>
+              </div>
+              <div className="search-categories--homeScientistOption homeScientistOption1">
+                <div className="make-circle">
+                  <div className="search-categories--homeScientistOptionImg homeScientistOptionImg1">
+                    <img src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/feature/search-index/public/images/logo.png?raw=true"
+                      alt="kids" onClick={handleClick} id={6}/>
+                  </div>
+                </div>
+                <p>Kids</p>
               </div>
               <div className="search-categories--homeScientistOption homeScientistOption2">
                 <div className="make-circle">
