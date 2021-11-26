@@ -18,7 +18,7 @@ export default function Comments(props) {
     axios
       .get(`/Recipes/${recipeId}/comments`)
       .then((results) => props.setCommentsByRecipeId(results.data))
-  }, []);
+  }, [props.commentsByRecipeId]);
 
   // const date = new Date()
   // const today = `${date.getMonth()} - ${date.getDate()} - ${date.getFullYear()}`;
