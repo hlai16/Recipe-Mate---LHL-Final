@@ -1,5 +1,5 @@
 import React from "react";
-import classNames from "classnames";
+// import classNames from "classnames";
 import './FavoriteItem.scss';
 import Buttons from '../Buttons';
 import { faBookReader, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { Card, Button } from "react-bootstrap";
 
 export default function FavoriteItem(props) {
-    const [removeItem, setRemoveItem] = useState('')
+    // const [removeItem, setRemoveItem] = useState('')
     // const deleteItem = function () {
     //     props.setRemoveItem();
     //     localStorage.removeItem('Favorite');
@@ -30,7 +30,7 @@ export default function FavoriteItem(props) {
                             <Buttons small><FontAwesomeIcon icon={faBookReader} /></Buttons>
                         </div>
                         <div>
-                            <Buttons small><FontAwesomeIcon icon={faTrashAlt} /></Buttons>
+                            <Buttons small id={props.id} onClick={()=> props.setRemoveItem(props.id)}><FontAwesomeIcon icon={faTrashAlt} /></Buttons>
                         </div>
                     </div>
                 </Card.Body>

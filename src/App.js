@@ -10,6 +10,7 @@ import AuthPages from './components/AuthPages';
 import useToken from './hooks/useToken';
 import getRecipesWithSearch from './components/Helpers/getRecipesWithSearch';
 import RecipeList from './components/RecipeList';
+import UserProfile from './components/AuthPages/UserProfile';
 // import Login from './components/Login';
 // import UserProfile from './components/AuthPages/UserProfile';
 // import useApplicationData from "./hooks/useApplicationData";
@@ -28,6 +29,7 @@ function App() {
       <BrowserRouter>
         <Routes>
 
+            {/* <Route exact path="/" element={<UserProfile />} /> */}
             <Route exact path="/" element={<AuthPages setToken={ setToken } />} />
             <Route path="/search" element={<Search setToken={ setToken } />} />
             <Route path="/login" element={<Home setToken={setToken} />} />
