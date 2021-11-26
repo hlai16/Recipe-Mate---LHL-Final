@@ -1,6 +1,7 @@
 import React from 'react';
 import useToken from '../../hooks/useToken';
 import FavoriteItem from './FavoriteItem';
+import './FavoriteItem.scss';
 // User Profile needs to read from the cookie and return the users Recipes based on the ID 
 
 

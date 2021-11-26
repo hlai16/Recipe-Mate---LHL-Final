@@ -1,0 +1,35 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.favoriteStorage {
+    max-width: 100%;
+    margin: 2.5em;
+    h3 {
+        margin-bottom: 1em;
+    }
+    .recipeCard {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: $border;
+        border-radius: $border-radius;
+        background-color: $white;
+        .recipeCard--thumbnail {
+            width: 100%;
+            img {
+                max-width: 100%;
+            }
+        }
+        .recipeCard--text {
+            padding: auto .5em;
+            h5, div {
+                margin: .5em;
+            }
+        }
+    }
+    .recipeCard:hover,
+    .recipeCard:focus-within {
+        border: 5px solid $confirm-color;
+    }
+}
