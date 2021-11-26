@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import './RecipeById.scss';
-import { render } from "react-dom";
-import UserProfile from '../AuthPages/UserProfile';
-import AuthPages from '../AuthPages';
+import { Card, Button } from "react-bootstrap";
+import Buttons from '../Buttons';
 // import Favorite from "../Favorite";
 
 
@@ -41,7 +40,7 @@ export default function RecipeById(props) {
 
 
 
-  const addToProfile = function() {
+  const addToProfile = function () {
     let favoriteObj = {
       id: recipeById.id,
       name: recipeById.name,
@@ -106,14 +105,20 @@ export default function RecipeById(props) {
       <div className="otherRecipesBySameUser"><h4>***All Recipes from This User:***</h4></div>
       <div className="otherRecipesBySameUser--inner">{moreFromUser.map(recipe => (
         <div>
-          {/* <div>Recipe ID: {recipe.id}</div> */}
 
-          <div className="recipeUrlDiv--thumbnail"><img src={recipe.image} alt="display image" /></div>
-          <div className="otherRecipesBySameUser--text">
-            <h5>{recipe.name}</h5>
-            <div>{recipe.description}</div>
-          </div>
-        </div>))}
+          <Card style={{ width: '18rem' }}>
+            <Card.Img variant="top" src={recipe.image} alt={recipe.name} />
+            <Card.Body>
+              <Card.Title>{recipe.name}</Card.Title>
+              <Card.Text>
+                {recipe.description}
+              </Card.Text>
+              <Buttons small>Go</Buttons>
+            </Card.Body>
+          </Card>
+        </div>
+
+      ))}
       </div>
 
     </table>

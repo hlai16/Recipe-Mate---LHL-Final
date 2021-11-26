@@ -73,14 +73,14 @@
     }
     .otherRecipesBySameUser--inner {
         display: flex;
-        flex-wrap:wrap;
+        // flex-wrap:wrap;
         // justify-content: center;
         // align-items: center;
         // flex-shrink: 2;
-        width: 90%;
+        // width: 90%;
         > div {
-            border: $border;
-            border: 3px solid #3736369f;
+            // border: $border;
+            // border: 3px solid #3736369f;
             border-radius: $border-radius;
             background-color: $white;
             margin-right: 1em;
