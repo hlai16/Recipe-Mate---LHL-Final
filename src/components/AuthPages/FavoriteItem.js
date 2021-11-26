@@ -5,6 +5,7 @@ import Buttons from '../Buttons';
 import { faBookReader, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from 'react';
+import { Card, Button } from "react-bootstrap";
 
 export default function FavoriteItem(props) {
     const [removeItem, setRemoveItem] = useState('')
@@ -14,20 +15,26 @@ export default function FavoriteItem(props) {
     // }
 
     return (
-        <div className="recipeCard" onClick={props.setFavorite}>
-            <div className="recipeCard--thumbnail"><img src={props.image} alt={props.name} /></div>
-            <div className="recipeCard--text">
-                <h5>{props.name}</h5>
-                <div>{props.description}</div>
-            </div>
-            <div className="recipeCard--buttons">
-                <div>
-                    <h1 className="view"><FontAwesomeIcon icon={faBookReader} /></h1>
-                </div>
-                <div>
-                    <h1 className="delete"><FontAwesomeIcon icon={faTrashAlt} /></h1>
-                </div>
-            </div>
+        <div onClick={props.setFavorite}>
+            
+            {/* bootstrap */}
+            <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src={props.image} alt={props.name} />
+                <Card.Body>
+                    <Card.Title><h5>{props.name}</h5></Card.Title>
+                    <Card.Text>
+                        {props.description}
+                    </Card.Text>
+                    <div className="recipeCard--buttons">
+                        <div>
+                            <Buttons small><FontAwesomeIcon icon={faBookReader} /></Buttons>
+                        </div>
+                        <div>
+                            <Buttons small><FontAwesomeIcon icon={faTrashAlt} /></Buttons>
+                        </div>
+                    </div>
+                </Card.Body>
+            </Card>
         </div>
     );
 }

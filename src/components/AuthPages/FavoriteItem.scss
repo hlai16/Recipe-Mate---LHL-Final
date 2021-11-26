@@ -3,6 +3,7 @@
 
 .favoriteStorage {
     max-width: 100%;
+    // width: 18rem;
     margin: 2.5em;
     display: grid;
     grid-gap: 1em;
@@ -12,7 +13,7 @@
         grid-column: 1/-1;
     }
     .recipeCard {
-        width: 30%;
+        // width: 30%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -35,8 +36,8 @@
             padding: auto .5rem;
             display: flex;
             justify-content: end;
-            div {
-                margin: 0.5rem;
+            // div {
+            //     margin: 0.5rem;
                 h1 {
                     color: $black;
                 }
@@ -48,7 +49,7 @@
                 .view:focus-within {
                     color: $confirm-color;
                 }
-            }
+            // }
         }
     }
 }

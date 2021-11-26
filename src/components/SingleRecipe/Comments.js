@@ -24,8 +24,8 @@ export default function Comments(props) {
   // const today = `${date.getMonth()} - ${date.getDate()} - ${date.getFullYear()}`;
 
   // const timeElapsed = Date.now();
-  const current = new Date();
-  const postDate = current.toUTCString();
+  // const current = new Date();
+  // const postDate = current.toUTCString();
   return (
     // <div className="leaveCommentsDiv">
 
@@ -33,7 +33,7 @@ export default function Comments(props) {
       <div className="postedCommentsDiv">
         <div className="commentHeader">
           <div className="sr-only">User ID of comment: {comment.user_id}</div>
-          <div>Anonymous posted on:  <FontAwesomeIcon icon={faComment} /></div>
+          <div>Anonymous says  <FontAwesomeIcon icon={faComment} /></div>
         </div>
         <div className="postedComments--comments">{comment.description}</div>
       </div>))}
