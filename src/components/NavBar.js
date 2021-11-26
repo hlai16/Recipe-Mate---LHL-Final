@@ -1,6 +1,6 @@
 import Buttons from './Buttons';
 import { Link } from 'react-router-dom';
-import { Navbar, Form, Nav, NavDropdown, FormControl, Button, Row, Col } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 
 import SearchRecipes from './SearchRecipes';
 function NavBar(props) {
@@ -27,7 +27,7 @@ function NavBar(props) {
           </Navbar.Collapse>
         </Navbar>
       </section>
-      <div classNAME="routesDiv">
+      <div className="routesDiv">
         
       </div>
     </section>
