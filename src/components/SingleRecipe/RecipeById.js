@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import './RecipeById.scss';
+import { render } from "react-dom";
+import UserProfile from '../AuthPages/UserProfile';
+import AuthPages from '../AuthPages';
 // import Favorite from "../Favorite";
 
 
 // get our fontawesome imports
 import { faThumbsUp, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Favorites from "../AuthPages/Favorites";
 
 export default function RecipeById(props) {
   const [recipeById, setRecipeById] = useState('');
@@ -35,9 +39,24 @@ export default function RecipeById(props) {
     }
   }, [recipeById])
 
-  const populateFavorite = () => {
-    let favorites = JSON.parse(localStorage.getItem('favorites'));
-    console.log('favorites', favorites)
+
+
+  const addToProfile = function() {
+    let favoriteObj = {
+      id: recipeById.id,
+      name: recipeById.name,
+      category: recipeById.category,
+      category_name: recipeById.category_name,
+      description: recipeById.description,
+      image: recipeById.image,
+      ingredients: recipeById.ingredients,
+      likes: recipeById.likes,
+      servings: recipeById.servings,
+      steps: recipeById.steps,
+      time: recipeById.time,
+      user_id: recipeById.user_id
+    }
+    localStorage.setItem('Favorite', JSON.stringify(favoriteObj));
   }
 
   return (< >
@@ -46,7 +65,7 @@ export default function RecipeById(props) {
       <button><h1 className="likes"><FontAwesomeIcon icon={faThumbsUp} /></h1>{recipeById.likes}</button>
     </div>
     <div className="favoriteDiv">
-      <button onClick={populateFavorite}>
+      <button onClick={addToProfile}>
         <h1 className="favorite"><FontAwesomeIcon icon={faHeart} /></h1>
       </button>
     </div>
