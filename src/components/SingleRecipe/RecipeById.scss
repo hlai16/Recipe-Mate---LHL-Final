@@ -53,19 +53,23 @@
             border-radius: $border-radius;
         }
     }
-    // th, td {
-    //     border: $border;
-    // }
-    th {
-        width: 30%;
+    table {
+        max-width: 100%;
+        // border: $border;
+        tbody {
+            border-bottom: 3px dashed $black;
+            max-width: 100%;
+            // border: $border;
+            tr {
+                display: grid;
+                grid-template-columns: 1fr 3fr;
+                max-width: 100%;
+                // border: $border;
+            }
+        }
     }
 
-    td {
-        max-width: 75%;
-    }
-    tbody {
-        border-bottom: 3px dashed $black;
-    }
+    
     .otherRecipesBySameUser {
         margin-top: 3em;
         margin-bottom: 1.5em;
@@ -73,47 +77,22 @@
     }
     .otherRecipesBySameUser--inner {
         display: flex;
-        // flex-wrap:wrap;
-        // justify-content: center;
-        // align-items: center;
-        // flex-shrink: 2;
-        // width: 90%;
+        // border: $border;
         > div {
             // border: $border;
-            // border: 3px solid #3736369f;
             border-radius: $border-radius;
-            background-color: $white;
-            margin-right: 1em;
-            margin-bottom: 1em;
-            // padding: .5em auto;
             display: grid;
             grid-template-columns: 1fr;
-            // grid-template-rows: 50% 50%;
             grid-gap: .5em;
+            margin-right: 1em;
+            margin-bottom: 1em;
         }
         > div:hover,
         > div:focus-within {
             border: 5px solid $confirm-color;
         }
-        div {
-            min-width: 30%;
-        }
     }
-    .recipeUrlDiv--thumbnail {
-        min-width: 100%;
-        grid-row: 1/2;
-        border-radius: $border-radius;
-        
-        img {
-            max-width: 100%;
-            border-radius: $border-radius;
-            border: 3px solid $white;
-        }
-    }
-    // .recipeUrlDiv--thumbnail:hover,
-    // .recipeUrlDiv--thumbnail:focus-within {
-    //     border: 3px solid $confirm-color;
-    // }
+    
     .otherRecipesBySameUser--text {
         // border: $border;
         width: 90%;
@@ -121,7 +100,7 @@
         margin: auto .5em;
         div {
             width: 100%;
-            
+            border: $border;
         }
     }
     .leaveCommentsDiv {
