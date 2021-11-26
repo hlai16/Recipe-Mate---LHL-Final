@@ -17,22 +17,28 @@ export default function Comments(props) {
   useEffect(() => {
     axios
       .get(`/Recipes/${recipeId}/comments`)
-      .then((results) => props.setCommentsByRecipeId(results.data.reverse()))
+      .then((results) => props.setCommentsByRecipeId(results.data))
   }, []);
 
+  // const date = new Date()
+  // const today = `${date.getMonth()} - ${date.getDate()} - ${date.getFullYear()}`;
+
+  // const timeElapsed = Date.now();
+  const current = new Date();
+  const postDate = current.toUTCString();
   return (
     // <div className="leaveCommentsDiv">
-   
-      <div>{props.commentsByRecipeId.map(comment => (
-        <div className="postedCommentsDiv">
-          <div className="commentHeader">
-            <div className="sr-only">User ID of comment: {comment.user_id}</div>
-            <div>dummy@placeholder.com <FontAwesomeIcon icon={faComment} /></div>
-          </div>
-          <div className="postedComments--comments">{comment.description}</div>
-        </div>))}
-      </div>
-    
+
+    <div>{props.commentsByRecipeId.map(comment => (
+      <div className="postedCommentsDiv">
+        <div className="commentHeader">
+          <div className="sr-only">User ID of comment: {comment.user_id}</div>
+          <div>Anonymous posted on: {postDate} <FontAwesomeIcon icon={faComment} /></div>
+        </div>
+        <div className="postedComments--comments">{comment.description}</div>
+      </div>))}
+    </div>
+
     // </div>
   );
 }
