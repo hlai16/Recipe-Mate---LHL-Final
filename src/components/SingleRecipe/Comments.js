@@ -17,11 +17,11 @@ export default function Comments(props) {
   useEffect(() => {
     axios
       .get(`/Recipes/${recipeId}/comments`)
-      .then((results) => props.setCommentsByRecipeId(results.data))
+      .then((results) => props.setCommentsByRecipeId(results.data.reverse()))
   }, []);
 
   return (
-    <div className="leaveCommentsDiv">
+    // <div className="leaveCommentsDiv">
    
       <div>{props.commentsByRecipeId.map(comment => (
         <div className="postedCommentsDiv">
@@ -33,6 +33,6 @@ export default function Comments(props) {
         </div>))}
       </div>
     
-    </div>
+    // </div>
   );
 }

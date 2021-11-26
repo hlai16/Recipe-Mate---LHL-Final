@@ -2,7 +2,7 @@
 @import '../../styles/mixins.scss';
 
 .new-tweet {
-    width: 80%;
+    width: 100%;
     /* adding width after project got rejected. I am not sure if this fix the issue, as when I checked my app, I don't see the problem mentioned by the evaulator */
     margin-top: 3em;
 }
@@ -19,6 +19,7 @@
     background: none;
     margin: 2rem 0;
     word-wrap: break-word;
+    // width: 100%;
     /* not sure if it's needed here as I don't see words escaping the textarea with my laptop, but since I got rejected on the layout on width issue, I thought best to put a word-wrap: break-word here. */
 }
 

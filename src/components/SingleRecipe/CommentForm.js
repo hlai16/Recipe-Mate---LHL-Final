@@ -4,6 +4,8 @@ import axios from "axios";
 import { Form } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
+import './Comments.scss';
+import Buttons from '../Buttons';
 
 
 export default function CommentForm(props) {
@@ -34,12 +36,13 @@ export default function CommentForm(props) {
   return (
     <div>
        <section class="new-tweet">
-      <Form >
+      <Form>
 
         <Form.Group className="mb- 3">
         <h2>Leave a Comment  <FontAwesomeIcon icon={faComment} /></h2>
 
-          <Form.Control
+          <textarea
+            className="new-tweet textarea"
             type="text"
             placeholder="Tell me about what you think of my recipe :)"
             name="decription"
@@ -49,12 +52,11 @@ export default function CommentForm(props) {
           />
         </Form.Group>
       </Form>
-      <input
-        type="button"
-        className="button button--small"
-        value="comment"
+      <Buttons small
+        // type="button"
+        // className="button button--small"
         onClick={() => handleSubmit (recipe_id, user_id, description)}
-      />
+      >Send</Buttons>
       </section>
     </div>
   );
