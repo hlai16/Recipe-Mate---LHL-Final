@@ -29,7 +29,7 @@ export default function CommentForm(props) {
     };
     console.log("Data to be posted ", { ...data });
     axios.post(`/Recipes/${recipe_id}/comments`, { ...data })
-    .then(response => props.setCommentsByRecipeId(prev => [...prev, response.data[0]]))
+    .then(response => props.setCommentsByRecipeId(prev => [ response.data[0],...prev, ]))
     .then(()=> setDescription(''));
   };
 

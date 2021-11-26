@@ -22,13 +22,13 @@ export default function RecipeById(props) {
     axios
       .get(`/Recipes/${recipeId}`)
       .then((results) => {
-        // console.log('results.data[0] before setRecipeById', results.data[0])
+        console.log('results.data[0].id before setRecipeById', results.data[0])
         setRecipeById(results.data[0])
         console.log('results.data[0] after setRecipeById', results.data[0])
         console.log('results.data[0].id after setRecipeById', results.data[0].id)
       })
 
-  }, []);
+  }, [recipeId]);
 
   useEffect(() => {
     if (recipeById.user_id) {
@@ -40,9 +40,8 @@ export default function RecipeById(props) {
   }, [recipeById])
 
 
-  const handleClick = function() {setRecipeById(3)
-  }
-
+  
+  console.log(recipeById)
 
   const addToProfile = function () {
     let favoriteObj = {
@@ -61,7 +60,7 @@ export default function RecipeById(props) {
     }
     localStorage.setItem('Favorite', JSON.stringify(favoriteObj));
   }
-
+  
   return (< >
     <h3>{recipeById.name}</h3>
     <div className="likesDiv">
@@ -118,7 +117,7 @@ export default function RecipeById(props) {
               <Card.Text>
                 {recipe.description}
               </Card.Text>
-              <Buttons small submit={handleClick} id={recipe.id}>Go</Buttons>
+              <Buttons small onClick={() => setRecipeById(recipe)} >Go</Buttons>
             </Card.Body>
           </Card>
           
