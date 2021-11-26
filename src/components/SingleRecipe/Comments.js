@@ -33,7 +33,7 @@ export default function Comments(props) {
       <div className="postedCommentsDiv">
         <div className="commentHeader">
           <div className="sr-only">User ID of comment: {comment.user_id}</div>
-          <div>Anonymous posted on: {postDate} <FontAwesomeIcon icon={faComment} /></div>
+          <div>Anonymous posted on:  <FontAwesomeIcon icon={faComment} /></div>
         </div>
         <div className="postedComments--comments">{comment.description}</div>
       </div>))}

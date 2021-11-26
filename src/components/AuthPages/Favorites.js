@@ -11,19 +11,18 @@ export default function Favorites(props) {
   // const populateFavorites = () => {
     const favorites = JSON.parse(localStorage.getItem('Favorite') || "Empty");
     const favoritesArr = [favorites]
-    console.log('favoritesArr', favoritesArr)
+    
     const mapFavorites = favoritesArr.map(favorite =>
       <FavoriteItem key={favorite.id}
         name={favorite.name}
         image={favorite.image}
         description={favorite.description}
-        // selected={favorite.id === props.value}
-        // setFavorite={() => props.onChange(favorite.id)}
+        // setRemoveItem={setRemoveItem}
         {...favorite} />);
   // }
   return (
     <div className="favoriteStorage">
-      <h3>My Favorite Recipes By Others:</h3>
+      <h3>My Favorite Recipes:</h3>
       {mapFavorites}
     </div>
   );

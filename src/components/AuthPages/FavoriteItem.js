@@ -4,9 +4,14 @@ import './FavoriteItem.scss';
 import Buttons from '../Buttons';
 import { faBookReader, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from 'react';
 
 export default function FavoriteItem(props) {
-    // to toggle selected class
+    const [removeItem, setRemoveItem] = useState('')
+    // const deleteItem = function () {
+    //     props.setRemoveItem();
+    //     localStorage.removeItem('Favorite');
+    // }
 
     return (
         <div className="recipeCard" onClick={props.setFavorite}>
