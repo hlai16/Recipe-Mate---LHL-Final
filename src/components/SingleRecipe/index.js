@@ -20,7 +20,7 @@ export default function SingleRecipe(props) {
         <h2>Recipe Presentation</h2>
         <RecipeById recipeId={recipeId} />
         <div className="leaveCommentsDiv">
-          <CommentForm recipeId={recipeId} setCommentsByRecipeId={setCommentsByRecipeId} />
+          <CommentForm recipeId={recipeId} setCommentsByRecipeId={setCommentsByRecipeId} commentsByRecipeId={commentsByRecipeId} />
           <Comments recipeId={recipeId} setCommentsByRecipeId={setCommentsByRecipeId} commentsByRecipeId={commentsByRecipeId} />
         </div>
       </div>

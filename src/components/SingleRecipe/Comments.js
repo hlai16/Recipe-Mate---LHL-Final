@@ -14,6 +14,15 @@ export default function Comments(props) {
 
   const recipeId = props.recipeId
 
+
+
+  // const getCommentsOutsideUseEffect = () => {
+  //   return axios
+  //   .get(`/Recipes/${recipeId}/comments`)
+  //   .then((results) => props.setCommentsByRecipeId(results.data))
+  // }
+
+  
   useEffect(() => {
     axios
       .get(`/Recipes/${recipeId}/comments`)
@@ -29,7 +38,7 @@ export default function Comments(props) {
   return (
     // <div className="leaveCommentsDiv">
 
-    <div>{props.commentsByRecipeId.map(comment => (
+    <div>{props.commentsByRecipeId?.map(comment => (
       <div className="postedCommentsDiv">
         <div className="commentHeader">
           <div className="sr-only">User ID of comment: {comment.user_id}</div>
