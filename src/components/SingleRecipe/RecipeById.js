@@ -11,10 +11,13 @@ import { useNavigate } from "react-router";
 import { faThumbsUp, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Favorites from "../AuthPages/Favorites";
+import { array } from "prop-types";
 
 export default function RecipeById(props) {
   const [recipeById, setRecipeById] = useState('');
   const [moreFromUser, setMoreFromUser] = useState([]);
+  const [key, setKey] = useState(0);
+  const [localstorageItem, setLocalstorageItem] = useState({});
 
   const recipeId = props.recipeId
 
@@ -44,7 +47,12 @@ export default function RecipeById(props) {
   console.log(recipeById)
 
   const addToProfile = function () {
-    let favoriteObj = {
+
+    let favorite = [];
+    if (localStorage.getItem('favorite')) {
+      favorite = JSON.parse(localStorage.getItem('favorite'));
+    }
+    favorite.push({
       id: recipeById.id,
       name: recipeById.name,
       category: recipeById.category,
@@ -57,8 +65,9 @@ export default function RecipeById(props) {
       steps: recipeById.steps,
       time: recipeById.time,
       user_id: recipeById.user_id
-    }
-    localStorage.setItem('Favorite', JSON.stringify(favoriteObj));
+    });
+
+    localStorage.setItem('favorite', JSON.stringify(favorite));
   }
   
   return (< >
