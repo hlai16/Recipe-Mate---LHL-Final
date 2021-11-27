@@ -46,10 +46,17 @@ export default function RecipeView(props) {
                 <Buttons small
                     onClick={() => { transition(CREATE, null) }}
                 >Edit</Buttons>
+                <Buttons small
+                    onClick={back}
+                >Cancel</Buttons>
                 {mode === CREATE &&
                     <Create
                         name={recipeById.name}
                         ingredients={recipeById.ingredients}
+                        description={recipeById.description}
+                        image={recipeById.image}
+                        steps={recipeById.steps}
+                        category={recipeById.category_id}
                         onCancel={back}
                     />}
                 <RecipeDetails

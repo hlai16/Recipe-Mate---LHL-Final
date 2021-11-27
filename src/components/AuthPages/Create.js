@@ -40,23 +40,28 @@ const handleSubmit = (
 export default function Create(props) {
   const userIdToken = useToken();
   const user_id = userIdToken.token;
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState(props.catetory|| "");
   const [recName, setrecName] = useState(props.name || "");
-  const [description, setDescription] = useState("");
+  const [description, setDescription] = useState(props.description || "");
   const [ingredients, setIngredients] = useState(props.ingredients || "");
-  const [steps, setSteps] = useState("");
+  const [steps, setSteps] = useState(props.steps || "");
   const [servings, setServings] = useState("");
   const [time, setTime] = useState("");
   const likes = 0;
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(props.image || "");
+  const [message, setMessage] = useState("");
 
-  const reset = function () {
-    return setCategory(''), setrecName(''),
-    setDescription(''), setIngredients(''), setSteps(''), 
-    setServings(''), setTime(''), setImage('')
-  }
-  const cancel = function () {
-    return props.onCancel(reset());
+  // const reset = function () {
+  //   return setCategory(''), setrecName(''),
+  //   setDescription(''), setIngredients(''), setSteps(''), 
+  //   setServings(''), setTime(''), setImage('')
+  // }
+  // const cancel = function () {
+  //   return props.onCancel(reset());
+  // }
+  const messageToggle = function() {
+    handleSubmit && 
+    setMessage('Your new recipe has successfully created! Go and see it in your profile :D');
   }
 
   return (
@@ -160,6 +165,7 @@ export default function Create(props) {
                   />
                 </Form.Group>
               </Form>
+              <p>{() => messageToggle(handleSubmit)}</p>
               <input
                 type="button"
                 className="button button--small"
@@ -179,7 +185,7 @@ export default function Create(props) {
                   )
                 }
               />
-              <Buttons onClick={cancel}>Cancel</Buttons>
+              {/* <Buttons onClick={cancel}>Cancel</Buttons> */}
             </Col>
             <Col></Col>
           </Row>
