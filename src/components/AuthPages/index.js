@@ -11,7 +11,7 @@ function AuthPages(props) {
  
   return (
     <section className="authPages">
-        {/* <NavBar setToken={ props.setToken } /> */}
+        <NavBar setToken={ props.setToken } />
         <Create />
     </section>
   );

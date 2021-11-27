@@ -33,7 +33,8 @@ function App() {
             <Route exact path="/" element={<UserProfile setToken={ setToken } />} />
             <Route path="/search" element={<Search setToken={ setToken } />} />
             <Route path="/login" element={<Home setToken={setToken} />} />
-            <Route path="/create" element={<AuthPages setToken={ setToken } />} />
+            <Route path="/authpages" element={<AuthPages setToken={ setToken } />} />
+            <Route path="/create" element={<Create setToken={ setToken } />} />
             <Route path="/recipeItem" element={<RecipeItem setToken={ setToken } />} />
             <Route path="/SingleRecipe" element={<SingleRecipe setToken={ setToken }/>} />
             <Route path="/recipes" element={<RecipeList recipes={ getRecipesWithSearch }/>} />

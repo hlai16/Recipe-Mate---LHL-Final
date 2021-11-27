@@ -52,7 +52,7 @@ export default function Create(props) {
 
   return (
     <div>
-      <NavBar setToken={props.setToken} />
+      {/* <NavBar setToken={props.setToken} /> */}
       <section className="recipe-create-section">
         <Container>
           <Row>
