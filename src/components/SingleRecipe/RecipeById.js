@@ -16,8 +16,7 @@ import { array } from "prop-types";
 export default function RecipeById(props) {
   const [recipeById, setRecipeById] = useState('');
   const [moreFromUser, setMoreFromUser] = useState([]);
-  const [key, setKey] = useState(0);
-  const [localstorageItem, setLocalstorageItem] = useState({});
+  
 
   const recipeId = props.recipeId
 
