@@ -4,6 +4,7 @@ import NavBar from "../NavBar";
 import useToken from "../../hooks/useToken";
 import "./create.scss";
 import "./";
+import Buttons from '../Buttons';
 
 import { Form, Container, Col, Row, FormControl } from "react-bootstrap";
 
@@ -49,6 +50,14 @@ export default function Create(props) {
   const likes = 0;
   const [image, setImage] = useState("");
 
+  const reset = function () {
+    return setCategory(''), setrecName(''),
+    setDescription(''), setIngredients(''), setSteps(''), 
+    setServings(''), setTime(''), setImage('')
+  }
+  const cancel = function () {
+    return props.onCancel(reset());
+  }
 
   return (
     <div>
@@ -170,6 +179,7 @@ export default function Create(props) {
                   )
                 }
               />
+              <Buttons onClick={cancel}>Cancel</Buttons>
             </Col>
             <Col></Col>
           </Row>

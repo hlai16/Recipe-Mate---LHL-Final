@@ -50,6 +50,7 @@ export default function RecipeView(props) {
                     <Create
                         name={recipeById.name}
                         ingredients={recipeById.ingredients}
+                        onCancel={back}
                     />}
                 <RecipeDetails
                     name={recipeById.name}
