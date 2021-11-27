@@ -18,7 +18,7 @@ export default function RecipeById(props) {
   const [moreFromUser, setMoreFromUser] = useState([]);
   const [message, setMessage] = useState('');
 
-  
+
 
   const recipeId = props.recipeId
 
@@ -44,7 +44,7 @@ export default function RecipeById(props) {
   }, [recipeById])
 
 
-  
+
   console.log(recipeById)
 
   const addToProfile = function () {
@@ -65,16 +65,14 @@ export default function RecipeById(props) {
       servings: recipeById.servings,
       steps: recipeById.steps,
       time: recipeById.time,
-      user_id: recipeById.user_id
+      user_id: recipeById.user_id,
     });
-
-    localStorage.setItem('favorite', JSON.stringify(favorite));
+    if (favorite[0].addFavorite) {
+      setMessage('Work');
+    }
     setMessage('Added to Favorites');
-  }
-  
-  const messageToggle = function() {
-    addToProfile ? setMessage('Added to Favorites')
-    : setMessage('')
+    localStorage.setItem('favorite', JSON.stringify(favorite));
+
   }
 
   return (< >
@@ -86,7 +84,7 @@ export default function RecipeById(props) {
       <button onClick={addToProfile}>
         <h1 className="favorite"><FontAwesomeIcon icon={faHeart} /></h1>
       </button>
-      <p className="animate__lightSpeedOutRight">{message}</p>
+      <p>{message}</p>
     </div>
     <div className="recipeUrlDiv--img">
       <img src={recipeById.image} alt="display image" />
@@ -125,19 +123,19 @@ export default function RecipeById(props) {
       <div className="otherRecipesBySameUser"><h4>***All Recipes from This User:***</h4></div>
       <div className="otherRecipesBySameUser--inner">{moreFromUser.map((recipe) => (
         <div>
-           
+
           <Card style={{ width: '18rem' }}>
- 
+
             <Card.Img variant="top" src={recipe.image} alt={recipe.name} />
             <Card.Body>
               <Card.Title>{recipe.name}</Card.Title>
               <Card.Text>
                 {recipe.description}
               </Card.Text>
-              <Buttons small onClick={() => setRecipeById(recipe)} >Go</Buttons>
+              <Buttons small onClick={() => setRecipeById(recipe)}>Go</Buttons>
             </Card.Body>
           </Card>
-          
+
         </div>
 
       ))}
