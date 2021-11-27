@@ -1,18 +1,11 @@
 import Buttons from './Buttons';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { Navbar, Form, Nav, NavDropdown, FormControl, Button } from "react-bootstrap";
+import { Link } from 'react-router-dom';
+import { Navbar, Nav } from "react-bootstrap";
 
-// const RequiresLogin = (props) => {
-//   const isLoggedIn = true;
-//   if(isLoggedIn) { 
-//     return props.children;
-//   } 
-//   return <Home />
-// }
-
-
-function NavBar() {
+import SearchRecipes from './SearchRecipes';
+function NavBar(props) {
   const clearSession = function() {
+    props.setToken('')
     sessionStorage.clear();
   }
   return (
@@ -23,21 +16,18 @@ function NavBar() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link><Link to={'/user_profile'} className="nav-link">Home</Link></Nav.Link>
+              <Nav.Link><Link to={'/'} className="nav-link">Home</Link></Nav.Link>
               <Nav.Link><Link to={'/search'} className="nav-link">Categories</Link></Nav.Link>
               <Nav.Link><Link to={'/create'} className="nav-link">Create</Link></Nav.Link>
-              <Nav.Link><Link to={'/SingleRecipe'} className="nav-link">Single Recipe</Link></Nav.Link>
-              <Buttons small onClick={clearSession}><Link to={'/login'} className="nav-link text-white">Logout</Link></Buttons>
+              {/* <Nav.Link><Link to={'/SingleRecipe'} className="nav-link">Single Recipe</Link></Nav.Link> */}
+              <Buttons small onClick={clearSession}><Link to={'/'} className="nav-link text-white">Logout</Link></Buttons>
 
             </Nav>
-            <Form inline>
-              <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-              <Buttons small>Search</Buttons>
-            </Form>
+            <SearchRecipes />
           </Navbar.Collapse>
         </Navbar>
       </section>
-      <div classNAME="routesDiv">
+      <div className="routesDiv">
         
       </div>
     </section>

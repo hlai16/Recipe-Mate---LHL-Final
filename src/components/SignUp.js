@@ -1,11 +1,10 @@
 
 import Buttons from './Buttons.js';
-// import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-// import { useNavigate } from 'react-router-dom';
-import { useState } from "react";
-import UserProfile from './AuthPages/UserProfile';
 import { Form } from "react-bootstrap";
-import { Navigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
+// import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+// import { useNavigate, Navigate } from 'react-router-dom';
+// import { useState } from "react";
 
 async function signupUser(credentials) {
     return fetch('http://localhost:3001/login', {
@@ -18,11 +17,8 @@ async function signupUser(credentials) {
         .then(data => data.json())
 }
 
-function Signup(props) {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [error, setError] = useState('')
-
+function Signup({ setToken, error, onCancel, onSubmit, setEmail, setPassword, email, password }) {
+    
     // function validate() {
     //     if (email === "") {
     //         setError("Email cannot be blank");
@@ -40,25 +36,14 @@ function Signup(props) {
         return setEmail(''), setPassword('');
     }
     const cancel = function () {
-        return props.onCancel(reset());
+        return onCancel(reset());
     }
 
-    const handleSubmit = async e => {
-        e.preventDefault();
-        const token = await signupUser({
-            email,
-            password
-        });
-        props.setToken(token);
-        <Navigate to="/" />
-    }
     return (
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={onSubmit}>
             <h4>Please enter your signup info:</h4>
-            {/* <Form.Group className="mb-3" controlId="formBasicUsername">
-                <Form.Label>User Name</Form.Label>
-                <Form.Control type="username" placeholder="Enter username" username={username} onChange={(event) => setUsername(event.target.value)} />
-            </Form.Group> */}
+      
+            <p>{error}</p>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" placeholder="Enter email" email={email} onChange={(event) => setEmail(event.target.value)} required />
@@ -80,6 +65,10 @@ function Signup(props) {
             </Buttons>
         </Form>
     );
+}
+
+Signup.propTypes = {
+    setToken: PropTypes.func.isRequired
 }
 
 export default Signup;

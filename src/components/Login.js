@@ -17,26 +17,8 @@ async function loginUser(credentials) {
       .then(data => data.json())
    }
 
-function Login({ setToken, onCancel, onSubmit, setEmail, setPassword, email, password }) {
-    const [username, setUserName] = useState();
-    // const [email, setEmail] = useState('')
-    // const [password, setPassword] = useState('')
-    const [error, setError] = useState('')
+function Login({ setToken, error, onCancel, onSubmit, setEmail, setPassword, email, password }) {
     
-
-    // function validate() {
-    //     if (email === "") {
-    //         setError("Email cannot be blank");
-    //         return;
-    //     }
-    //     if (password === "") {
-    //         setError('Please enter your password');
-    //         return;
-    //     }
-    //     setError('');
-    //     props.onSave(email, password);
-    //     // form proceed to save if student != "" || interviewer is selected
-    // }
     const reset = function () {
         return setEmail(''), setPassword('');
     }
@@ -51,6 +33,7 @@ function Login({ setToken, onCancel, onSubmit, setEmail, setPassword, email, pas
                 <Form.Label>User Name</Form.Label>
                 <Form.Control type="username" placeholder="Enter username" username={username} onChange={(event) => setUserName(event.target.value)} />
             </Form.Group> */}
+            <p>{error}</p>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" placeholder="Enter email" email={email} onChange={(event) => setEmail(event.target.value)} required />

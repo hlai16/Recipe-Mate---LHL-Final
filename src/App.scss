@@ -7,9 +7,14 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  height: 100vh;
 }
 .navDiv {
   box-shadow: 0 5px 5px #777;
+  width: 100%;
+  z-index: 90;
+  position: fixed;
+  top: 0;
 }
 .wood-bkg {
   background-color: #ffffff;
@@ -21,12 +26,14 @@
     width: 2rem;
     background-color: $accent-color;
     border-right: $border;
+    height: 100vh;
   }
   img {
     margin-left: 10rem;
     border: $border;
     border-radius: $border-radius;
     mix-blend-mode: hard-light;
+    height: 100vh;
   }
 }
 
