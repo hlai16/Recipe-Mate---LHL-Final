@@ -5,7 +5,7 @@ import { Card, Button } from "react-bootstrap";
 import Buttons from '../Buttons';
 import { useNavigate } from "react-router";
 // import Favorite from "../Favorite";
-import 'animate.css';
+// import 'animate.css';
 
 // get our fontawesome imports
 import { faThumbsUp, faHeart } from "@fortawesome/free-solid-svg-icons";
