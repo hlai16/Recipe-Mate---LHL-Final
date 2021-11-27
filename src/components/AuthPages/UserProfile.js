@@ -8,8 +8,6 @@ import { useNavigate } from "react-router-dom";
 import Favorites from './Favorites';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
-// import NavBar from '../NavBar';
-// User Profile needs to read from the cookie and return the users Recipes based on the ID 
 
 
 export default function UserProfile(props) {
@@ -31,18 +29,21 @@ let navigate = useNavigate();
     }, [])
 
 
-    const handleDelete = function(id) {
-      axios.delete(`/recipes/${id}`, {id}).then(response => {
-        console.log(response);
-      })
-    }
+    const handleDelete = function(id, key) {
+      axios.delete(`/recipes/${id}`).then(() => {
+     moreFromUser.splice(key,1)
+     setMoreFromUser(moreFromUser)
+     navigate(`/`)
+    })
+  }
  
   return (
     <>
       <Favorites user_Id={userId}></Favorites>
       <h1> *****All your recipe Creations*****</h1>
-      <div className="otherRecipesBySameUser--inner">{moreFromUser.map((recipe) => (
-        <div>
+      <div className="ifNoRecipes"></div>
+      <div className="otherRecipesBySameUser--inner">{moreFromUser.map((recipe, key) => (
+        <div key={key}>
            
           <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src={recipe.image} alt={recipe.name} />
@@ -53,7 +54,7 @@ let navigate = useNavigate();
               </Card.Text>
               <Buttons onClick={ () => navigate(`/SingleRecipe`, { state: Number(recipe.id) })} >Visit</Buttons>
               <Buttons small onClick= { () => navigate(`/SingleRecipe`, { state: Number(recipe.id) })}> Modify</Buttons>
-              <Buttons onClick={() => handleDelete(recipe.id)}><FontAwesomeIcon icon={faTrashAlt} />Remove</Buttons>
+              <Buttons onClick={() => handleDelete(recipe.id, key)}><FontAwesomeIcon icon={faTrashAlt} />Remove</Buttons>
             </Card.Body>
           </Card>
           
