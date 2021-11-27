@@ -4,13 +4,19 @@ import { useLocation } from "react-router";
 import axios from "axios";
 import Buttons from '../Buttons';
 import { useNavigate } from "react-router-dom";
+import useVisualMode from '../../hooks/useVisualMode';
+import Create from './Create';
+import RecipeDetails from "./RecipeDetails";
+
+const CREATE = "CREATE";
 
 
 export default function RecipeView(props) {
     let navigate = useNavigate();
     const [recipeById, setRecipeById] = useState('');
     const recipeId = props.id
-    console.log('recipeId', recipeId)
+
+
     useEffect(() => {
         axios
             .get(`/Recipes/${recipeId}`)
@@ -36,45 +42,21 @@ export default function RecipeView(props) {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <h3>{recipeById.name}</h3>
-
-                <div className="recipeUrlDiv--img">
-                    <img src={recipeById.image} alt="display image" />
-                </div>
-
-                <h4>About</h4>
-                <p>{recipeById.description}</p>
-                <table className="table recipe-presentation">
-                    <tbody>
-                        <tr>
-                            <th scope="row">Good for</th>
-                            <td>{recipeById.category_name}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">About</th>
-                        </tr>
-                        <tr>
-                            <th scope="row">Ingredients</th>
-                            <td>{recipeById.ingredients}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">How to prepare</th>
-                            <td>{recipeById.steps}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Servings</th>
-                            <td>{recipeById.servings}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Preparation time</th>
-                            <td>{recipeById.time}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <Buttons small>Edit</Buttons>
+                <RecipeDetails
+                    name={recipeById.name}
+                    image={recipeById.image}
+                    category_name={recipeById.category_name}
+                    description={recipeById.description}
+                    ingredients={recipeById.ingredients}
+                    servings={recipeById.servings}
+                    steps={recipeById.steps}
+                    time={recipeById.time}
+                />
             </Modal.Body>
             <Modal.Footer>
                 <Buttons small onClick={() => navigate(`/SingleRecipe`, { state: Number(recipeById.id) })}>More</Buttons>
-                <Buttons small onClick={() => navigate(`/Create`, { state: recipeById.name })}>Edit</Buttons>
+
                 <Button onClick={props.onHide}>Close</Button>
             </Modal.Footer>
         </Modal>
