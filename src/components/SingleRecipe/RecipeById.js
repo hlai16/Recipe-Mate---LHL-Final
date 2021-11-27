@@ -3,6 +3,7 @@ import axios from "axios";
 import './RecipeById.scss';
 import { Card, Button } from "react-bootstrap";
 import Buttons from '../Buttons';
+import { useNavigate } from "react-router";
 // import Favorite from "../Favorite";
 
 
@@ -24,13 +25,13 @@ export default function RecipeById(props) {
     axios
       .get(`/Recipes/${recipeId}`)
       .then((results) => {
-        // console.log('results.data[0] before setRecipeById', results.data[0])
+        console.log('results.data[0].id before setRecipeById', results.data[0])
         setRecipeById(results.data[0])
         console.log('results.data[0] after setRecipeById', results.data[0])
         console.log('results.data[0].id after setRecipeById', results.data[0].id)
       })
 
-  }, []);
+  }, [recipeId]);
 
   useEffect(() => {
     if (recipeById.user_id) {
@@ -42,6 +43,8 @@ export default function RecipeById(props) {
   }, [recipeById])
 
 
+  
+  console.log(recipeById)
 
   const addToProfile = function () {
 
@@ -66,7 +69,7 @@ export default function RecipeById(props) {
 
     localStorage.setItem('favorite', JSON.stringify(favorite));
   }
-
+  
   return (< >
     <h3>{recipeById.name}</h3>
     <div className="likesDiv">
@@ -112,19 +115,21 @@ export default function RecipeById(props) {
       </tbody>
 
       <div className="otherRecipesBySameUser"><h4>***All Recipes from This User:***</h4></div>
-      <div className="otherRecipesBySameUser--inner">{moreFromUser.map(recipe => (
+      <div className="otherRecipesBySameUser--inner">{moreFromUser.map((recipe) => (
         <div>
-
+           
           <Card style={{ width: '18rem' }}>
+ 
             <Card.Img variant="top" src={recipe.image} alt={recipe.name} />
             <Card.Body>
               <Card.Title>{recipe.name}</Card.Title>
               <Card.Text>
                 {recipe.description}
               </Card.Text>
-              <Buttons small>Go</Buttons>
+              <Buttons small onClick={() => setRecipeById(recipe)} >Go</Buttons>
             </Card.Body>
           </Card>
+          
         </div>
 
       ))}
