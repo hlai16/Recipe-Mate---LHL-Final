@@ -5,7 +5,7 @@ import { Card, Button } from "react-bootstrap";
 import Buttons from '../Buttons';
 import { useNavigate } from "react-router";
 // import Favorite from "../Favorite";
-
+import 'animate.css';
 
 // get our fontawesome imports
 import { faThumbsUp, faHeart } from "@fortawesome/free-solid-svg-icons";
@@ -16,6 +16,8 @@ import { array } from "prop-types";
 export default function RecipeById(props) {
   const [recipeById, setRecipeById] = useState('');
   const [moreFromUser, setMoreFromUser] = useState([]);
+  const [message, setMessage] = useState('');
+
   
 
   const recipeId = props.recipeId
@@ -67,8 +69,14 @@ export default function RecipeById(props) {
     });
 
     localStorage.setItem('favorite', JSON.stringify(favorite));
+    setMessage('Added to Favorites');
   }
   
+  const messageToggle = function() {
+    addToProfile ? setMessage('Added to Favorites')
+    : setMessage('')
+  }
+
   return (< >
     <h3>{recipeById.name}</h3>
     <div className="likesDiv">
@@ -78,6 +86,7 @@ export default function RecipeById(props) {
       <button onClick={addToProfile}>
         <h1 className="favorite"><FontAwesomeIcon icon={faHeart} /></h1>
       </button>
+      <p className="animate__lightSpeedOutRight">{message}</p>
     </div>
     <div className="recipeUrlDiv--img">
       <img src={recipeById.image} alt="display image" />
