@@ -71,7 +71,9 @@ export default function RecipeView(props) {
                 />
             </Modal.Body>
             <Modal.Footer>
-                <Buttons small onClick={() => navigate(`/SingleRecipe`, { state: Number(recipeById.id) })}>More</Buttons>
+                <Buttons small
+                    onClick={() => navigate(`/SingleRecipe`,
+                        { state: Number(recipeById.id) })}>More</Buttons>
 
                 <Button onClick={props.onHide}>Close</Button>
             </Modal.Footer>

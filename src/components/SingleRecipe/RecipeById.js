@@ -3,9 +3,10 @@ import axios from "axios";
 import './RecipeById.scss';
 import { Card, Button } from "react-bootstrap";
 import Buttons from '../Buttons';
-import { useNavigate } from "react-router";
+
 // import Favorite from "../Favorite";
-import 'animate.css';
+import { useNavigate } from "react-router-dom";
+
 
 // get our fontawesome imports
 import { faThumbsUp, faHeart } from "@fortawesome/free-solid-svg-icons";
@@ -17,7 +18,7 @@ export default function RecipeById(props) {
   const [recipeById, setRecipeById] = useState('');
   const [moreFromUser, setMoreFromUser] = useState([]);
   const [message, setMessage] = useState('');
-
+  let navigate = useNavigate();
 
 
   const recipeId = props.recipeId
@@ -132,7 +133,8 @@ export default function RecipeById(props) {
               <Card.Text>
                 {recipe.description}
               </Card.Text>
-              <Buttons small onClick={() => setRecipeById(recipe)}>Go</Buttons>
+              <Buttons small onClick={() => navigate(`/SingleRecipe`,
+                        { state: Number(recipe.id) })}>Go</Buttons>
             </Card.Body>
           </Card>
 
