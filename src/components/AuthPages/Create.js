@@ -40,9 +40,9 @@ export default function Create(props) {
   const userIdToken = useToken();
   const user_id = userIdToken.token;
   const [category, setCategory] = useState("");
-  const [recName, setrecName] = useState("");
+  const [recName, setrecName] = useState(props.name || "");
   const [description, setDescription] = useState("");
-  const [ingredients, setIngredients] = useState("");
+  const [ingredients, setIngredients] = useState(props.ingredients || "");
   const [steps, setSteps] = useState("");
   const [servings, setServings] = useState("");
   const [time, setTime] = useState("");
@@ -64,7 +64,7 @@ export default function Create(props) {
                   <Form.Label>Recipe Name:</Form.Label>
                   <Form.Control
                     type="text"
-                    name="name"
+                    name={props.name}
                     required
                     value={recName}
                     onChange={(e) => setrecName(e.target.value)}
@@ -102,7 +102,7 @@ export default function Create(props) {
                     as="textarea"
                     aria-label="With textarea"
                     type="text"
-                    name="ingredients"
+                    name={props.ingredients}
                     required
                     value={ingredients}
                     onChange={(e) => setIngredients(e.target.value)}

@@ -9,13 +9,14 @@ import Create from './Create';
 import RecipeDetails from "./RecipeDetails";
 
 const CREATE = "CREATE";
+const DETAIL = 'DETAIL';
 
 
 export default function RecipeView(props) {
     let navigate = useNavigate();
     const [recipeById, setRecipeById] = useState('');
     const recipeId = props.id
-
+    const { mode, transition, back } = useVisualMode();
 
     useEffect(() => {
         axios
@@ -42,7 +43,14 @@ export default function RecipeView(props) {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <Buttons small>Edit</Buttons>
+                <Buttons small
+                    onClick={() => { transition(CREATE, null) }}
+                >Edit</Buttons>
+                {mode === CREATE &&
+                    <Create
+                        name={recipeById.name}
+                        ingredients={recipeById.ingredients}
+                    />}
                 <RecipeDetails
                     name={recipeById.name}
                     image={recipeById.image}
