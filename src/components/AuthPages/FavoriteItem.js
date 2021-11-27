@@ -16,7 +16,7 @@ export default function FavoriteItem(props) {
 
     return (
         <div onClick={props.setFavorite}>
-            
+
             {/* bootstrap */}
             <Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={props.image} alt={props.name} />
@@ -30,7 +30,8 @@ export default function FavoriteItem(props) {
                             <Buttons small><FontAwesomeIcon icon={faBookReader} /></Buttons>
                         </div>
                         <div>
-                            <Buttons small id={props.id} onClick={()=> props.setRemoveItem(props.id)}><FontAwesomeIcon icon={faTrashAlt} /></Buttons>
+                            <Buttons small id={props.id} onClick={() => props.setRemoveItem(props.id)}>
+                                <FontAwesomeIcon icon={faTrashAlt} /></Buttons>
                         </div>
                     </div>
                 </Card.Body>

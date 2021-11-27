@@ -4,6 +4,8 @@ import FavoriteItem from './FavoriteItem';
 import './FavoriteItem.scss';
 import { useState, useEffect } from 'react';
 import Buttons from '../Buttons';
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // User Profile needs to read from the cookie and return the users Recipes based on the ID 
 
 
@@ -19,17 +21,22 @@ export default function Favorites(props) {
     }
   }, []);
   // const populateFavorites = () => {
- 
+
 
   const removeFavorite = function (id) {
     console.log('remove you now')
     console.log('favoriteList', favoriteList)
     console.log('id', id)
-    // for (let key of favoriteList) {
-    //   if (key.id === id) {
-    //     localStorage.removeItem(`'favorite'[key]`);
-    //   }
-    // }
+    for (let key of favoriteList) {
+      if (key.id === id) {
+        const index = favoriteList.indexOf(favoriteList[key]);
+        favoriteList.splice(index + 1, 1);
+        setFavoriteList(favoriteList)
+        console.log('favoriteList in removeFavorite', favoriteList);
+        localStorage.setItem('favorite', JSON.stringify(favoriteList));
+      }
+    }
+
   }
   const mapFavorites = favoriteList.length > 0 && favoriteList.map(favorite =>
 
@@ -63,7 +70,7 @@ export default function Favorites(props) {
   return (
     <div className="favoriteStorage">
       <h3>My Favorite Recipes:</h3>
-      <Buttons onClick={clearFavorites}>Clear Favorites</Buttons>
+      <Buttons onClick={clearFavorites}><FontAwesomeIcon icon={faTrashAlt} />All</Buttons>
       <div className="favoriteCardsDiv">{mapFavorites}</div>
     </div>
   );
