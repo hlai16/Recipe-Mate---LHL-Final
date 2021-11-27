@@ -18,11 +18,8 @@ const userId = userIdToken.token;
 const [moreFromUser, setMoreFromUser] = useState([]);
 const location = useLocation();
 const recipes = location.state || []
+let navigate = useNavigate();
 
-let navigate = useNavigate()
-const handleClick = function (event) {
-  navigate(`/SingleRecipe`, { state: Number(event.target.recipe_id) })
-}
 
     useEffect(() => {
     if (userId) {
@@ -34,6 +31,12 @@ const handleClick = function (event) {
     }, [])
 
 
+    const handleDelete = function(id) {
+      axios.delete(`/recipes/${id}`, {id}).then(response => {
+        console.log(response);
+      })
+    }
+ 
   return (
     <>
       <Favorites user_Id={userId}></Favorites>
@@ -41,16 +44,15 @@ const handleClick = function (event) {
         <div>
            
           <Card style={{ width: '18rem' }}>
- 
             <Card.Img variant="top" src={recipe.image} alt={recipe.name} />
             <Card.Body>
               <Card.Title>{recipe.name}</Card.Title>
               <Card.Text>
                 {recipe.description}
               </Card.Text>
-              <Buttons small onClick={handleClick} >Visit</Buttons>
-              <Buttons small onClick={() => console.log(recipe.id)} > Modify</Buttons>
-              <Buttons onClick={handleClick}><FontAwesomeIcon icon={faTrashAlt} />Remove</Buttons>
+              <Buttons onClick={ () => navigate(`/SingleRecipe`, { state: Number(recipe.id) })} >Visit</Buttons>
+              <Buttons small onClick= { () => navigate(`/SingleRecipe`, { state: Number(recipe.id) })}> Modify</Buttons>
+              <Buttons onClick={() => handleDelete(recipe.id)}><FontAwesomeIcon icon={faTrashAlt} />Remove</Buttons>
             </Card.Body>
           </Card>
           
