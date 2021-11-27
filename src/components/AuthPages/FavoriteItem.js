@@ -4,15 +4,29 @@ import './FavoriteItem.scss';
 import Buttons from '../Buttons';
 import { faBookReader, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card, Button } from "react-bootstrap";
+import axios from "axios";
+import { render } from 'react-dom';
+import { Navigate, useLocation } from 'react-router-dom';
+import SingleRecipe from "../SingleRecipe";
 
 export default function FavoriteItem(props) {
-    // const [removeItem, setRemoveItem] = useState('')
-    // const deleteItem = function () {
-    //     props.setRemoveItem();
-    //     localStorage.removeItem('Favorite');
-    // }
+    const location = useLocation();
+    const recipeId = location.state || []
+    const [recipe, setRecipe] = useState([]);
+    const viewRecipe = function (id) {
+        console.log(`viewing recipe ${id}`)
+        axios.get(`/recipes/${id}`).then((all) => {
+            setRecipe(all.data[0])
+            console.log('recipe', recipe)
+        }).catch((error) => {
+            console.log(error)
+        })
+
+    }
+
+
 
     return (
         <div onClick={props.setFavorite}>
@@ -27,7 +41,8 @@ export default function FavoriteItem(props) {
                     </Card.Text>
                     <div className="recipeCard--buttons">
                         <div>
-                            <Buttons small><FontAwesomeIcon icon={faBookReader} /></Buttons>
+                            <Buttons small id={props.id} onClick={() => viewRecipe(props.id)}>
+                                <FontAwesomeIcon icon={faBookReader} /></Buttons>
                         </div>
                         <div>
                             <Buttons small id={props.id} onClick={() => props.setRemoveItem(props.id)}>

@@ -10,9 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 export default function Favorites(props) {
-  // const userIdToken = useToken();
-  // const user_Id = userIdToken.token;
-  // const [key, setKey] = useState(0);
+  
   const [favoriteList, setFavoriteList] = useState([]);
   useEffect(() => {
     if (localStorage.getItem('favorite')) {
