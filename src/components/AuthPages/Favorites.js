@@ -27,13 +27,17 @@ export default function Favorites(props) {
     console.log('remove you now')
     console.log('favoriteList', favoriteList)
     console.log('id', id)
-    for (let key of favoriteList) {
+    for (const key of favoriteList) {
       if (key.id === id) {
-        const index = favoriteList.indexOf(favoriteList[key]);
-        favoriteList.splice(index + 1, 1);
+        console.log('key.id', key.id)
+        const index = favoriteList.indexOf(key);
+        console.log('key', key)
+        favoriteList.splice(index, 1);
         setFavoriteList(favoriteList)
         console.log('favoriteList in removeFavorite', favoriteList);
         localStorage.setItem('favorite', JSON.stringify(favoriteList));
+        const favorites = JSON.parse(localStorage.getItem('favorite'));
+        setFavoriteList(favorites)
       }
     }
 
@@ -56,14 +60,6 @@ export default function Favorites(props) {
     console.log('clearing')
     localStorage.clear();
     setFavoriteList([]);
-    // const favoriteList = {...favorites}
-    // if (favoriteList !== "") {
-    //   setFavoriteList([]);
-    //   localStorage.clear();
-    //   console.log('favoriteList inside clear', favoriteList)
-    //   // localStorage.setItem('favorites', JSON.stringify(favorites));
-    // }
-    // setFavoriteList(favorites)
   }
 
   // console.log('favoriteList after clear', favoriteList)
