@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 export default function Favorites(props) {
-  
+  const [message, setMessage] = useState('');
   const [favoriteList, setFavoriteList] = useState([]);
   useEffect(() => {
     if (localStorage.getItem('favorite')) {
@@ -40,6 +40,15 @@ export default function Favorites(props) {
     }
 
   }
+  const displayMessage = function () {
+    if (favoriteList.length > 0) {
+      setMessage('');
+    }
+    setMessage('You do not have any saved favorites, want to go and search some recipes?');
+
+  }
+
+
   const mapFavorites = favoriteList.length > 0 && favoriteList.map(favorite =>
 
     <FavoriteItem key={favorite.id}
@@ -64,7 +73,9 @@ export default function Favorites(props) {
   return (
     <div className="favoriteStorage">
       <h3>My Favorite Recipes:</h3>
-      <Buttons onClick={clearFavorites}><FontAwesomeIcon icon={faTrashAlt} />All</Buttons>
+      <Buttons onClick={clearFavorites}>
+        <FontAwesomeIcon icon={faTrashAlt} />All</Buttons>
+      <p>{displayMessage}</p>
       <div className="favoriteCardsDiv">{mapFavorites}</div>
     </div>
   );

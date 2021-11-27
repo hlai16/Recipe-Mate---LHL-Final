@@ -2,6 +2,9 @@ import { Button, Modal } from "react-bootstrap";
 import { useState, useEffect } from 'react';
 import RecipeView from "./RecipeView";
 import { useLocation } from "react-router";
+import Buttons from '../Buttons';
+import { faBookReader, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 export default function ViewButton(props) {
@@ -11,9 +14,9 @@ export default function ViewButton(props) {
 
     return (
         <>
-            <Button variant="primary" onClick={() => setModalShow(true)}>
-                Launch vertically centered modal
-            </Button>
+            <Buttons small onClick={() => setModalShow(true)}>
+                <FontAwesomeIcon icon={faBookReader} />
+            </Buttons>
 
             <RecipeView
                 id={props.id}

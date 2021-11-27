@@ -2,10 +2,12 @@ import { Button, Modal } from "react-bootstrap";
 import { useState, useEffect } from 'react';
 import { useLocation } from "react-router";
 import axios from "axios";
+import Buttons from '../Buttons';
+import { useNavigate } from "react-router-dom";
 
 
 export default function RecipeView(props) {
-    
+    let navigate = useNavigate();
     const [recipeById, setRecipeById] = useState('');
     const recipeId = props.id
     console.log('recipeId', recipeId)
@@ -15,8 +17,6 @@ export default function RecipeView(props) {
             .then((results) => {
                 console.log('results.data[0].id before setRecipeById', results.data[0])
                 setRecipeById(results.data[0])
-                console.log('results.data[0] after setRecipeById', results.data[0])
-                console.log('results.data[0].id after setRecipeById', results.data[0].id)
             })
 
     }, [recipeId]);
@@ -73,6 +73,8 @@ export default function RecipeView(props) {
                 </table>
             </Modal.Body>
             <Modal.Footer>
+                <Buttons small onClick={() => navigate(`/SingleRecipe`, { state: Number(recipeById.id) })}>More</Buttons>
+                <Buttons small onClick={() => navigate(`/Create`, { state: recipeById.name })}>Edit</Buttons>
                 <Button onClick={props.onHide}>Close</Button>
             </Modal.Footer>
         </Modal>
