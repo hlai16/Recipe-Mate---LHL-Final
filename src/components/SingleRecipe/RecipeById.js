@@ -5,7 +5,7 @@ import { Card, Button } from "react-bootstrap";
 import Buttons from '../Buttons';
 import { useNavigate } from "react-router";
 // import Favorite from "../Favorite";
-
+import 'animate.css';
 
 // get our fontawesome imports
 import { faThumbsUp, faHeart } from "@fortawesome/free-solid-svg-icons";
@@ -16,7 +16,9 @@ import { array } from "prop-types";
 export default function RecipeById(props) {
   const [recipeById, setRecipeById] = useState('');
   const [moreFromUser, setMoreFromUser] = useState([]);
-  
+  const [message, setMessage] = useState('');
+
+
 
   const recipeId = props.recipeId
 
@@ -42,7 +44,7 @@ export default function RecipeById(props) {
   }, [recipeById])
 
 
-  
+
   console.log(recipeById)
 
   const addToProfile = function () {
@@ -63,12 +65,16 @@ export default function RecipeById(props) {
       servings: recipeById.servings,
       steps: recipeById.steps,
       time: recipeById.time,
-      user_id: recipeById.user_id
+      user_id: recipeById.user_id,
     });
-
+    if (favorite[0].addFavorite) {
+      setMessage('Work');
+    }
+    setMessage('Added to Favorites');
     localStorage.setItem('favorite', JSON.stringify(favorite));
+
   }
-  
+
   return (< >
     <h3>{recipeById.name}</h3>
     <div className="likesDiv">
@@ -78,6 +84,7 @@ export default function RecipeById(props) {
       <button onClick={addToProfile}>
         <h1 className="favorite"><FontAwesomeIcon icon={faHeart} /></h1>
       </button>
+      <p>{message}</p>
     </div>
     <div className="recipeUrlDiv--img">
       <img src={recipeById.image} alt="display image" />
@@ -116,19 +123,19 @@ export default function RecipeById(props) {
       <div className="otherRecipesBySameUser"><h4>***All Recipes from This User:***</h4></div>
       <div className="otherRecipesBySameUser--inner">{moreFromUser.map((recipe) => (
         <div>
-           
+
           <Card style={{ width: '18rem' }}>
- 
+
             <Card.Img variant="top" src={recipe.image} alt={recipe.name} />
             <Card.Body>
               <Card.Title>{recipe.name}</Card.Title>
               <Card.Text>
                 {recipe.description}
               </Card.Text>
-              <Buttons small onClick={() => setRecipeById(recipe)} >Go</Buttons>
+              <Buttons small onClick={() => setRecipeById(recipe)}>Go</Buttons>
             </Card.Body>
           </Card>
-          
+
         </div>
 
       ))}

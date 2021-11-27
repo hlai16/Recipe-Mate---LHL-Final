@@ -38,6 +38,7 @@
             color: $accent-color;
         }
         h1:hover,
+        h1:active,
         h1:focus-within {
             color: red;
         }
@@ -88,6 +89,7 @@
             margin-bottom: 1em;
         }
         > div:hover,
+        > div:active,
         > div:focus-within {
             border: 5px solid $confirm-color;
         }
