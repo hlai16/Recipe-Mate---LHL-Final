@@ -64,9 +64,9 @@ export default function UserProfile(props) {
               <Card.Text>
                 {recipe.description}
               </Card.Text>
-              <Buttons onClick={() => navigate(`/SingleRecipe`, { state: Number(recipe.id) })} >Visit</Buttons>
-              <Buttons small onClick={() => navigate(`/SingleRecipe`, { state: Number(recipe.id) })}> Modify</Buttons>
-              <Buttons onClick={() => handleDelete(recipe.id, key)}><FontAwesomeIcon icon={faTrashAlt} />Remove</Buttons>
+              <Buttons small onClick={() => navigate(`/SingleRecipe`, { state: Number(recipe.id) })} >Visit</Buttons>
+              {/* <Buttons small onClick={() => navigate(`/SingleRecipe`, { state: Number(recipe.id) })}> Modify</Buttons> */}
+              <Buttons small onClick={() => handleDelete(recipe.id, key)}><FontAwesomeIcon icon={faTrashAlt} />Remove</Buttons>
             </Card.Body>
           </Card>
 

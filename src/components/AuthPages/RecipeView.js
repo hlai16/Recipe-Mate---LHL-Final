@@ -39,7 +39,7 @@ export default function RecipeView(props) {
         axios
             .get(`/Recipes/${recipeId}`)
             .then((results) => {
-                // console.log('results.data[0].id before setRecipeById', results.data[0])
+                console.log('results.data[0].id before setRecipeById', results.data[0])
                 setRecipeById(results.data[0])
             })
 
@@ -68,6 +68,7 @@ export default function RecipeView(props) {
                 >Cancel</Buttons>
                 {mode === CREATE &&
                     <Create
+                        id={recipeById.id}
                         name={recipeById.name}
                         ingredients={recipeById.ingredients}
                         description={recipeById.description}
