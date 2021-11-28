@@ -69,14 +69,17 @@ export default function Favorites(props) {
 
   // console.log('favoriteList after clear', favoriteList)
   return (
+    <>
+    <ProfileNav />
     <div className="favoriteStorage">
-      <ProfileNav />
+      
       <h3>My Favorite Recipes:</h3>
       <Buttons onClick={clearFavorites}>
         <FontAwesomeIcon icon={faTrashAlt} />All</Buttons>
       {/* <p>{()=> displayMessage}</p> */}
       <div className="favoriteCardsDiv">{mapFavorites}</div>
     </div>
+    </>
   );
 }
 

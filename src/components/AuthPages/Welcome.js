@@ -13,9 +13,9 @@ export default function Welcome(props) {
 
   return (
     <>
-      <h3>Welcome!</h3>
-      <p>Your are logged in with the following e-mail address: </p>
-      <p>{userEmail}</p>
+      <h1>Welcome!</h1>
+      <p className="loginAs">Your are logged in with the following e-mail address: </p>
+      <p className="loginEmail">{userEmail}</p>
     </>
   );
 }
