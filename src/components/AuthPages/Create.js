@@ -16,8 +16,8 @@ export default function Create(props) {
   const [description, setDescription] = useState(props.description || "");
   const [ingredients, setIngredients] = useState(props.ingredients || "");
   const [steps, setSteps] = useState(props.steps || "");
-  const [servings, setServings] = useState("");
-  const [time, setTime] = useState("");
+  const [servings, setServings] = useState(props.serving || "");
+  const [time, setTime] = useState(props.time || "");
   const likes = 0;
   const [image, setImage] = useState(props.image || "");
   let navigate = useNavigate();

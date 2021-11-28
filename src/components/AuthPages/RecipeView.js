@@ -57,6 +57,8 @@ export default function RecipeView(props) {
                         image={recipeById.image}
                         steps={recipeById.steps}
                         category={recipeById.category_id}
+                        time={recipeById.time}
+                        serving={recipeById.serving}
                         onCancel={back}
                     />}
                 <RecipeDetails
