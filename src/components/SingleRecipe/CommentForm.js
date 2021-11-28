@@ -11,6 +11,7 @@ import Buttons from '../Buttons';
 export default function CommentForm(props) {
   const userIdToken = useToken();
   const user_id = userIdToken.token;
+  const user_email = props.userEmail;
   const recipe_id = props.recipeId
   const [description, setDescription] = useState([]);
 
@@ -29,7 +30,7 @@ export default function CommentForm(props) {
     };
     console.log("Data to be posted ", { ...data });
     axios.post(`/Recipes/${recipe_id}/comments`, { ...data })
-    .then(response => props.setCommentsByRecipeId(prev => [ response.data[0],...prev, ]))
+    .then(response => props.setCommentsByRecipeId(prev => [ {...response.data[0], user_email},...prev ]))
     .then(()=> setDescription(''));
   };
 
