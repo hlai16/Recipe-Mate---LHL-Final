@@ -53,6 +53,7 @@ export default function Create(props) {
     
     console.log("Data to be posted ", { ...data });
     axios.post(`users/${user_id}/recipes`, { ...data })
+    navigate('./search');
     alert.show('Recipe created and saved in your profile 🙌🏼');
     setMessage('Recipe created and saved in your profile 🙌🏼');
   };
@@ -100,7 +101,9 @@ export default function Create(props) {
                     <option value="2">Lunch</option>
                     <option value="3">Dinner</option>
                     <option value="4">Personal Care</option>
-                    <option value="5">Other</option>
+                    <option value="5">Other For Food</option>
+                    <option value="6">Kids</option>
+                    <option value="7">Other Things</option>
                   </Form.Select>
                 </Form.Group>
                 <Form.Group>
@@ -191,7 +194,7 @@ export default function Create(props) {
                 
                 }
               >Create</button>
-              {/* <Buttons onClick={cancel}>Cancel</Buttons> */}
+              
             </Col>
             <Col></Col>
           </Row>
