@@ -2,10 +2,38 @@
 @import '../styles/variables.scss';
 
 .recipeListDiv {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
+
     margin: 5em;
     margin-top: 12em;
-}
+    
+    .searchItem {
+      display: flex;
+      justify-items: space-around;
+      justify-content: center;
+      flex-direction: row-reverse;
+      margin-left: 5%;
+      margin-top: 1em;
+      height: 15em;
+      width: 60em ;
+      margin: 0.5rem;
+      background-color: #eee;
+      display: inline-block;
+      border: 3px solid #54514979;
+      border-radius: $border-radius;
+      margin: 1em auto;
+      padding: 1em;
+      
+      
+      .Search--img {
+      display: inline-block;
+      border: 3px solid #54514979;
+      border-radius: $border-radius;
+      height: 10 em;
+    
+
+      }
+    }
+
+
+
+  }
