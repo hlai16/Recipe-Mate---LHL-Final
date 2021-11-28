@@ -7,7 +7,8 @@ import Buttons from '../Buttons';
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Alert } from 'react-bootstrap';
-import { useAlert } from 'react-alert'
+import { useAlert } from 'react-alert';
+import ProfileNav from './ProfileNav';
 // User Profile needs to read from the cookie and return the users Recipes based on the ID 
 
 
@@ -69,6 +70,7 @@ export default function Favorites(props) {
   // console.log('favoriteList after clear', favoriteList)
   return (
     <div className="favoriteStorage">
+      <ProfileNav />
       <h3>My Favorite Recipes:</h3>
       <Buttons onClick={clearFavorites}>
         <FontAwesomeIcon icon={faTrashAlt} />All</Buttons>

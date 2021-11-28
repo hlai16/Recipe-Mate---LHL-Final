@@ -11,6 +11,8 @@ import useToken from './hooks/useToken';
 import getRecipesWithSearch from './components/Helpers/getRecipesWithSearch';
 import RecipeList from './components/RecipeList';
 import UserProfile from './components/AuthPages/UserProfile';
+import Favorites from './components/AuthPages/Favorites';
+import CreatedRecipes from './components/AuthPages/CreatedRecipes';
 // import Login from './components/Login';
 // import UserProfile from './components/AuthPages/UserProfile';
 // import useApplicationData from "./hooks/useApplicationData";
@@ -38,6 +40,8 @@ function App() {
             <Route path="/recipeItem" element={<RecipeItem setToken={ setToken } />} />
             <Route path="/SingleRecipe" element={<SingleRecipe setToken={ setToken }/>} />
             <Route path="/recipes" element={<RecipeList recipes={ getRecipesWithSearch }/>} />
+            <Route path="/userRecipes" element={<CreatedRecipes/>} />
+            <Route path="/favorites" element={<Favorites />} />
 
         </Routes>
       </BrowserRouter>
