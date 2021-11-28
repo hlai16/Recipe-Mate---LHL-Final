@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import './RecipeById.scss';
-import { Card, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import Buttons from '../Buttons';
 import { useAlert } from 'react-alert';
 
 // get our fontawesome imports
 import { faThumbsUp, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Favorites from "../AuthPages/Favorites";
-import { array } from "prop-types";
+
 
 export default function RecipeById(props) {
   const [recipeById, setRecipeById] = useState('');
   const [moreFromUser, setMoreFromUser] = useState([]);
   const [hasLike, setHasLike] = useState(false);
-  const [message, setMessage] = useState('');
+ 
   const alert = useAlert()
 
 
@@ -98,13 +97,13 @@ export default function RecipeById(props) {
       <button onClick={addToProfile}>
         <h1 className="favorite"><FontAwesomeIcon icon={faHeart} /></h1>
       </button>
-      <p>{message}</p>
+     
     </div>
     <div className="recipeUrlDiv--img">
       <img src={recipeById.image} alt="display image" />
     </div>
 
-    {/* <img src={recipeById.image} alt="display image" height="300" width="400" /> */}
+
     <h4>About</h4>
     <p>{recipeById.description}</p>
     <table className="table recipe-presentation">
