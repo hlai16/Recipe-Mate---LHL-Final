@@ -25,6 +25,7 @@
   .redBorder {
     width: 2rem;
     background-color: $accent-color;
+    background-image: linear-gradient(to right, #fc000000, #ff2600, darkorange);
     border-right: $border;
     height: 100vh;
   }
