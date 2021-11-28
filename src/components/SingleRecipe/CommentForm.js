@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useToken from "../../hooks/useToken";
 import axios from "axios";
 import { Form } from "react-bootstrap";
@@ -11,15 +11,21 @@ import Buttons from '../Buttons';
 export default function CommentForm(props) {
   const userIdToken = useToken();
   const user_id = userIdToken.token;
-  const user_email = props.userEmail;
   const recipe_id = props.recipeId
   const [description, setDescription] = useState([]);
+  const [userEmail, setUserEmail] = useState('');
+
+  useEffect(() => {
+    axios
+      .get(`/users/${user_id}`)
+      .then(res => setUserEmail(res.data[0].email))
+  }, []);
 
 
   const handleSubmit = (recipe_id, user_id, description) => {
     axios
       .post(`/Recipes/${recipe_id}/comments`, { recipe_id, user_id, description })
-      .then(response => props.setCommentsByRecipeId(prev => [ {...response.data[0], user_email},...prev ]))
+      .then(response => props.setCommentsByRecipeId(prev => [ {...response.data[0], user_email: userEmail},...prev ]))
       .then(()=> setDescription(''));
   };
 
