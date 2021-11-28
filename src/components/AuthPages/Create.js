@@ -59,16 +59,7 @@ export default function Create(props) {
   };
   
   const alert = useAlert()
-  // const success = alert.success('Recipe created', {
-  //   timeout: 2000, // custom timeout just for this one alert
-  //   onOpen: () => {
-  //     console.log('hey')
-  //   }, // callback that will be executed after this alert open
-  //   onClose: () => {
-  //     console.log('closed')
-  //   } // callback that will be executed after this alert is removed
-    
-  // })
+  
  
   return (
     <div>
