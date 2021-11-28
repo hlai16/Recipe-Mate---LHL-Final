@@ -1,67 +1,78 @@
-import React, { useState, Component } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import NavBar from "../NavBar";
-import Buttons from "../Buttons.js";
-import './create.scss';
-
-
+import useToken from "../../hooks/useToken";
+import "./create.scss";
 import "./";
-import {
-  Form,
-  Nav,
-  Container,
-  Col,
-  Row,
-  NavDropdown,
-  FormControl,
-  Button,
-} from "react-bootstrap";
+import { render } from "react-dom";
+import { useAlert } from 'react-alert';
+import { useNavigate } from "react-router-dom";
+import { Form, Container, Col, Row, FormControl } from "react-bootstrap";
 
-const handleSubmit = (
-  user_id,
-  recName,
-  category,
-  description,
-  ingredients,
-  steps,
-  servings,
-  time,
-  likes,
-  image
-) => {
-  // e.preventDefault();
-  let data = {
-    user_id: user_id,
-    name: recName,
-    category: category,
-    description: description,
-    ingredients: ingredients,
-    steps: steps,
-    servings: servings,
-    time: time,
-    likes: likes,
-    image: image,
-  };
-  console.log("Data to be posted ", data);
-  axios.post(`users/${user_id}/recipes`, { ...data });
-};
 
 export default function Create(props) {
-  // const userId = readCookie();
-  const [user_id, setUser] = useState("2");
-  const [category, setCategory] = useState("");
-  const [recName, setrecName] = useState("");
-  const [description, setDescription] = useState("");
-  const [ingredients, setIngredients] = useState("");
-  const [steps, setSteps] = useState("");
-  const [servings, setServings] = useState("");
-  const [time, setTime] = useState("");
-  const [likes, setLikes] = useState("0");
-  const [image, setImage] = useState("");
-
+  const userIdToken = useToken();
+  const user_id = userIdToken.token;
+  const [category, setCategory] = useState(props.category|| 0);
+  const [recName, setrecName] = useState(props.name || "");
+  const [description, setDescription] = useState(props.description || "");
+  const [ingredients, setIngredients] = useState(props.ingredients || "");
+  const [steps, setSteps] = useState(props.steps || "");
+  const [servings, setServings] = useState(props.serving || "");
+  const [time, setTime] = useState(props.time || "");
+  const likes = 0;
+  const [image, setImage] = useState(props.image || "");
+  const [message, setMessage] = useState(props.image || "");
+  let navigate = useNavigate();
+  
+  const handleSubmit = (
+    user_id,
+    recName,
+    category,
+    description,
+    ingredients,
+    steps,
+    servings,
+    time,
+    likes,
+    image
+  ) => {
+    // e.preventDefault();
+    let data = {
+      user_id: user_id,
+      name: recName,
+      category: category,
+      description: description,
+      ingredients: ingredients,
+      steps: steps,
+      servings: servings,
+      time: time,
+      likes: likes,
+      image: image,
+    };
+    
+    console.log("Data to be posted ", { ...data });
+    axios.post(`users/${user_id}/recipes`, { ...data })
+    navigate('./search');
+    alert.show('Recipe created and saved in your profile 🙌🏼');
+    setMessage('Recipe created and saved in your profile 🙌🏼');
+  };
+  
+  const alert = useAlert()
+  // const success = alert.success('Recipe created', {
+  //   timeout: 2000, // custom timeout just for this one alert
+  //   onOpen: () => {
+  //     console.log('hey')
+  //   }, // callback that will be executed after this alert open
+  //   onClose: () => {
+  //     console.log('closed')
+  //   } // callback that will be executed after this alert is removed
+    
+  // })
+ 
   return (
     <div>
-      <NavBar setToken={props.setToken} />
+      {/* <NavBar setToken={props.setToken} /> */}
       <section className="recipe-create-section">
         <Container>
           <Row>
@@ -73,7 +84,7 @@ export default function Create(props) {
                   <Form.Label>Recipe Name:</Form.Label>
                   <Form.Control
                     type="text"
-                    name="name"
+                    name={props.name}
                     required
                     value={recName}
                     onChange={(e) => setrecName(e.target.value)}
@@ -82,7 +93,7 @@ export default function Create(props) {
                 <Form.Group>
                   <Form.Label>Category:</Form.Label>
                   <Form.Select
-                    name="Category"
+                    name={props.category}
                     onChange={(e) => setCategory(e.target.value)}
                   >
                     <option value="">--Please choose an option--</option>
@@ -90,12 +101,16 @@ export default function Create(props) {
                     <option value="2">Lunch</option>
                     <option value="3">Dinner</option>
                     <option value="4">Personal Care</option>
-                    <option value="5">Other</option>
+                    <option value="5">Other For Food</option>
+                    <option value="6">Kids</option>
+                    <option value="7">Other Things</option>
                   </Form.Select>
                 </Form.Group>
                 <Form.Group>
                   <Form.Label> Description:</Form.Label>
                   <FormControl
+                    as="textarea"
+                    aria-label="With textarea"
                     type="text"
                     name="description"
                     required
@@ -106,8 +121,10 @@ export default function Create(props) {
                 <Form.Group>
                   <Form.Label> Ingredients:</Form.Label>
                   <Form.Control
+                    as="textarea"
+                    aria-label="With textarea"
                     type="text"
-                    name="ingredients"
+                    name={props.ingredients}
                     required
                     value={ingredients}
                     onChange={(e) => setIngredients(e.target.value)}
@@ -116,6 +133,8 @@ export default function Create(props) {
                 <Form.Group>
                   <Form.Label> Steps:</Form.Label>
                   <Form.Control
+                    as="textarea"
+                    aria-label="With textarea"
                     type="text"
                     name="steps"
                     required
@@ -151,15 +170,15 @@ export default function Create(props) {
                     required
                     value={image}
                     onChange={(e) => setImage(e.target.value)}
-                    required
                   />
                 </Form.Group>
               </Form>
-              <input
-                type="button"
+             <p>{message}</p>
+              <button
+                type="submit"
                 className="button button--small"
                 value="Submit Recipe"
-                onClick={() =>
+                onClick={(e) =>
                   handleSubmit(
                     user_id,
                     recName,
@@ -172,8 +191,10 @@ export default function Create(props) {
                     likes,
                     image
                   )
+                
                 }
-              />
+              >Create</button>
+              
             </Col>
             <Col></Col>
           </Row>

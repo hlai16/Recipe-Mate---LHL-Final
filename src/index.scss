@@ -16,6 +16,9 @@
 
 body {
   font-family: $font-family;
+  max-width: 2000px;
+  margin: 0;
+  font-size: 62%;
 }
 
 .layout {
@@ -34,15 +37,27 @@ h6 {
   font-family: $font-family2;
 }
 
+h1 {
+  font-size: 2.5em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h4 {
+  font-size: 1.2em;
+}
+
 @media only screen and (max-width: 960px) {
   html {
     font-size: 20px;
   }
 
-  .navDiv {
-    position: fixed;
-    top: 0;
-  }
+  // .navDiv {
+  //   position: fixed;
+  //   top: 0;
+  // }
   .HeroImg {
     visibility: collapse;
   }
@@ -50,7 +65,7 @@ h6 {
     position: relative;
     top: 0;
     max-width: 90vw;
-    left: -35em;
+    left: -37.5em;
     // margin-left: 8em;
     Form {
       width: 95%;
@@ -71,7 +86,18 @@ h6 {
   .search-categories--homeScientistOptions {
     flex-direction: column;
   }
+  .likesDiv, .favoriteDiv {
+    min-width: 20%;
+  }
+  .recipeUrlDiv--thumbnail {
+    min-width: 70%;
+  }
   
+  .otherRecipesBySameUser--inner {
+    flex-direction: column;
+    align-items: center;
+    // min-width: 130%;
+  }
 }
 
 @media only screen and (max-width: 500px) {
@@ -84,4 +110,19 @@ h6 {
     height: 90vh;
     margin-left: 8em;
   }
+  .recipeUrlDiv {
+    width: 100vw;
+    padding: -4em;
+    .recipeUrlDiv--img {
+      max-width: 120%;
+    }
+  }
+  .otherRecipesBySameUser--text {
+    div {
+      font-size: 16px;
+    }
+  }
+  // .recipeCard {
+  //   min-width: 100vw;
+  // }
 }

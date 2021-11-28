@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { readCookie } from "../util";
+import useToken from "../hooks/useToken";
 import axios from "axios";
-import { Navbar } from "react-bootstrap";
 
-export default function RecipeItem(props) {
-  const userId = readCookie();
+export default function UserRecipes(props) {
+  const userIdToken = useToken();
+  const userId = userIdToken.token;
   const [recipe, setRecipe] = useState([]);
   useEffect(() => {
     axios.get(`/users/${userId}/recipes`).then((results) => {
@@ -15,6 +15,7 @@ export default function RecipeItem(props) {
   return (
   
     <div>
+  
       {recipe.map(rec => (
         <div> 
        <div> name:{rec.name}</div>
@@ -25,8 +26,9 @@ export default function RecipeItem(props) {
        <div> Servings:{rec.servings}</div> 
        <div> Recipe Time:{rec.time} minutes</div>
        <div> Likes:{rec.likes}</div>
-       </div>))}
+       <div> same structure as individual</div> </div>))}
+       </div>
      
-    </div>
+    
   );
-}
+};
