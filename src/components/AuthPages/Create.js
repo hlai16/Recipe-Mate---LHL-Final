@@ -54,6 +54,7 @@ export default function Create(props) {
     console.log("Data to be posted ", { ...data });
     axios.post(`users/${user_id}/recipes`, { ...data })
     alert.show('Recipe created and saved in your profile 🙌🏼');
+    setMessage('Recipe created and saved in your profile 🙌🏼');
   };
   
   const alert = useAlert()
