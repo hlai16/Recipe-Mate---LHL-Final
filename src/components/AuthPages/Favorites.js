@@ -12,7 +12,7 @@ import { useAlert } from 'react-alert'
 
 
 export default function Favorites(props) {
-  const [message, setMessage] = useState('');
+  // const [message, setMessage] = useState('');
   const [favoriteList, setFavoriteList] = useState([]);
   useEffect(() => {
     if (localStorage.getItem('favorite')) {
@@ -43,13 +43,6 @@ export default function Favorites(props) {
 
   }
   const alert = useAlert()
-  const displayMessage = function () {
-    if (favoriteList.length > 0) {
-      setMessage('');
-    }
-    alert.show('You do not have any saved favorites, want to go and search some recipes?');
-
-  }
 
 
   const mapFavorites = favoriteList.length > 0 && favoriteList.map(favorite =>
@@ -79,7 +72,7 @@ export default function Favorites(props) {
       <h3>My Favorite Recipes:</h3>
       <Buttons onClick={clearFavorites}>
         <FontAwesomeIcon icon={faTrashAlt} />All</Buttons>
-      <p>{()=> displayMessage}</p>
+      {/* <p>{()=> displayMessage}</p> */}
       <div className="favoriteCardsDiv">{mapFavorites}</div>
     </div>
   );

@@ -9,8 +9,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function ViewButton(props) {
     const [modalShow, setModalShow] = useState(false);
-    // const location = useLocation();
-    // const recipeId = location.state || []
 
     return (
         <>
