@@ -13,24 +13,20 @@ export default function CommentForm(props) {
   const user_id = userIdToken.token;
   const recipe_id = props.recipeId
   const [description, setDescription] = useState([]);
+  const [userEmail, setUserEmail] = useState('');
+
+  useEffect(() => {
+    axios
+      .get(`/users/${user_id}`)
+      .then(res => setUserEmail(res.data[0].email))
+  }, []);
 
 
-  const handleSubmit = (
-    recipe_id,
-    user_id,
-    description
-  
-  ) => {
-    
-    let data = {
-      recipe_id: recipe_id,
-      user_id: user_id,
-      description: description
-    };
-    console.log("Data to be posted ", { ...data });
-    axios.post(`/Recipes/${recipe_id}/comments`, { ...data })
-    .then(response => props.setCommentsByRecipeId(prev => [ response.data[0],...prev, ]))
-    .then(()=> setDescription(''));
+  const handleSubmit = (recipe_id, user_id, description) => {
+    axios
+      .post(`/Recipes/${recipe_id}/comments`, { recipe_id, user_id, description })
+      .then(response => props.setCommentsByRecipeId(prev => [ {...response.data[0], user_email: userEmail},...prev ]))
+      .then(()=> setDescription(''));
   };
 
   return (

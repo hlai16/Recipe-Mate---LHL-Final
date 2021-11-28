@@ -24,26 +24,19 @@ export default function RecipeById(props) {
   useEffect(() => {
     axios
       .get(`/Recipes/${recipeId}`)
-      .then((results) => {
-        console.log('results.data[0].id before setRecipeById', results.data[0])
-        setRecipeById(results.data[0])
-        console.log('results.data[0] after setRecipeById', results.data[0])
-        console.log('results.data[0].id after setRecipeById', results.data[0].id)
-      })
+      .then((results) => { setRecipeById(results.data[0]) })
   }, [recipeId]);
 
   useEffect(() => {
     if (recipeById.user_id) {
-      axios.get(`/Users/${recipeById.user_id}/recipes`)
-        .then((results) => (
-          setMoreFromUser(results.data)
-        ))
+      axios
+        .get(`/Users/${recipeById.user_id}/recipes`)
+        .then((results) => (setMoreFromUser(results.data)))
     }
   }, [recipeById])
 
   const handleLikes = () => {
     let prevLikesAmount = recipeById.likes;
-    console.log("Likes before: ", prevLikesAmount)
     if (hasLike) {
       const newRecipeState = {...recipeById, likes: prevLikesAmount - 1}
       axios
@@ -58,9 +51,6 @@ export default function RecipeById(props) {
         .then(setHasLike(true))
     }
   }
-
-
-  console.log(recipeById)
 
   const addToProfile = function () {
 
