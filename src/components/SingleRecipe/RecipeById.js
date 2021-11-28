@@ -3,6 +3,7 @@ import axios from "axios";
 import './RecipeById.scss';
 import { Card, Button } from "react-bootstrap";
 import Buttons from '../Buttons';
+import { useAlert } from 'react-alert';
 
 // get our fontawesome imports
 import { faThumbsUp, faHeart } from "@fortawesome/free-solid-svg-icons";
@@ -15,6 +16,7 @@ export default function RecipeById(props) {
   const [moreFromUser, setMoreFromUser] = useState([]);
   const [hasLike, setHasLike] = useState(false);
   const [message, setMessage] = useState('');
+  const alert = useAlert()
 
 
 
@@ -81,10 +83,8 @@ export default function RecipeById(props) {
       time: recipeById.time,
       user_id: recipeById.user_id,
     });
-    if (favorite[0].addFavorite) {
-      setMessage('Work');
-    }
-    setMessage('Added to Favorites');
+    
+    alert.show('Added to Favorites');
     localStorage.setItem('favorite', JSON.stringify(favorite));
 
   }

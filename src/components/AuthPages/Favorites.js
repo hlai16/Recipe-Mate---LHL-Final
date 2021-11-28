@@ -6,6 +6,8 @@ import { useState, useEffect } from 'react';
 import Buttons from '../Buttons';
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Alert } from 'react-bootstrap';
+import { useAlert } from 'react-alert'
 // User Profile needs to read from the cookie and return the users Recipes based on the ID 
 
 
@@ -40,11 +42,12 @@ export default function Favorites(props) {
     }
 
   }
+  const alert = useAlert()
   const displayMessage = function () {
     if (favoriteList.length > 0) {
       setMessage('');
     }
-    setMessage('You do not have any saved favorites, want to go and search some recipes?');
+    alert.show('You do not have any saved favorites, want to go and search some recipes?');
 
   }
 
@@ -67,6 +70,7 @@ export default function Favorites(props) {
     console.log('clearing')
     localStorage.clear();
     setFavoriteList([]);
+    alert.show('Favorites all cleared');
   }
 
   // console.log('favoriteList after clear', favoriteList)
@@ -75,7 +79,7 @@ export default function Favorites(props) {
       <h3>My Favorite Recipes:</h3>
       <Buttons onClick={clearFavorites}>
         <FontAwesomeIcon icon={faTrashAlt} />All</Buttons>
-      <p>{displayMessage}</p>
+      <p>{()=> displayMessage}</p>
       <div className="favoriteCardsDiv">{mapFavorites}</div>
     </div>
   );

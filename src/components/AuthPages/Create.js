@@ -5,6 +5,7 @@ import useToken from "../../hooks/useToken";
 import "./create.scss";
 import "./";
 import { render } from "react-dom";
+import { useAlert } from 'react-alert';
 import { useNavigate } from "react-router-dom";
 import { Form, Container, Col, Row, FormControl } from "react-bootstrap";
 
@@ -21,6 +22,7 @@ export default function Create(props) {
   const [time, setTime] = useState(props.time || "");
   const likes = 0;
   const [image, setImage] = useState(props.image || "");
+  const [message, setMessage] = useState(props.image || "");
   let navigate = useNavigate();
   
   const handleSubmit = (
@@ -51,10 +53,21 @@ export default function Create(props) {
     
     console.log("Data to be posted ", { ...data });
     axios.post(`users/${user_id}/recipes`, { ...data })
-    navigate(`/search`)
+    alert.show('Recipe created and saved in your profile 🙌🏼');
   };
   
-
+  const alert = useAlert()
+  // const success = alert.success('Recipe created', {
+  //   timeout: 2000, // custom timeout just for this one alert
+  //   onOpen: () => {
+  //     console.log('hey')
+  //   }, // callback that will be executed after this alert open
+  //   onClose: () => {
+  //     console.log('closed')
+  //   } // callback that will be executed after this alert is removed
+    
+  // })
+ 
   return (
     <div>
       {/* <NavBar setToken={props.setToken} /> */}
@@ -156,12 +169,12 @@ export default function Create(props) {
                   />
                 </Form.Group>
               </Form>
-             
-              <input
-                type="button"
+             <p>{message}</p>
+              <button
+                type="submit"
                 className="button button--small"
                 value="Submit Recipe"
-                onClick={() =>
+                onClick={(e) =>
                   handleSubmit(
                     user_id,
                     recName,
@@ -174,8 +187,9 @@ export default function Create(props) {
                     likes,
                     image
                   )
+                
                 }
-              />
+              >Create</button>
               {/* <Buttons onClick={cancel}>Cancel</Buttons> */}
             </Col>
             <Col></Col>
