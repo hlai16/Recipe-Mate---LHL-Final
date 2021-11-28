@@ -6,6 +6,7 @@ import { Card, Button } from "react-bootstrap";
 import { useLocation } from "react-router";
 import { useNavigate } from "react-router-dom";
 import Favorites from './Favorites';
+import Welcome from './Welcome';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
@@ -40,6 +41,7 @@ let navigate = useNavigate();
   return (
 
     <>
+      <Welcome userId={userId} />
       <Favorites user_Id={userId}></Favorites>
       <h1> *****All your recipe Creations*****</h1>
       <div className="ifNoRecipes"></div>
