@@ -1,6 +1,7 @@
 import { useLocation } from "react-router";
 import { useNavigate } from "react-router-dom";
 import NavBar from "./NavBar";
+import { Col,Container,Row } from "react-bootstrap";
 import './RecipeList.scss';
 
 export default function RecipeList(props) {
@@ -10,6 +11,7 @@ export default function RecipeList(props) {
 
   let navigate = useNavigate()
   const handleClick = function (event) {
+    console.log("recipe",event.target.id)
     navigate(`/SingleRecipe`, { state: Number(event.target.id) })
   }
 
@@ -17,15 +19,30 @@ export default function RecipeList(props) {
     <NavBar setToken={props.setToken} />
     <div className="recipeListDiv">
       <h2>Search Results</h2>
+      
       {recipes.map((recipe, key) => (
-        <article key={key} onClick={handleClick} id={recipe.id}>
-          <h3 id={recipe.id}>{recipe.name}</h3>
-          <img id={recipe.id} src={recipe.image} alt="display image" height="70" width="100" />
+        <div id={recipe.id} className="searchItem">
+        <article key={key} onClick={handleClick} id={recipe.id}> 
+        <Container id={recipe.id}>
+  
+        <Row id={recipe.id}> <h3 id={recipe.id}>{recipe.name}</h3> </Row>
+ 
+        <Col id={recipe.id}>
+        <div className="Search--img">
+        <img id={recipe.id} src={recipe.image} alt="display image" height="70" width="100" />
+  
+        </div>
+        </Col>
+        <Col id={recipe.id}>
           <p id={recipe.id}>Category: {recipe.category_name}</p>
           <p id={recipe.id}>Likes: {recipe.likes}</p>
+        </Col>
+        
+        </Container>
         </article>
-
+        </div>
       ))}
+     
     </div>
   </>);
 }
