@@ -54,9 +54,9 @@ export default function Search(props) {
                 </div>
                 <p>Dinner</p>
               </div>
-              <div className="search-categories--homeChefOption homeChefOption1">
-                <div className="search-categories--homeChefOptionImg homeChefOptionImg1">
-                  <img src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/feature/search-index/public/images/logo.png?raw=true"
+              <div className="search-categories--homeChefOption homeChefOption4">
+                <div className="search-categories--homeChefOptionImg homeChefOptionImg4">
+                  <img src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/feature/search-index/public/images/otherEdibles.jpg?raw=true"
                     alt="other" onClick={handleClick} id={7}/>
                 </div>
                 <p>Other</p>
@@ -73,18 +73,18 @@ export default function Search(props) {
                 </div>
                 <p>Personal Care</p>
               </div>
-              <div className="search-categories--homeScientistOption homeScientistOption1">
+              <div className="search-categories--homeScientistOption homeScientistOption2">
                 <div className="make-circle">
-                  <div className="search-categories--homeScientistOptionImg homeScientistOptionImg1">
-                    <img src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/feature/search-index/public/images/logo.png?raw=true"
+                  <div className="search-categories--homeScientistOptionImg homeScientistOptionImg2">
+                    <img src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/feature/search-index/public/images/kids.jpg?raw=true"
                       alt="kids" onClick={handleClick} id={6}/>
                   </div>
                 </div>
                 <p>Kids</p>
               </div>
-              <div className="search-categories--homeScientistOption homeScientistOption2">
+              <div className="search-categories--homeScientistOption homeScientistOption3">
                 <div className="make-circle">
-                  <div className="search-categories--homeScientistOptionImg homeScientistOptionImg2">
+                  <div className="search-categories--homeScientistOptionImg homeScientistOptionImg3">
                     <img src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/feature/search-index/public/images/otherRecipe.jpg?raw=true"
                       alt="other recipe ideas" onClick={handleClick} id={5}/>
                   </div>

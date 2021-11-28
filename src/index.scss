@@ -85,6 +85,9 @@ h4 {
   .search-categories--homeChefOptions, 
   .search-categories--homeScientistOptions {
     flex-direction: column;
+    .homeChefOption4 {
+      min-width: 60%;
+   }
   }
   .likesDiv, .favoriteDiv {
     min-width: 20%;
