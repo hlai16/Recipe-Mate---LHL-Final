@@ -58,7 +58,7 @@ export default function RecipeView(props) {
                         steps={recipeById.steps}
                         category={recipeById.category_id}
                         time={recipeById.time}
-                        serving={recipeById.serving}
+                        serving={recipeById.servings}
                         onCancel={back}
                     />}
                 <RecipeDetails

@@ -4,6 +4,7 @@ import NavBar from "../NavBar";
 import useToken from "../../hooks/useToken";
 import "./create.scss";
 import "./";
+import { render } from "react-dom";
 import { useNavigate } from "react-router-dom";
 import { Form, Container, Col, Row, FormControl } from "react-bootstrap";
 
@@ -11,7 +12,7 @@ import { Form, Container, Col, Row, FormControl } from "react-bootstrap";
 export default function Create(props) {
   const userIdToken = useToken();
   const user_id = userIdToken.token;
-  const [category, setCategory] = useState(props.catetory|| "");
+  const [category, setCategory] = useState(props.category|| 0);
   const [recName, setrecName] = useState(props.name || "");
   const [description, setDescription] = useState(props.description || "");
   const [ingredients, setIngredients] = useState(props.ingredients || "");
@@ -50,7 +51,7 @@ export default function Create(props) {
     
     console.log("Data to be posted ", { ...data });
     axios.post(`users/${user_id}/recipes`, { ...data })
-    navigate(`/`)
+    navigate(`/search`)
   };
   
 
@@ -77,7 +78,7 @@ export default function Create(props) {
                 <Form.Group>
                   <Form.Label>Category:</Form.Label>
                   <Form.Select
-                    name="Category"
+                    name={props.category}
                     onChange={(e) => setCategory(e.target.value)}
                   >
                     <option value="">--Please choose an option--</option>
