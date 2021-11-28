@@ -155,7 +155,7 @@ export default function Create(props) {
                   />
                 </Form.Group>
               </Form>
-              <p>{() => messageToggle(handleSubmit)}</p>
+             
               <input
                 type="button"
                 className="button button--small"

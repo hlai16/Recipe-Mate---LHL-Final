@@ -39,7 +39,7 @@ let navigate = useNavigate();
  
   return (
 
-    <>
+    <div className="profileDiv">
     <NavBar setToken={props.setToken} /> 
       <Favorites user_Id={userId}></Favorites>
       <h1> *****All your recipe Creations*****</h1>
@@ -64,7 +64,7 @@ let navigate = useNavigate();
 
       ))}
       </div>
-     </>
+     </div>
   
  );
 
