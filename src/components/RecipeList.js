@@ -11,6 +11,7 @@ export default function RecipeList(props) {
 
   let navigate = useNavigate()
   const handleClick = function (event) {
+    console.log("recipe",event.target.id)
     navigate(`/SingleRecipe`, { state: Number(event.target.id) })
   }
 
@@ -20,23 +21,28 @@ export default function RecipeList(props) {
       <h2>Search Results</h2>
       
       {recipes.map((recipe, key) => (
-        <div className="searchItem">
-    <Container>
-        <article key={key} onClick={handleClick} id={recipe.id}>
-        <Col>
-        <img id={recipe.id} src={recipe.image} alt="display image" height="140" width="200" />
+        <div id={recipe.id} className="searchItem">
+        <article key={key} onClick={handleClick} id={recipe.id}> 
+        <Container id={recipe.id}>
+  
+        <Row id={recipe.id}> <h3 id={recipe.id}>{recipe.name}</h3> </Row>
+ 
+        <Col id={recipe.id}>
+        <div className="Search--img">
+        <img id={recipe.id} src={recipe.image} alt="display image" height="70" width="100" />
+  
+        </div>
         </Col>
-        <Col>
-          <h3 id={recipe.id}>{recipe.name}</h3>
+        <Col id={recipe.id}>
           <p id={recipe.id}>Category: {recipe.category_name}</p>
-          <p id={recipe.id}>Likes:{recipe.likes}</p>
+          <p id={recipe.id}>Likes: {recipe.likes}</p>
         </Col>
-        </article>
+        
         </Container>
+        </article>
         </div>
       ))}
-       
+     
     </div>
   </>);
 }
-
