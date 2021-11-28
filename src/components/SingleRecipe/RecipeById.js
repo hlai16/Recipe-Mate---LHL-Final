@@ -13,6 +13,7 @@ import { array } from "prop-types";
 export default function RecipeById(props) {
   const [recipeById, setRecipeById] = useState('');
   const [moreFromUser, setMoreFromUser] = useState([]);
+  const [hasLike, setHasLike] = useState(false);
   const [message, setMessage] = useState('');
 
 
@@ -28,7 +29,6 @@ export default function RecipeById(props) {
         console.log('results.data[0] after setRecipeById', results.data[0])
         console.log('results.data[0].id after setRecipeById', results.data[0].id)
       })
-
   }, [recipeId]);
 
   useEffect(() => {
@@ -40,6 +40,23 @@ export default function RecipeById(props) {
     }
   }, [recipeById])
 
+  const handleLikes = () => {
+    let prevLikesAmount = recipeById.likes;
+    console.log("Likes before: ", prevLikesAmount)
+    if (hasLike) {
+      const newRecipeState = {...recipeById, likes: prevLikesAmount - 1}
+      axios
+        .put(`/Recipes/${recipeById.id}/likes`, {likes: prevLikesAmount - 1})
+        .then(setRecipeById(newRecipeState))
+        .then(setHasLike(false))
+    } else {
+      const newRecipeState = {...recipeById, likes: prevLikesAmount + 1}
+      axios
+        .put(`/Recipes/${recipeById.id}/likes`, {likes: prevLikesAmount + 1})
+        .then(setRecipeById(newRecipeState))
+        .then(setHasLike(true))
+    }
+  }
 
 
   console.log(recipeById)
@@ -75,7 +92,7 @@ export default function RecipeById(props) {
   return (< >
     <h3>{recipeById.name}</h3>
     <div className="likesDiv">
-      <button><h1 className="likes"><FontAwesomeIcon icon={faThumbsUp} /></h1>{recipeById.likes}</button>
+      <button onClick={handleLikes}><h1 className="likes"><FontAwesomeIcon icon={faThumbsUp} /></h1>{recipeById.likes}</button>
     </div>
     <div className="favoriteDiv">
       <button onClick={addToProfile}>
