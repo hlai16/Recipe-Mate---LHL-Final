@@ -4,37 +4,9 @@ import NavBar from "../NavBar";
 import useToken from "../../hooks/useToken";
 import "./create.scss";
 import "./";
-
+import { useNavigate } from "react-router-dom";
 import { Form, Container, Col, Row, FormControl } from "react-bootstrap";
 
-const handleSubmit = (
-  user_id,
-  recName,
-  category,
-  description,
-  ingredients,
-  steps,
-  servings,
-  time,
-  likes,
-  image
-) => {
-  // e.preventDefault();
-  let data = {
-    user_id: user_id,
-    name: recName,
-    category: category,
-    description: description,
-    ingredients: ingredients,
-    steps: steps,
-    servings: servings,
-    time: time,
-    likes: likes,
-    image: image,
-  };
-  console.log("Data to be posted ", { ...data });
-  axios.post(`users/${user_id}/recipes`, { ...data });
-};
 
 export default function Create(props) {
   const userIdToken = useToken();
@@ -48,7 +20,39 @@ export default function Create(props) {
   const [time, setTime] = useState("");
   const likes = 0;
   const [image, setImage] = useState("");
-
+  let navigate = useNavigate();
+  
+  const handleSubmit = (
+    user_id,
+    recName,
+    category,
+    description,
+    ingredients,
+    steps,
+    servings,
+    time,
+    likes,
+    image
+  ) => {
+    // e.preventDefault();
+    let data = {
+      user_id: user_id,
+      name: recName,
+      category: category,
+      description: description,
+      ingredients: ingredients,
+      steps: steps,
+      servings: servings,
+      time: time,
+      likes: likes,
+      image: image,
+    };
+    
+    console.log("Data to be posted ", { ...data });
+    axios.post(`users/${user_id}/recipes`, { ...data })
+    navigate(`/`)
+  };
+  
 
   return (
     <div>
