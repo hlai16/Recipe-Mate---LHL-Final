@@ -81,6 +81,7 @@ This project was made with love as a final project for our Lighthouse Labs Web D
 We came together over a passion of food, creating and coding. We were driven to make something fun and beautiful to use. The Vision is to get people sharing ideas of a platform that embraces creativity and Innovation. 
 
 Coded by 
+
 Ana Carolina Kolozsvari -  https://github.com/anacko
 
 Catherine Swain -          https://github.com/C-Swain
