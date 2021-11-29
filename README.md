@@ -18,29 +18,34 @@ First you will be Greeted by a Friendly Log in screen
 ![Log in]()
 
 
-Once logged in it will bring you to your Profile 
+#Once logged in it will bring you to your Profile 
+
 ![User Profile]()
 
 
-Browse by Categories
+#Browse by Categories
+
 ![Browse Recipes](https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/master/screenshots/BrowseFromDesktop2.png)
 
 
-Search Recipes:
+#Search Recipes:
+
 ![Search Results](https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/master/screenshots/desktopSearch.png)
 
-Create recipes:
+#Create recipes:
+
 ![Add Recipe](https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/master/screenshots/FilledCreateMobile.png)
 
-View all your creations
+#View all your creations
+
 ![Creations](https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/master/screenshots/allRecipesDesktop.png)
 
 
-Awaken your inner Scientist! 
+#Awaken your inner Scientist! 
 ![Home Scientest](https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/master/screenshots/Home%20Scientist.png)
 
 
-Favorite the recipes of others. 
+#Favorite the recipes of others. 
 ![Favorite](https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/master/screenshots/Favourite.png?raw=true)
 
 
