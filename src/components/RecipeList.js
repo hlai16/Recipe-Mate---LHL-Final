@@ -2,6 +2,8 @@ import { useLocation } from "react-router";
 import { useNavigate } from "react-router-dom";
 import NavBar from "./NavBar";
 import { Col,Container,Row } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import './RecipeList.scss';
 
 export default function RecipeList(props) {
@@ -18,8 +20,10 @@ export default function RecipeList(props) {
   return (< >
     <NavBar setToken={props.setToken} />
     <div className="recipeListDiv">
+    <Container>
+      <div> 
       <h2>Search Results</h2>
-      
+      </div>
       {recipes.map((recipe, key) => (
         <div id={recipe.id} className="searchItem">
         <article key={key} onClick={handleClick} id={recipe.id}> 
@@ -35,14 +39,14 @@ export default function RecipeList(props) {
         </Col>
         <Col id={recipe.id}>
           <p id={recipe.id}>Category: {recipe.category_name}</p>
-          <p id={recipe.id}>Likes: {recipe.likes}</p>
+          <p id={recipe.id} ><FontAwesomeIcon icon={faThumbsUp} /> {recipe.likes} Likes </p>
         </Col>
         
         </Container>
         </article>
         </div>
       ))}
-     
+     </Container>
     </div>
   </>);
 }
