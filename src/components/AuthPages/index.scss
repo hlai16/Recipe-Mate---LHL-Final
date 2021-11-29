@@ -11,4 +11,9 @@
     align-items: center;
     margin: 2.5em;
    }
+   .loginEmail {
+       font-weight: bold;
+       font-size: 2em;
+       text-shadow: 0 5px 10px $confirm-color;
+   } 
 }
