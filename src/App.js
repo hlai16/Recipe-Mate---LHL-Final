@@ -39,7 +39,7 @@ function App() {
             <Route path="/create" element={<Create setToken={ setToken } />} />
             <Route path="/recipeItem" element={<RecipeItem setToken={ setToken } />} />
             <Route path="/SingleRecipe" element={<SingleRecipe setToken={ setToken }/>} />
-            <Route path="/recipes" element={<RecipeList recipes={ getRecipesWithSearch }/>} />
+            <Route path="/recipes" element={<RecipeList setToken={setToken} recipes={ getRecipesWithSearch }/>} />
             <Route path="/userRecipes" element={<CreatedRecipes/>} />
             <Route path="/favorites" element={<Favorites />} />
 
