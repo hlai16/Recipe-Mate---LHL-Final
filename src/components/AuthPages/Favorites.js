@@ -69,10 +69,13 @@ export default function Favorites(props) {
     <>
       <ProfileNav />
       <div className="favoriteStorage">
+        <div className="positionfixed">
+          <h1>Your Favorite Recipes:</h1>
+          <Buttons medium onClick={clearFavorites}>
+            <FontAwesomeIcon icon={faTrashAlt} />All</Buttons>
+        </div>
 
-        <h1>Your Favorite Recipes:</h1>
-        <Buttons onClick={clearFavorites}>
-          <FontAwesomeIcon icon={faTrashAlt} />All</Buttons>
+
         <div className="ifNoRecipes">{message}</div>
         <div className="favoriteCardsDiv">{mapFavorites}</div>
       </div>

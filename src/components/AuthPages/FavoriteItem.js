@@ -19,7 +19,7 @@ export default function FavoriteItem(props) {
             <Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={props.image} alt={props.name} />
                 <Card.Body>
-                    <Card.Title><h5>{props.name}</h5></Card.Title>
+                    <Card.Title><h3>{props.name}</h3></Card.Title>
                     <Card.Text>
                         {props.description}
                     </Card.Text>

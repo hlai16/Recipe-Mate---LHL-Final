@@ -13,17 +13,30 @@
         grid-row: 1/2;
         grid-column: 1/-1;
     }
+    .positionfixed {
+        position: fixed;
+        background-color: #ffffff81;
+        padding: 0.5rem;
+        border-radius: $border-radius;
+        z-index: 90;
+        display: flex;
+        max-width: 100%;
+    }
     .favoriteCardsDiv,
     .createdRecipesDiv--inner {
         display: flex;
         flex-wrap: wrap;
-        max-width: 100%;
+        max-width: 95%;
         margin: 2.5em;
+        margin-top: 7.5em;
         .createdRecipesDiv--key,
         .favoriteCards {
             margin-right: 1em;
             margin-bottom: 2em;
         }
+    }
+    .favoriteCardsDiv {
+        margin-top: 12em;
     }
     .recipeUrlDiv--img {
         width: 100%;
