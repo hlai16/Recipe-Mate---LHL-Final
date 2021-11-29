@@ -18,6 +18,7 @@ export default function ViewButton(props) {
 
             <RecipeView
                 id={props.id}
+                origin={props.origin}
                 show={modalShow}
                 onHide={() => setModalShow(false)}
             />
