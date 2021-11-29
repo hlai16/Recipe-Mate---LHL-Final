@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import './RecipeById.scss';
-import { Card } from "react-bootstrap";
+import { Card, OverlayTrigger, Tooltip, Button } from "react-bootstrap";
 import Buttons from '../Buttons';
 import { useAlert } from 'react-alert';
 
@@ -15,7 +15,7 @@ export default function RecipeById(props) {
   const [recipeById, setRecipeById] = useState('');
   const [allFromUser, setAllFromUser] = useState([]);
   const [hasLike, setHasLike] = useState(false);
-  
+
   const alert = useAlert()
   let navigate = useNavigate()
 
@@ -40,15 +40,15 @@ export default function RecipeById(props) {
   const handleLikes = () => {
     let prevLikesAmount = recipeById.likes;
     if (hasLike) {
-      const newRecipeState = {...recipeById, likes: prevLikesAmount - 1}
+      const newRecipeState = { ...recipeById, likes: prevLikesAmount - 1 }
       axios
-        .put(`/Recipes/${recipeById.id}/likes`, {likes: prevLikesAmount - 1})
+        .put(`/Recipes/${recipeById.id}/likes`, { likes: prevLikesAmount - 1 })
         .then(setRecipeById(newRecipeState))
         .then(setHasLike(false))
     } else {
-      const newRecipeState = {...recipeById, likes: prevLikesAmount + 1}
+      const newRecipeState = { ...recipeById, likes: prevLikesAmount + 1 }
       axios
-        .put(`/Recipes/${recipeById.id}/likes`, {likes: prevLikesAmount + 1})
+        .put(`/Recipes/${recipeById.id}/likes`, { likes: prevLikesAmount + 1 })
         .then(setRecipeById(newRecipeState))
         .then(setHasLike(true))
     }
@@ -74,7 +74,7 @@ export default function RecipeById(props) {
       time: recipeById.time,
       user_id: recipeById.user_id,
     });
-    
+
     alert.show('Added to Favorites');
     localStorage.setItem('favorite', JSON.stringify(favorite));
 
@@ -85,24 +85,46 @@ export default function RecipeById(props) {
 
     <div className="likesDiv">
       <button onClick={handleLikes}>
-        Total Likes: <h1 className="likes"><FontAwesomeIcon icon={faThumbsUp} /></h1>{recipeById.likes} Likes
+        <h1 className="likes"><FontAwesomeIcon icon={faThumbsUp} /></h1>{recipeById.likes}
+      </button>
+    </div>
+
+    <div className="favoriteDiv">
+      <OverlayTrigger
+        key={'right'}
+        placement={'right'}
+        overlay={
+          <Tooltip id={`tooltip-${'right'}`}>
+            Add to <strong>Favorites</strong>.
+          </Tooltip>
+        }
+      >
+        <button onClick={addToProfile}>
+          <h1 className="favorite"> <FontAwesomeIcon icon={faHeart} /></h1>
         </button>
+      </OverlayTrigger>
     </div>
+
     <div className="favoriteDiv">
-      <button onClick={addToProfile}>
-        Add to Favorites: <h1 className="favorite"> <FontAwesomeIcon icon={faHeart} /></h1>
-      </button>
+      <OverlayTrigger
+        key={'right'}
+        placement={'right'}
+        overlay={
+          <Tooltip id={`tooltip-${'right'}`}>
+            Click to view <strong>All Recipes By This User</strong>.
+          </Tooltip>
+        }
+      >
+        <button onClick={() => navigate("/recipes", { state: allFromUser })}>
+          <h1 className="favorite"><FontAwesomeIcon icon={faPersonBooth} /></h1>
+        </button>
+      </OverlayTrigger>
     </div>
-    <div className="favoriteDiv">
-      <button onClick={() => navigate("/recipes", { state: allFromUser })}>
-        All from this user: <h1 className="favorite"><FontAwesomeIcon icon={faPersonBooth} /></h1>
-      </button>
-    </div>
+
 
     <div className="recipeUrlDiv--img">
       <img src={recipeById.image} alt="display image" />
     </div>
-
 
     <h4>About</h4>
     <p>{recipeById.description}</p>
