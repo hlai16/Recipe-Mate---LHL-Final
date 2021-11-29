@@ -25,17 +25,11 @@ export default function Favorites(props) {
 
 
   const removeFavorite = function (id) {
-    console.log('remove you now')
-    console.log('favoriteList', favoriteList)
-    console.log('id', id)
     for (const key of favoriteList) {
       if (key.id === id) {
-        console.log('key.id', key.id)
         const index = favoriteList.indexOf(key);
-        console.log('key', key)
         favoriteList.splice(index, 1);
         setFavoriteList(favoriteList)
-        console.log('favoriteList in removeFavorite', favoriteList);
         localStorage.setItem('favorite', JSON.stringify(favoriteList));
         const favorites = JSON.parse(localStorage.getItem('favorite'));
         setFavoriteList(favorites)

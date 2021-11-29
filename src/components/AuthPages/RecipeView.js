@@ -18,22 +18,6 @@ export default function RecipeView(props) {
     const recipeId = props.id
     const { mode, transition, back } = useVisualMode();
     const [favoriteList, setFavoriteList] = useState([]);
-    // useEffect(() => {
-    //     if (localStorage.getItem('favorite')) {
-    //         const favorites = JSON.parse(localStorage.getItem('favorite'));
-            
-    //         const filterFavorites = favorites.length > 0 &&
-    //             favorites.filter(favorite => favorite.id === recipeId);
-    //         console.log('filterFavorites', filterFavorites)
-    //         setFavoriteList(filterFavorites)
-    //         console.log('favoriteList', favoriteList)
-    //     }
-    // }, [])
-
-
-
-
-
 
     useEffect(() => {
         axios

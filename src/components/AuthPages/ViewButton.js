@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function ViewButton(props) {
     const [modalShow, setModalShow] = useState(false);
-
+    
     return (
         <>
             <Buttons small onClick={() => setModalShow(true)}>

@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import './index.scss';
 import ProfileNav from "./ProfileNav";
+import ViewButton from "./ViewButton";
 
 export default function CreatedRecipes(props) {
     const userIdToken = useToken();
@@ -40,40 +41,40 @@ export default function CreatedRecipes(props) {
                 }
                 localStorage.setItem('favorite', JSON.stringify(favorites));
                 setMoreFromUser(moreFromUser)
-                navigate(`/`)
+                navigate(`/userRecipes`)
             }
         })
     }
 
     return (
-
         <>
-
             <ProfileNav />
+            <section className="createdRecipesDiv">
 
-            <h1> *****All your recipe Creations*****</h1>
-            <div className="ifNoRecipes"></div>
-            <div className="otherRecipesBySameUser--inner">{moreFromUser.map((recipe, key) => (
-                <div key={key}>
+                <h1> *****All your recipe Creations*****</h1>
+                <div className="ifNoRecipes"></div>
+                <div className="otherRecipesBySameUser--inner">{moreFromUser.map((recipe, key) => (
+                    <div key={key}>
 
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src={recipe.image} alt={recipe.name} />
-                        <Card.Body>
-                            <Card.Title>{recipe.name}</Card.Title>
-                            <Card.Text>
-                                {recipe.description}
-                            </Card.Text>
-                            <Buttons small onClick={() => navigate(`/SingleRecipe`, { state: Number(recipe.id) })} >Visit</Buttons>
-                            {/* <Buttons small onClick={() => navigate(`/SingleRecipe`, { state: Number(recipe.id) })}> Modify</Buttons> */}
-                            <Buttons small onClick={() => handleDelete(recipe.id, key)}><FontAwesomeIcon icon={faTrashAlt} />Remove</Buttons>
-                        </Card.Body>
-                    </Card>
+                        <Card style={{ width: '18rem' }}>
+                            <Card.Img variant="top" src={recipe.image} alt={recipe.name} />
+                            <Card.Body>
+                                <Card.Title>{recipe.name}</Card.Title>
+                                <Card.Text>
+                                    {recipe.description}
+                                </Card.Text>
+                                <ViewButton id={recipe.id} />
+                                {/* <Buttons small onClick={() => navigate(`/SingleRecipe`, { state: Number(recipe.id) })} >Visit</Buttons> */}
+                                {/* <Buttons small onClick={() => navigate(`/SingleRecipe`, { state: Number(recipe.id) })}> Modify</Buttons> */}
+                                <Buttons small onClick={() => handleDelete(recipe.id, key)}><FontAwesomeIcon icon={faTrashAlt} />Remove</Buttons>
+                            </Card.Body>
+                        </Card>
 
+                    </div>
+
+                ))}
                 </div>
-
-            ))}
-            </div>
-
+            </section>
         </>
 
     );

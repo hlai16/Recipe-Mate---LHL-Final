@@ -43,10 +43,7 @@ export default function FavoriteItem(props) {
                         {props.description}
                     </Card.Text>
                     <div className="recipeCard--buttons">
-                        {/* <div>
-                            <Buttons small id={props.id} onClick={() => viewRecipe(props.id)}>
-                                <FontAwesomeIcon icon={faBookReader} /></Buttons>
-                        </div> */}
+                        
                         <ViewButton id={props.id} />
                         <div>
                             <Buttons small id={props.id} onClick={() => props.setRemoveItem(props.id)}>
