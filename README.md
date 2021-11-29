@@ -1,7 +1,7 @@
-### Welcome to Recipe Mate!~
+# Welcome to Recipe Mate!~
 
 Recipe mate is a place to share recipes. Like a cookbook, beyond cooking and booking.
-Food and crafting lovers agree that it’s not only about the product, it involves the process. It’s about preparation, dedication and improvement. And by sharing a recipe, is sharing that experience.
+Food and crafting lovers agree that it’s not only about the product, it involves the process. It’s about preparation, dedication and improvement. And by sharing a recipe, they are sharing that experience.
 
 
 ## Setup
@@ -14,31 +14,38 @@ Recipe Mate requires both the Api Server and The PSQL database to run.
 
 ## A Look inside the User Interface
 
-First you will be Greeted by a Friendly Log in screen
+### First stop time to sign up:
+![Log in](https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/master/screenshots/Register.png)
 
 
-Once logged in it will bring you to your Profile 
+### Browse by Categories
+
+![Browse Recipes](https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/master/screenshots/BrowseFromDesktop2.png)
 
 
+### Search Recipes:
 
-Users can Search Recipes
+![Search Results](https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/master/screenshots/desktopSearch.png)
 
+### Create recipes:
 
+![Add Recipe](https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/master/screenshots/FilledCreateMobile.png)
 
-Users can Add recipes
+### View all your creations
 
-
-
-Users can favorite the recipes of others. 
-
-
-
-Users can see more creations from the same User while veiwing the recipes 
+![Creations](https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/master/screenshots/allRecipesDesktop.png)
 
 
+### Awaken your inner Scientist! 
+
+![Home Scientest](https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/master/screenshots/Home%20Scientist.png)
 
 
-## Now you are ready to start
+### Favorite the recipes of others. 
+![Favorite](https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/master/screenshots/Favourite.png?raw=true)
+
+
+### Now you are ready to start
 
 In the project directory, you can run:
 
@@ -48,6 +55,24 @@ Run the app in the development mode. Open [http://localhost:3000](http://localho
 
 The page will reload if you make edits
 
+### Tech Stack        
+#### React            https://reactjs.org/
+#### Node.js          https://nodejs.org/en/
+#### React-Router     https://reactrouter.com/
+#### SASS             https://sass-lang.com/
+#### Bootstraps React https://react-bootstrap.github.io/
+
+
+### From sibling server
+Recipe-Mate-Api: https://github.com/C-Swain/Recipe-Mate-Api
+
+       
+ #### Express.js      https://expressjs.com/
+ #### Nodemon         https://www.npmjs.com/package/nodemon
+ #### Node.js         https://nodejs.org/en/
+ #### Postgres SQL    https://www.postgresql.org/
+
+  Special mention to Imgur which we used to host images online for use with our database https://imgur.com/
 
 
 ## Thank you for your interest in our project
@@ -56,6 +81,9 @@ This project was made with love as a final project for our Lighthouse Labs Web D
 We came together over a passion of food, creating and coding. We were driven to make something fun and beautiful to use. The Vision is to get people sharing ideas of a platform that embraces creativity and Innovation. 
 
 Coded by 
+
 Ana Carolina Kolozsvari -  https://github.com/anacko
-Catherine Swain -          https://github.com/C-Swain  
+
+Catherine Swain -          https://github.com/C-Swain
+
 Joan Gloria Lai -          https://github.com/hlai16

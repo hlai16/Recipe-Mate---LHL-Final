@@ -13,9 +13,16 @@ export default function Welcome(props) {
 
   return (
     <>
-      <h1>Welcome!</h1>
+      <article id="Welcome">
+      <h1>Welcome to Recipe Mate!</h1>
       <p className="loginAs">Your are logged in with the following e-mail address: </p>
       <p className="loginEmail">{userEmail}</p>
+      <p className="Greeting">You're in the right place to share recipes and inspiration!
+        Please, choose an option from the navigation bar . Select Catagories if you would like to browse, Click on Create if you want to share a recipe, or type in search bar if you have something particular in mind.
+        Below you will see your profile navigation bar , All your creations as well as your favorites are safe here! 
+        We hope you enjoy Recipe Mate , Stay Inspired!
+      </p>
+      </article>
     </>
   );
 }
