@@ -39,7 +39,6 @@ export default function CreatedRecipes(props) {
             moreFromUser.splice(key, 1)
 
             const favorites = JSON.parse(localStorage.getItem('favorite'));
-            console.log('id', id)
 
             for (const key of favorites) {
                 if (key.id === id) {
@@ -75,8 +74,7 @@ export default function CreatedRecipes(props) {
                                     {recipe.description}
                                 </Card.Text>
                                 <ViewButton id={recipe.id} origin={'createdRecipes'} />
-                                {/* <Buttons small onClick={() => navigate(`/SingleRecipe`, { state: Number(recipe.id) })} >Visit</Buttons> */}
-                                {/* <Buttons small onClick={() => navigate(`/SingleRecipe`, { state: Number(recipe.id) })}> Modify</Buttons> */}
+                
                                 <Buttons small onClick={() => handleDelete(recipe.id, key)}><FontAwesomeIcon icon={faTrashAlt} />Remove</Buttons>
                             </Card.Body>
                         </Card>

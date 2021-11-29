@@ -1,5 +1,4 @@
 import React from 'react';
-import useToken from '../../hooks/useToken';
 import FavoriteItem from './FavoriteItem';
 import './FavoriteItem.scss';
 import { useState, useEffect } from 'react';
@@ -9,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Alert } from 'react-bootstrap';
 import { useAlert } from 'react-alert';
 import ProfileNav from './ProfileNav';
+import { useNavigate } from "react-router-dom";
 // User Profile needs to read from the cookie and return the users Recipes based on the ID 
 
 
@@ -16,6 +16,8 @@ export default function Favorites(props) {
   // const [message, setMessage] = useState('');
   const [favoriteList, setFavoriteList] = useState([]);
   const [message, setMessage] = useState('');
+  let navigate = useNavigate();
+
   useEffect(() => {
     if (localStorage.getItem('favorite')) {
       const favorites = JSON.parse(localStorage.getItem('favorite'));
@@ -36,9 +38,10 @@ export default function Favorites(props) {
         localStorage.setItem('favorite', JSON.stringify(favoriteList));
         const favorites = JSON.parse(localStorage.getItem('favorite'));
         setFavoriteList(favorites)
+
       }
     }
-
+    navigate(`/favorites`)
   }
   const alert = useAlert()
 
@@ -75,9 +78,8 @@ export default function Favorites(props) {
             <FontAwesomeIcon icon={faTrashAlt} />All</Buttons>
         </div>
 
-
-        <div className="ifNoRecipes">{message}</div>
         <div className="favoriteCardsDiv">{mapFavorites}</div>
+        <div className="ifNoRecipes">{message}</div>
       </div>
     </>
   );

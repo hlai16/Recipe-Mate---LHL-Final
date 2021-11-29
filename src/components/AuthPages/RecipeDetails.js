@@ -1,16 +1,8 @@
-// import { Button, Modal } from "react-bootstrap";
-// import { useState, useEffect } from 'react';
-// import { useLocation } from "react-router";
-// import axios from "axios";
-import Buttons from '../Buttons';
-// import { useNavigate } from "react-router-dom";
-// import useVisualMode from '../../hooks/useVisualMode';
-// import Create from './Create';
+
 
 
 export default function RecipeDetails(props) {
 
-    // console.log('recipeById', recipeById)
 
     return (
         <>

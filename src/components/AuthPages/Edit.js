@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
-import NavBar from "../NavBar";
 import useToken from "../../hooks/useToken";
 import "./create.scss";
 import ".";
-import { render } from "react-dom";
 import { useAlert } from 'react-alert';
 import { useNavigate } from "react-router-dom";
 import { Form, Container, Col, Row, FormControl } from "react-bootstrap";
-import reactDom from "react-dom";
 
 
 export default function Edit(props) {

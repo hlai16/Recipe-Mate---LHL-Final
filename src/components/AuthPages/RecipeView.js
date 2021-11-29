@@ -1,6 +1,5 @@
 import { Button, Modal } from "react-bootstrap";
 import { useState, useEffect } from 'react';
-import { useLocation } from "react-router";
 import axios from "axios";
 import Buttons from '../Buttons';
 import { useNavigate } from "react-router-dom";
@@ -9,7 +8,7 @@ import Edit from './Edit';
 import RecipeDetails from "./RecipeDetails";
 
 const EDIT = "EDIT";
-const DETAIL = 'DETAIL';
+
 
 
 export default function RecipeView(props) {
@@ -17,19 +16,16 @@ export default function RecipeView(props) {
     const [recipeById, setRecipeById] = useState('');
     const recipeId = props.id
     const { mode, transition, back } = useVisualMode();
-    const [favoriteList, setFavoriteList] = useState([]);
+    
 
     useEffect(() => {
         axios
             .get(`/Recipes/${recipeId}`)
             .then((results) => {
-                console.log('results.data[0].id before setRecipeById', results.data[0])
                 setRecipeById(results.data[0])
             })
 
     }, [recipeId]);
-
-    // console.log('recipeById', recipeById)
 
     return (
         <Modal
