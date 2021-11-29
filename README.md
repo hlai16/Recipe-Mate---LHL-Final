@@ -55,6 +55,24 @@ Run the app in the development mode. Open [http://localhost:3000](http://localho
 
 The page will reload if you make edits
 
+### Tech Stack        
+#### React            https://reactjs.org/
+#### Node.js          https://nodejs.org/en/
+#### React-Router     https://reactrouter.com/
+#### SASS             https://sass-lang.com/
+#### Bootstraps React https://react-bootstrap.github.io/
+
+
+### From sibling server
+Recipe-Mate-Api: https://github.com/C-Swain/Recipe-Mate-Api
+
+       
+ #### Express.js      https://expressjs.com/
+ #### Nodemon         https://www.npmjs.com/package/nodemon
+ #### Node.js         https://nodejs.org/en/
+ #### Postgres SQL    https://www.postgresql.org/
+
+  Special mention to Imgur which we used to host images online for use with our database https://imgur.com/
 
 
 ## Thank you for your interest in our project
