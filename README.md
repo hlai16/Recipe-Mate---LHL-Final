@@ -1,10 +1,10 @@
-## Welcome to Recipe Mate!~
+# Welcome to Recipe Mate!~
 
 Recipe mate is a place to share recipes. Like a cookbook, beyond cooking and booking.
 Food and crafting lovers agree that it’s not only about the product, it involves the process. It’s about preparation, dedication and improvement. And by sharing a recipe, is sharing that experience.
 
 
-### Setup
+## Setup
 
 Install dependencies with `yarn install`. or `npm install` if you don't have yarn.
 Git clone Recipe-Mate-Api. This is the server for getting API: https://github.com/C-Swain/Recipe-Mate-Api
@@ -12,41 +12,36 @@ Git clone Recipe-Mate-Api. This is the server for getting API: https://github.co
 
 Recipe Mate requires both the Api Server and The PSQL database to run.
 
-### A Look inside the User Interface
+## A Look inside the User Interface
 
 First you will be Greeted by a Friendly Log in screen
 ![Log in]()
 
 
-# Once logged in it will bring you to your Profile 
-
-![User Profile]()
-
-
-# Browse by Categories
+### Browse by Categories
 
 ![Browse Recipes](https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/master/screenshots/BrowseFromDesktop2.png)
 
 
-# Search Recipes:
+### Search Recipes:
 
 ![Search Results](https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/master/screenshots/desktopSearch.png)
 
-# Create recipes:
+### Create recipes:
 
 ![Add Recipe](https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/master/screenshots/FilledCreateMobile.png)
 
-# View all your creations
+### View all your creations
 
 ![Creations](https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/master/screenshots/allRecipesDesktop.png)
 
 
-# Awaken your inner Scientist! 
+### Awaken your inner Scientist! 
 
 ![Home Scientest](https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/master/screenshots/Home%20Scientist.png)
 
 
-# Favorite the recipes of others. 
+### Favorite the recipes of others. 
 ![Favorite](https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/master/screenshots/Favourite.png?raw=true)
 
 
