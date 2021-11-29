@@ -9,7 +9,7 @@ export default function ProfileNav(props) {
 
     <>
       
-        <Navbar bg="light" variant="light">
+        <Navbar bg="light" variant="light" sticky="top">
 
           <Nav className="mr-auto">
             <Nav.Link><Link to={'/'} className="nav-link">Profile Home</Link></Nav.Link>

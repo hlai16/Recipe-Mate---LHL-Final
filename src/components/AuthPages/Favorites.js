@@ -70,7 +70,7 @@ export default function Favorites(props) {
       <ProfileNav />
       <div className="favoriteStorage">
 
-        <h3>My Favorite Recipes:</h3>
+        <h1>Your Favorite Recipes:</h1>
         <Buttons onClick={clearFavorites}>
           <FontAwesomeIcon icon={faTrashAlt} />All</Buttons>
         <div className="ifNoRecipes">{message}</div>

@@ -2,37 +2,18 @@ import React from "react";
 // import classNames from "classnames";
 import './FavoriteItem.scss';
 import Buttons from '../Buttons';
-import { faBookReader, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState, useEffect } from 'react';
-import { Card, Modal } from "react-bootstrap";
-import axios from "axios";
-import { render } from 'react-dom';
+import { useState } from 'react';
+import { Card } from "react-bootstrap";
 import { Navigate, useLocation } from 'react-router-dom';
-import SingleRecipe from "../SingleRecipe";
-import RecipeView from './RecipeView';
 import ViewButton from './ViewButton';
 
 export default function FavoriteItem(props) {
     const location = useLocation();
-    const recipeId = location.state || []
-    const [recipe, setRecipe] = useState([]);
-    // const viewRecipe = function (id) {
-    //     console.log(`viewing recipe ${id}`)
-    //     axios.get(`/recipes/${id}`).then((all) => {
-    //         setRecipe(all.data[0])
-    //         console.log('recipe', recipe)
-    //         return <RecipeView />
-    //     }).catch((error) => {
-    //         console.log(error)
-    //     })
-
-    // }
-
-
-
+    
     return (
-        <div onClick={props.setFavorite}>
+        <div onClick={props.setFavorite} className="favoriteCards">
 
             {/* bootstrap */}
             <Card style={{ width: '18rem' }}>
