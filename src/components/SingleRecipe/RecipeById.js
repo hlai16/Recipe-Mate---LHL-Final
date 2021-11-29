@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import './RecipeById.scss';
 import { Card } from "react-bootstrap";
@@ -6,16 +7,17 @@ import Buttons from '../Buttons';
 import { useAlert } from 'react-alert';
 
 // get our fontawesome imports
-import { faThumbsUp, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faThumbsUp, faHeart, faPersonBooth } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 export default function RecipeById(props) {
   const [recipeById, setRecipeById] = useState('');
-  const [moreFromUser, setMoreFromUser] = useState([]);
+  const [allFromUser, setAllFromUser] = useState([]);
   const [hasLike, setHasLike] = useState(false);
- 
+  
   const alert = useAlert()
+  let navigate = useNavigate()
 
 
 
@@ -31,7 +33,7 @@ export default function RecipeById(props) {
     if (recipeById.user_id) {
       axios
         .get(`/Users/${recipeById.user_id}/recipes`)
-        .then((results) => (setMoreFromUser(results.data)))
+        .then((results) => (setAllFromUser(results.data)))
     }
   }, [recipeById])
 
@@ -79,16 +81,24 @@ export default function RecipeById(props) {
   }
 
   return (< >
-    <h3>{recipeById.name}</h3>
+    <h2>{recipeById.name}</h2>
+
     <div className="likesDiv">
-      <button onClick={handleLikes}><h1 className="likes"><FontAwesomeIcon icon={faThumbsUp} /></h1>{recipeById.likes}</button>
+      <button onClick={handleLikes}>
+        Total Likes: <h1 className="likes"><FontAwesomeIcon icon={faThumbsUp} /></h1>{recipeById.likes} Likes
+        </button>
     </div>
     <div className="favoriteDiv">
       <button onClick={addToProfile}>
-        <h1 className="favorite"><FontAwesomeIcon icon={faHeart} /></h1>
+        Add to Favorites: <h1 className="favorite"> <FontAwesomeIcon icon={faHeart} /></h1>
       </button>
-     
     </div>
+    <div className="favoriteDiv">
+      <button onClick={() => navigate("/recipes", { state: allFromUser })}>
+        All from this user: <h1 className="favorite"><FontAwesomeIcon icon={faPersonBooth} /></h1>
+      </button>
+    </div>
+
     <div className="recipeUrlDiv--img">
       <img src={recipeById.image} alt="display image" />
     </div>
@@ -101,9 +111,6 @@ export default function RecipeById(props) {
         <tr>
           <th scope="row">Good for</th>
           <td>{recipeById.category_name}</td>
-        </tr>
-        <tr>
-          <th scope="row">About</th>
         </tr>
         <tr>
           <th scope="row">Ingredients</th>
@@ -123,8 +130,8 @@ export default function RecipeById(props) {
         </tr>
       </tbody>
 
-      <div className="otherRecipesBySameUser"><h4>***All Recipes from This User:***</h4></div>
-      <div className="otherRecipesBySameUser--inner">{moreFromUser.map((recipe) => (
+      {/* <div className="otherRecipesBySameUser"><h4>***All Recipes from This User:***</h4></div>
+      <div className="otherRecipesBySameUser--inner">{allFromUser.map((recipe) => (
         <div>
 
           <Card style={{ width: '18rem' }}>
@@ -142,7 +149,7 @@ export default function RecipeById(props) {
         </div>
 
       ))}
-      </div>
+      </div> */}
 
     </table>
 

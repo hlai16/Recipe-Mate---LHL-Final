@@ -17,7 +17,6 @@ export default function SingleRecipe(props) {
     <>
       <NavBar setToken={props.setToken} />
       <div className="recipeUrlDiv">
-        <h2>Recipe Presentation</h2>
         <RecipeById recipeId={recipeId} />
         <div className="leaveCommentsDiv">
           <CommentForm recipeId={recipeId} setCommentsByRecipeId={setCommentsByRecipeId} commentsByRecipeId={commentsByRecipeId} />
