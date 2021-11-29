@@ -59,8 +59,8 @@ export default function CreatedRecipes(props) {
 
                 <h1> *****All your recipe Creations*****</h1>
                 <div className="ifNoRecipes">{message}</div>
-                <div className="otherRecipesBySameUser--inner">{moreFromUser.map((recipe, key) => (
-                    <div key={key}>
+                <div className="createdRecipesDiv--inner">{moreFromUser.map((recipe, key) => (
+                    <div key={key} className="createdRecipesDiv--key">
 
                         <Card style={{ width: '18rem' }}>
                             <Card.Img variant="top" src={recipe.image} alt={recipe.name} />

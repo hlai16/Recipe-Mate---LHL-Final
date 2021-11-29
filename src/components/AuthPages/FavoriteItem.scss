@@ -8,55 +8,61 @@
     margin: 2.5em;
     display: grid;
     grid-gap: 1em;
-    h1, h3 {
+    h1 {
         margin-bottom: 1em;
         grid-row: 1/2;
         grid-column: 1/-1;
     }
-    .favoriteCardsDiv {
-        display: grid;
-        grid-gap: 1em;
-        max-width: 100%;
-        grid-template-columns: 1fr 1fr;
-    }
-    .recipeCard {
-        // width: 30%;
+    .favoriteCardsDiv,
+    .createdRecipesDiv--inner {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        border: $border;
-        border-radius: $border-radius;
-        background-color: $white;
-        .recipeCard--thumbnail {
-            width: 100%;
-            img {
-                max-width: 100%;
-            }
-        }
-        .recipeCard--text {
-            padding: auto .5em;
-            h5, div {
-                margin: .5em;
-            }
-        }
-        .recipeCard--buttons {
-            padding: auto .5rem;
-            display: flex;
-            justify-content: end;
-            // div {
-            //     margin: 0.5rem;
-                h1 {
-                    color: $black;
-                }
-                .delete:hover,
-                .delete:focus-within {
-                    color: $danger-color;
-                }
-                .view:hover,
-                .view:focus-within {
-                    color: $confirm-color;
-                }
-            // }
+        flex-wrap: wrap;
+        max-width: 100%;
+        margin: 2.5em;
+        .createdRecipesDiv--key {
+            margin-right: 1em;
+            margin-bottom: 1em;
         }
     }
+    // .recipeCard,
+    // .createdRecipesDiv--key {
+    //     // width: 30%;
+    //     display: flex;
+    //     flex-direction: column;
+    //     justify-content: center;
+    //     border: $border;
+    //     border-radius: $border-radius;
+    //     background-color: $white;
+    //     .recipeCard--thumbnail {
+    //         width: 100%;
+    //         img {
+    //             max-width: 100%;
+    //         }
+    //     }
+    //     .recipeCard--text {
+    //         padding: auto .5em;
+    //         h5, div {
+    //             margin: .5em;
+    //         }
+    //     }
+    //     .recipeCard--buttons {
+    //         padding: auto .5rem;
+    //         display: flex;
+    //         justify-content: end;
+    //         // div {
+    //         //     margin: 0.5rem;
+    //             h1 {
+    //                 color: $black;
+    //             }
+    //             .delete:hover,
+    //             .delete:focus-within {
+    //                 color: $danger-color;
+    //             }
+    //             .view:hover,
+    //             .view:focus-within {
+    //                 color: $confirm-color;
+    //             }
+            // }
+        // }
+    // }
 }
