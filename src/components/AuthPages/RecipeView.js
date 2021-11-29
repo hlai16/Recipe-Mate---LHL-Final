@@ -5,10 +5,10 @@ import axios from "axios";
 import Buttons from '../Buttons';
 import { useNavigate } from "react-router-dom";
 import useVisualMode from '../../hooks/useVisualMode';
-import Create from './Create';
+import Edit from './Edit';
 import RecipeDetails from "./RecipeDetails";
 
-const CREATE = "CREATE";
+const EDIT = "EDIT";
 const DETAIL = 'DETAIL';
 
 
@@ -45,13 +45,14 @@ export default function RecipeView(props) {
             </Modal.Header>
             <Modal.Body>
                 <Buttons small
-                    onClick={() => { transition(CREATE, null) }}
-                >Clone/Edit</Buttons>
+                    onClick={() => { transition(EDIT, null) }}
+                >{props.origin === "createdRecipes" ? 'Edit' : 'Clone'}</Buttons>
                 <Button variant="danger"
                     onClick={back}
                 >Cancel</Button>
-                {mode === CREATE &&
-                    <Create
+                {mode === EDIT &&
+                    <Edit
+                        origin={props.origin}
                         id={recipeById.id}
                         name={recipeById.name}
                         ingredients={recipeById.ingredients}
@@ -63,7 +64,8 @@ export default function RecipeView(props) {
                         serving={recipeById.servings}
                         onCancel={back}
                     />}
-                <RecipeDetails
+                {mode !== EDIT && 
+                  <RecipeDetails
                     name={recipeById.name}
                     image={recipeById.image}
                     category_name={recipeById.category_name}
@@ -72,7 +74,7 @@ export default function RecipeView(props) {
                     servings={recipeById.servings}
                     steps={recipeById.steps}
                     time={recipeById.time}
-                />
+                />}
             </Modal.Body>
             <Modal.Footer>
                 <Buttons small

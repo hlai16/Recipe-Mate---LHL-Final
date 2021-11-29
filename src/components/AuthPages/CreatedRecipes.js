@@ -69,7 +69,7 @@ export default function CreatedRecipes(props) {
                                 <Card.Text>
                                     {recipe.description}
                                 </Card.Text>
-                                <ViewButton id={recipe.id} />
+                                <ViewButton id={recipe.id} origin={'createdRecipes'}/>
                                 {/* <Buttons small onClick={() => navigate(`/SingleRecipe`, { state: Number(recipe.id) })} >Visit</Buttons> */}
                                 {/* <Buttons small onClick={() => navigate(`/SingleRecipe`, { state: Number(recipe.id) })}> Modify</Buttons> */}
                                 <Buttons small onClick={() => handleDelete(recipe.id, key)}><FontAwesomeIcon icon={faTrashAlt} />Remove</Buttons>

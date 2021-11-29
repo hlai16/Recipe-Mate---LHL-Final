@@ -28,9 +28,6 @@ export default function RecipeDetails(props) {
                         <td>{props.category_name}</td>
                     </tr>
                     <tr>
-                        <th scope="row">About</th>
-                    </tr>
-                    <tr>
                         <th scope="row">Ingredients</th>
                         <td>{props.ingredients}</td>
                     </tr>

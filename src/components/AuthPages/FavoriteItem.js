@@ -25,7 +25,7 @@ export default function FavoriteItem(props) {
                     </Card.Text>
                     <div className="recipeCard--buttons">
                         
-                        <ViewButton id={props.id} />
+                        <ViewButton id={props.id} origin={'favoriteItem'}/>
                         <div>
                             <Buttons small id={props.id} onClick={() => props.setRemoveItem(props.id)}>
                                 <FontAwesomeIcon icon={faTrashAlt} />Delete</Buttons>
