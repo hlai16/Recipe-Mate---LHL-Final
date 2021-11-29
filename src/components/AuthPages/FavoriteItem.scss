@@ -22,6 +22,9 @@
         display: flex;
         max-width: 100%;
     }
+    .ifNoRecipes {
+        margin-top: 15em;
+    }
     .favoriteCardsDiv,
     .createdRecipesDiv--inner {
         display: flex;

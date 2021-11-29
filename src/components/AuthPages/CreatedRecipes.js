@@ -28,7 +28,7 @@ export default function CreatedRecipes(props) {
             axios.get(`/Users/${userId}/recipes`)
                 .then((results) => (
                     setMoreFromUser(results.data)
-                    
+
                 ))
         }
     }, [])
@@ -37,17 +37,22 @@ export default function CreatedRecipes(props) {
     const handleDelete = function (id, key) {
         axios.delete(`/recipes/${id}`).then(() => {
             moreFromUser.splice(key, 1)
-            if (localStorage.getItem('favorite')) {
-                const favorites = JSON.parse(localStorage.getItem('favorite'));
-                const filterFavorites = favorites.filter(favorite => favorite.id === id);
-                if (filterFavorites.length > 0) {
-                    favorites.splice(key, 1);
+
+            const favorites = JSON.parse(localStorage.getItem('favorite'));
+            console.log('id', id)
+
+            for (const key of favorites) {
+                if (key.id === id) {
+                  const index = favorites.indexOf(key);
+                  favorites.splice(index, 1);
+                  
+                  localStorage.setItem('favorite', JSON.stringify(favorites));
                 }
-                localStorage.setItem('favorite', JSON.stringify(favorites));
-                setMoreFromUser(moreFromUser)
-                navigate(`/userRecipes`)
-                moreFromUser.length <= 0 && setMessage(<Alert variant="info">No Recipes here. Let's create some.</Alert>)
             }
+            setMoreFromUser(moreFromUser)
+            navigate(`/userRecipes`)
+            moreFromUser.length <= 0 && setMessage(<Alert variant="info">No Recipes here. Let's create some.</Alert>)
+
         })
     }
 
@@ -69,7 +74,7 @@ export default function CreatedRecipes(props) {
                                 <Card.Text>
                                     {recipe.description}
                                 </Card.Text>
-                                <ViewButton id={recipe.id} origin={'createdRecipes'}/>
+                                <ViewButton id={recipe.id} origin={'createdRecipes'} />
                                 {/* <Buttons small onClick={() => navigate(`/SingleRecipe`, { state: Number(recipe.id) })} >Visit</Buttons> */}
                                 {/* <Buttons small onClick={() => navigate(`/SingleRecipe`, { state: Number(recipe.id) })}> Modify</Buttons> */}
                                 <Buttons small onClick={() => handleDelete(recipe.id, key)}><FontAwesomeIcon icon={faTrashAlt} />Remove</Buttons>
