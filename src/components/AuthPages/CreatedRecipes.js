@@ -27,11 +27,12 @@ export default function CreatedRecipes(props) {
         if (userId) {
             axios.get(`/Users/${userId}/recipes`)
                 .then((results) => (
-                    setMoreFromUser(results.data),
-                    setMessage(<div className="ifNoRecipes"><Alert variant="info">
-                    You don't have any recipes. Let's create some! 💡
-                </Alert></div>)
+                    setMoreFromUser(results.data)
+
                 ))
+            moreFromUser.length <= 0 ? setMessage(<div className="ifNoRecipes"><Alert variant="info">
+                You don't have any recipes. Let's create some! 💡
+            </Alert></div>) : setMessage('')
         }
     }, [])
 
