@@ -46,7 +46,7 @@ export default function RecipeView(props) {
             <Modal.Body>
                 <Buttons small
                     onClick={() => { transition(CREATE, null) }}
-                >Edit</Buttons>
+                >Clone/Edit</Buttons>
                 <Button variant="danger"
                     onClick={back}
                 >Cancel</Button>
@@ -77,7 +77,7 @@ export default function RecipeView(props) {
             <Modal.Footer>
                 <Buttons small
                     onClick={() => navigate(`/SingleRecipe`,
-                        { state: Number(recipeById.id) })}>More</Buttons>
+                        { state: Number(recipeById.id) })}>More...</Buttons>
 
                 <Button onClick={props.onHide} variant="danger">Close</Button>
             </Modal.Footer>
