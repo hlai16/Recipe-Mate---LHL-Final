@@ -15,25 +15,37 @@ Recipe Mate requires both the Api Server and The PSQL database to run.
 ## A Look inside the User Interface
 
 First you will be Greeted by a Friendly Log in screen
+![Log in]()
 
 
 Once logged in it will bring you to your Profile 
+![User Profile]()
 
 
 
-Users can Search Recipes
+Browse by Categories
+![Browse Recipes](https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/master/screenshots/BrowseFromDesktop2.png)
 
 
+Search Recipes:
+![Search Results](https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/master/screenshots/desktopSearch.png)
 
-Users can Add recipes
+Create recipes:
+![Add Recipe](https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/master/screenshots/FilledCreateMobile.png)
+
+
+Awaken Your inner Scientist! 
+![Home Scientest](https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/master/screenshots/Home%20Scientist.png)
 
 
 
 Users can favorite the recipes of others. 
+![Favorite]()
 
 
 
 Users can see more creations from the same User while veiwing the recipes 
+![More From User]()
 
 
 
@@ -57,5 +69,7 @@ We came together over a passion of food, creating and coding. We were driven to 
 
 Coded by 
 Ana Carolina Kolozsvari -  https://github.com/anacko
-Catherine Swain -          https://github.com/C-Swain  
+
+Catherine Swain -          https://github.com/C-Swain
+
 Joan Gloria Lai -          https://github.com/hlai16
