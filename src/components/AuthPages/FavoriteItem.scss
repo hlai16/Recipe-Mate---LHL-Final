@@ -25,45 +25,7 @@
             margin-bottom: 2em;
         }
     }
-    // .recipeCard,
-    // .createdRecipesDiv--key {
-    //     // width: 30%;
-    //     display: flex;
-    //     flex-direction: column;
-    //     justify-content: center;
-    //     border: $border;
-    //     border-radius: $border-radius;
-    //     background-color: $white;
-    //     .recipeCard--thumbnail {
-    //         width: 100%;
-    //         img {
-    //             max-width: 100%;
-    //         }
-    //     }
-    //     .recipeCard--text {
-    //         padding: auto .5em;
-    //         h5, div {
-    //             margin: .5em;
-    //         }
-    //     }
-    //     .recipeCard--buttons {
-    //         padding: auto .5rem;
-    //         display: flex;
-    //         justify-content: end;
-    //         // div {
-    //         //     margin: 0.5rem;
-    //             h1 {
-    //                 color: $black;
-    //             }
-    //             .delete:hover,
-    //             .delete:focus-within {
-    //                 color: $danger-color;
-    //             }
-    //             .view:hover,
-    //             .view:focus-within {
-    //                 color: $confirm-color;
-    //             }
-            // }
-        // }
-    // }
+    .recipeUrlDiv--img {
+        width: 100%;
+    }
 }

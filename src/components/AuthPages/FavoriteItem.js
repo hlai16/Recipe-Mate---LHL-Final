@@ -28,7 +28,7 @@ export default function FavoriteItem(props) {
                         <ViewButton id={props.id} />
                         <div>
                             <Buttons small id={props.id} onClick={() => props.setRemoveItem(props.id)}>
-                                <FontAwesomeIcon icon={faTrashAlt} /></Buttons>
+                                <FontAwesomeIcon icon={faTrashAlt} />Delete</Buttons>
                         </div>
                     </div>
                 </Card.Body>

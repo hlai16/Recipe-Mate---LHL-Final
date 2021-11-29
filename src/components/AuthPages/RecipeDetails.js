@@ -19,7 +19,7 @@ export default function RecipeDetails(props) {
                 <img src={props.image} alt="display image" />
             </div>
 
-            <h4>About</h4>
+            <p></p>
             <p>{props.description}</p>
             <table className="table recipe-presentation">
                 <tbody>

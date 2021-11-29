@@ -13,7 +13,7 @@ export default function ViewButton(props) {
     return (
         <>
             <Buttons small onClick={() => setModalShow(true)}>
-                <FontAwesomeIcon icon={faBookReader} />
+                <FontAwesomeIcon icon={faBookReader} />View
             </Buttons>
 
             <RecipeView

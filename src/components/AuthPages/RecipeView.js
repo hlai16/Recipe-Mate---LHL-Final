@@ -40,16 +40,16 @@ export default function RecipeView(props) {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    {recipeById.name}
+                    <h1>{recipeById.name}</h1>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Buttons small
                     onClick={() => { transition(CREATE, null) }}
                 >Edit</Buttons>
-                <Buttons small
+                <Button variant="danger"
                     onClick={back}
-                >Cancel</Buttons>
+                >Cancel</Button>
                 {mode === CREATE &&
                     <Create
                         id={recipeById.id}
@@ -79,7 +79,7 @@ export default function RecipeView(props) {
                     onClick={() => navigate(`/SingleRecipe`,
                         { state: Number(recipeById.id) })}>More</Buttons>
 
-                <Button onClick={props.onHide}>Close</Button>
+                <Button onClick={props.onHide} variant="danger">Close</Button>
             </Modal.Footer>
         </Modal>
     );
