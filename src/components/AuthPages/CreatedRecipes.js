@@ -8,13 +8,16 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import './index.scss';
+import './FavoriteItem.scss';
 import ProfileNav from "./ProfileNav";
 import ViewButton from "./ViewButton";
+import { Alert } from "react-bootstrap";
 
 export default function CreatedRecipes(props) {
     const userIdToken = useToken();
     const userId = userIdToken.token;
     const [moreFromUser, setMoreFromUser] = useState([]);
+    const [message, setMessage] = useState('');
     const location = useLocation();
     const recipes = location.state || []
     let navigate = useNavigate();
@@ -24,7 +27,10 @@ export default function CreatedRecipes(props) {
         if (userId) {
             axios.get(`/Users/${userId}/recipes`)
                 .then((results) => (
-                    setMoreFromUser(results.data)
+                    setMoreFromUser(results.data),
+                    setMessage(<div className="ifNoRecipes"><Alert variant="info">
+                    You don't have any recipes. Let's create some! 💡
+                </Alert></div>)
                 ))
         }
     }, [])
@@ -42,9 +48,14 @@ export default function CreatedRecipes(props) {
                 localStorage.setItem('favorite', JSON.stringify(favorites));
                 setMoreFromUser(moreFromUser)
                 navigate(`/userRecipes`)
+                if (moreFromUser.length <= 0) {
+                    alert("You don't have any recipes. Let's create some! 💡");
+
+                }
             }
         })
     }
+
 
     return (
         <>
@@ -52,7 +63,7 @@ export default function CreatedRecipes(props) {
             <section className="createdRecipesDiv">
 
                 <h1> *****All your recipe Creations*****</h1>
-                <div className="ifNoRecipes"></div>
+                <div className="ifNoRecipes">{message}</div>
                 <div className="otherRecipesBySameUser--inner">{moreFromUser.map((recipe, key) => (
                     <div key={key}>
 
