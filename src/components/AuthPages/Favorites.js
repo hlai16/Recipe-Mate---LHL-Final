@@ -15,11 +15,14 @@ import ProfileNav from './ProfileNav';
 export default function Favorites(props) {
   // const [message, setMessage] = useState('');
   const [favoriteList, setFavoriteList] = useState([]);
+  const [message, setMessage] = useState('');
   useEffect(() => {
     if (localStorage.getItem('favorite')) {
       const favorites = JSON.parse(localStorage.getItem('favorite'));
       setFavoriteList(favorites)
+      favorites.length <= 0 && setMessage(<Alert variant="info">You don't have any recipes. Let's create some! 💡</Alert>)
     }
+
   }, []);
   // const populateFavorites = () => {
 
@@ -64,15 +67,15 @@ export default function Favorites(props) {
   // console.log('favoriteList after clear', favoriteList)
   return (
     <>
-    <ProfileNav />
-    <div className="favoriteStorage">
-      
-      <h3>My Favorite Recipes:</h3>
-      <Buttons onClick={clearFavorites}>
-        <FontAwesomeIcon icon={faTrashAlt} />All</Buttons>
-      {/* <p>{()=> displayMessage}</p> */}
-      <div className="favoriteCardsDiv">{mapFavorites}</div>
-    </div>
+      <ProfileNav />
+      <div className="favoriteStorage">
+
+        <h3>My Favorite Recipes:</h3>
+        <Buttons onClick={clearFavorites}>
+          <FontAwesomeIcon icon={faTrashAlt} />All</Buttons>
+        <div className="ifNoRecipes">{message}</div>
+        <div className="favoriteCardsDiv">{mapFavorites}</div>
+      </div>
     </>
   );
 }

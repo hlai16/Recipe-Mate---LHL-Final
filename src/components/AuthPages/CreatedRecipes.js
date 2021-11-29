@@ -28,11 +28,8 @@ export default function CreatedRecipes(props) {
             axios.get(`/Users/${userId}/recipes`)
                 .then((results) => (
                     setMoreFromUser(results.data)
-
+                    
                 ))
-            moreFromUser.length <= 0 ? setMessage(<div className="ifNoRecipes"><Alert variant="info">
-                You don't have any recipes. Let's create some! 💡
-            </Alert></div>) : setMessage('')
         }
     }, [])
 
@@ -49,10 +46,7 @@ export default function CreatedRecipes(props) {
                 localStorage.setItem('favorite', JSON.stringify(favorites));
                 setMoreFromUser(moreFromUser)
                 navigate(`/userRecipes`)
-                if (moreFromUser.length <= 0) {
-                    alert("You don't have any recipes. Let's create some! 💡");
-
-                }
+                moreFromUser.length <= 0 && setMessage(<Alert variant="info">No Recipes here. Let's create some.</Alert>)
             }
         })
     }
