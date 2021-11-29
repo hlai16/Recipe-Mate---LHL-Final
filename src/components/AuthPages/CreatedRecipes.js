@@ -57,7 +57,7 @@ export default function CreatedRecipes(props) {
             <ProfileNav />
             <section className="createdRecipesDiv">
 
-                <h1> *****All your recipe Creations*****</h1>
+                <h1 className="positionfixed"> ***All your recipe Creations***</h1>
                 <div className="ifNoRecipes">{message}</div>
                 <div className="createdRecipesDiv--inner">{moreFromUser.map((recipe, key) => (
                     <div key={key} className="createdRecipesDiv--key">
@@ -65,7 +65,7 @@ export default function CreatedRecipes(props) {
                         <Card style={{ width: '18rem' }}>
                             <Card.Img variant="top" src={recipe.image} alt={recipe.name} />
                             <Card.Body>
-                                <Card.Title>{recipe.name}</Card.Title>
+                                <Card.Title><h3>{recipe.name}</h3></Card.Title>
                                 <Card.Text>
                                     {recipe.description}
                                 </Card.Text>
