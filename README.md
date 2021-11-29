@@ -1,7 +1,7 @@
 # Welcome to Recipe Mate!~
 
 Recipe mate is a place to share recipes. Like a cookbook, beyond cooking and booking.
-Food and crafting lovers agree that it’s not only about the product, it involves the process. It’s about preparation, dedication and improvement. And by sharing a recipe, is sharing that experience.
+Food and crafting lovers agree that it’s not only about the product, it involves the process. It’s about preparation, dedication and improvement. And by sharing a recipe, they are sharing that experience.
 
 
 ## Setup
