@@ -14,7 +14,7 @@ Recipe Mate requires both the Api Server and The PSQL database to run.
 
 ## A Look inside the User Interface
 
-First stop time to sign up:
+### First stop time to sign up:
 ![Log in](https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/master/screenshots/Register.png)
 
 
