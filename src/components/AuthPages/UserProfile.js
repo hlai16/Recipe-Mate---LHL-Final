@@ -15,8 +15,9 @@ export default function UserProfile(props) {
     <div className="profileDiv">
       <NavBar setToken={props.setToken} />
       <section className="profileDiv--inner">
+      <ProfileNav />
         <Welcome userId={userId} />
-        <ProfileNav />
+        
       
         
       </section>
