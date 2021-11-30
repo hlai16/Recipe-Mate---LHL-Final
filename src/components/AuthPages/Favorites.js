@@ -39,7 +39,7 @@ export default function Favorites() {
         localStorage.setItem('favorite', JSON.stringify(favoriteList));
         const favorites = JSON.parse(localStorage.getItem('favorite'));
         setFavoriteList(favorites)
-
+        navigate(`/favorites`)
       }
     }
     navigate(`/favorites`)
