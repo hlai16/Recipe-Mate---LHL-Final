@@ -63,8 +63,8 @@ export default function Edit(props) {
   
   return (
     <div>
-      {/* <NavBar setToken={props.setToken} /> */}
-      <section className="recipe-create-section">
+      
+      <section className="recipe-edit-section">
         <Container>
           <Row>
             <Col>
@@ -171,7 +171,7 @@ export default function Edit(props) {
                 value="Submit Recipe"
                 onClick={(e) => handleSubmit( user_id, recName, category, description,
                   ingredients, steps, servings, time, likes, image )}
-                  >{props.origin === "createdRecipes" ? 'Submit changes' : 'Submit'}</button>
+                  >{props.origin === "createdRecipes" ? 'Update' : 'Submit'}</button>
                   
                   <p>{message}</p>
             </Col>
