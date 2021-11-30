@@ -9,7 +9,7 @@ export default function ProfileNav(props) {
 
     <div className="profileNavDiv">
 
-      <Navbar bg="light" variant="light" sticky="top" expand="lg">
+      <Navbar bg="dark" variant="dark" sticky="top" expand="lg">
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
