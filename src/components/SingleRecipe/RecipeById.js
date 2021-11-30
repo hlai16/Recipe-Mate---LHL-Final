@@ -75,7 +75,7 @@ export default function RecipeById(props) {
       user_id: recipeById.user_id,
     });
 
-    alert.show('Added to Favorites');
+    alert.show('Added to Favorites ❤️');
     localStorage.setItem('favorite', JSON.stringify(favorite));
 
   }
