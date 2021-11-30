@@ -18,8 +18,6 @@ export default function CreatedRecipes(props) {
     const userId = userIdToken.token;
     const [moreFromUser, setMoreFromUser] = useState([]);
     const [message, setMessage] = useState('');
-    const location = useLocation();
-    const recipes = location.state || []
     let navigate = useNavigate();
 
 
@@ -42,15 +40,19 @@ export default function CreatedRecipes(props) {
 
             for (const key of favorites) {
                 if (key.id === id) {
-                  const index = favorites.indexOf(key);
-                  favorites.splice(index, 1);
-                  
-                  localStorage.setItem('favorite', JSON.stringify(favorites));
+                    const index = favorites.indexOf(key);
+                    favorites.splice(index, 1);
+
+                    localStorage.setItem('favorite', JSON.stringify(favorites));
                 }
             }
             setMoreFromUser(moreFromUser)
             navigate(`/userRecipes`)
-            moreFromUser.length <= 0 && setMessage(<Alert variant="info">No Recipes here. Let's create some.</Alert>)
+            moreFromUser.length <= 0 &&
+                setMessage(
+                    <Alert variant="info">
+                        No Recipes here. Let's create some.
+                    </Alert>)
 
         })
     }
@@ -74,7 +76,7 @@ export default function CreatedRecipes(props) {
                                     {recipe.description}
                                 </Card.Text>
                                 <ViewButton id={recipe.id} origin={'createdRecipes'} />
-                
+
                                 <Buttons small onClick={() => handleDelete(recipe.id, key)}><FontAwesomeIcon icon={faTrashAlt} />Remove</Buttons>
                             </Card.Body>
                         </Card>

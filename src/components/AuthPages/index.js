@@ -1,9 +1,6 @@
-// import UserProfile from './UserProfile';
+
 import NavBar from '../NavBar';
 import './index.scss';
-// import Home from '../Home';
-// import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-// import Search from './components/Search/index';
 import Create from './Create';
 
 

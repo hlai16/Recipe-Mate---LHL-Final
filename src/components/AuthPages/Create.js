@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import NavBar from "../NavBar";
 import useToken from "../../hooks/useToken";
 import "./create.scss";
 import "./";
-import { render } from "react-dom";
 import { useAlert } from 'react-alert';
 import { useNavigate } from "react-router-dom";
 import { Form, Container, Col, Row, FormControl } from "react-bootstrap";
@@ -37,7 +35,7 @@ export default function Create(props) {
     likes,
     image
   ) => {
-    // e.preventDefault();
+    
     let data = {
       user_id: user_id,
       name: recName,
@@ -61,13 +59,7 @@ export default function Create(props) {
         } else {
           setMessage('Something went wrong! Could not create recipe.')
         }
-      }) 
-
-    // console.log("Data to be posted ", { ...data });
-    // axios.post(`users/${user_id}/recipes`, { ...data })
-    // navigate('/');
-    // alert.show('Recipe created and saved in your profile 🙌🏼');
-    // setMessage('Recipe created and saved in your profile 🙌🏼');
+      })
   };
   
   const alert = useAlert()
@@ -75,7 +67,6 @@ export default function Create(props) {
  
   return (
     <div>
-      {/* <NavBar setToken={props.setToken} /> */}
       <section className="recipe-create-section">
         <Container>
           <Row>

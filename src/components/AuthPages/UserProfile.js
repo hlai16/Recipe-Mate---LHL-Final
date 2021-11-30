@@ -4,7 +4,7 @@ import Welcome from './Welcome';
 import NavBar from "../NavBar";
 import './index.scss';
 import ProfileNav from "./ProfileNav";
-import { faArrowCircleUp, faLightbulb, faSmileWink } from "@fortawesome/free-solid-svg-icons";
+import { faLightbulb, faSmileWink } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Col, Container } from "react-bootstrap";
 

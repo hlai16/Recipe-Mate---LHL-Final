@@ -9,11 +9,10 @@ import { Alert } from 'react-bootstrap';
 import { useAlert } from 'react-alert';
 import ProfileNav from './ProfileNav';
 import { useNavigate } from "react-router-dom";
-// User Profile needs to read from the cookie and return the users Recipes based on the ID 
 
 
-export default function Favorites(props) {
-  // const [message, setMessage] = useState('');
+export default function Favorites() {
+
   const [favoriteList, setFavoriteList] = useState([]);
   const [message, setMessage] = useState('');
   let navigate = useNavigate();
@@ -22,11 +21,13 @@ export default function Favorites(props) {
     if (localStorage.getItem('favorite')) {
       const favorites = JSON.parse(localStorage.getItem('favorite'));
       setFavoriteList(favorites)
-      favorites.length <= 0 && setMessage(<Alert variant="info">You don't have any recipes. Let's create some! 💡</Alert>)
+      favorites.length <= 0 &&
+        setMessage(
+          <Alert variant="info">You don't have any recipes. Let's create some! 💡</Alert>)
     }
 
   }, []);
-  // const populateFavorites = () => {
+
 
 
   const removeFavorite = function (id) {
@@ -55,19 +56,16 @@ export default function Favorites(props) {
       description={favorite.description}
       setRemoveItem={removeFavorite}
       {...favorite} />);
-  // console.log('favoriteList b4 clear', favoriteList)
 
 
 
 
   const clearFavorites = () => {
-    console.log('clearing')
     localStorage.clear();
     setFavoriteList([]);
     alert.show('Favorites all cleared');
   }
 
-  // console.log('favoriteList after clear', favoriteList)
   return (
     <>
       <ProfileNav />

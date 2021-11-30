@@ -4,7 +4,6 @@
 .favoriteStorage,
 .createdRecipesDiv {
     max-width: 100%;
-    // width: 18rem;
     margin: 2.5em;
     display: grid;
     grid-gap: 1em;
@@ -31,7 +30,6 @@
         flex-wrap: wrap;
         max-width: 95%;
         margin: 2.5em;
-        // margin-top: 5em;
         .createdRecipesDiv--key,
         .favoriteCards {
             margin-right: 1em;

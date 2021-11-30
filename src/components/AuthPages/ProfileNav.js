@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Card, Button, Navbar, Nav, Form, FormControl } from "react-bootstrap";
+
+import { Navbar, Nav } from "react-bootstrap";
 import './index.scss';
 import { Link } from 'react-router-dom';
 
-export default function ProfileNav(props) {
+export default function ProfileNav() {
 
   return (
 
