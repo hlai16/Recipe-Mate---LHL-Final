@@ -28,7 +28,7 @@ export default function UserProfile(props) {
           <article id="Welcome" className="Greeting">
             <p>You're in the right place to share recipes and inspiration!</p>
             <p> Please, choose an option from the navigation bar . </p>
-            <p>  Select Catagories if you would like to browse,</p>
+            <p>  Select Categories if you would like to browse,</p>
             <img src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/feature/user-profile/public/images/pointCategory.jpg?raw=true"
               alt="Category is here on navbar" />
             <p> Click on Create if you want to share a recipe, or </p>
