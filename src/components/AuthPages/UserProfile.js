@@ -37,7 +37,7 @@ export default function UserProfile(props) {
             <p>type in Search bar if you have something particular in mind.</p>
             <img src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/feature/user-profile/public/images/searchBar.png?raw=true"
               alt="Search bar" width="200" />
-            <p>You will also see your profile navigation bar (the smaller gray navbar that's just underneath your email),</p>
+            <p>You will also see your profile navigation bar (the smaller black navbar that's just underneath your email),</p>
             <img src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/feature/user-profile/public/images/profileNavbar.png?raw=true"
               alt="Profile Navbar" width="200" />
             <p>All your creations as well as your favorites are safe here!</p>
