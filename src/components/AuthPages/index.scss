@@ -20,8 +20,8 @@
        text-shadow: 0 5px 5px lighten($color: $error-color, $amount: 20);
    } 
    .Greeting{
-    margin-top: 1rem;
-    display: inline-block;
+   margin: 1em;
+    display: block;
     border: 3px solid rgb(27, 18, 44);
     border-radius: $border-radius;
     padding: 2em;
