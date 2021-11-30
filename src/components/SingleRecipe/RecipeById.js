@@ -81,7 +81,7 @@ export default function RecipeById(props) {
   }
 
   return (< >
-    <h2>{recipeById.name}</h2>
+    <h1>{recipeById.name}</h1>
 
     <div className="likesDiv">
       <button onClick={handleLikes}>
