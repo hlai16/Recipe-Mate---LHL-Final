@@ -38,7 +38,7 @@ export default function UserProfile(props) {
             <img src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/feature/user-profile/public/images/searchBar.png?raw=true"
               alt="Search bar" width="200" />
             <p>You will also see your profile navigation bar (the smaller black navbar that's just underneath your email),</p>
-            <img src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/feature/user-profile/public/images/profileNavbar.png?raw=true"
+            <img src="https://github.com/hlai16/Recipe-Mate---LHL-Final/blob/master/public/images/BlackNavBar.png?raw=true"
               alt="Profile Navbar" width="200" />
             <p>All your creations as well as your favorites are safe here!</p>
             <p>To save a recipe you like to 'Saved Favorites', simply click the heart button.</p>
