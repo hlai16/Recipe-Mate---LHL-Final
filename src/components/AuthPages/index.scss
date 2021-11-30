@@ -16,7 +16,7 @@
    }
    .loginEmail {
        font-weight: bold;
-       font-size: larger;
+       font-size: 2em;
        text-shadow: 0 5px 5px lighten($color: $error-color, $amount: 20);
    } 
    .Greeting{
@@ -27,13 +27,14 @@
     padding: 2em;
     background-color: rgb(247, 242, 235);
     max-width: 95vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: bolder;
     font-size: large;
+    text-align: center;
+    img {
+      border-radius: $border-radius;
+      box-shadow: 0 5px 10px $accent-color;
+    }
    }
 
    .Greetingheader{
@@ -42,6 +43,9 @@
    }
 
   
+}
+.profileNavDiv {
+  z-index: 5;
 }
 
 @media only screen and (max-width: 500px) {

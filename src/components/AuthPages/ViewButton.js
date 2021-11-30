@@ -1,9 +1,8 @@
-import { Button, Modal } from "react-bootstrap";
-import { useState, useEffect } from 'react';
+
+import { useState } from 'react';
 import RecipeView from "./RecipeView";
-import { useLocation } from "react-router";
 import Buttons from '../Buttons';
-import { faBookReader, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { faBookReader } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 

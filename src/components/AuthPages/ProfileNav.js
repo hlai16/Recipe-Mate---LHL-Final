@@ -7,7 +7,7 @@ export default function ProfileNav(props) {
 
   return (
 
-    <>
+    <div className="profileNavDiv">
 
       <Navbar bg="light" variant="light" sticky="top" expand="lg">
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -20,7 +20,7 @@ export default function ProfileNav(props) {
         </Navbar.Collapse>
       </Navbar>
 
-    </>
+    </div>
 
   );
 
