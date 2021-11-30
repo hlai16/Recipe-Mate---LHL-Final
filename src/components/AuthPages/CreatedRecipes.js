@@ -35,17 +35,17 @@ export default function CreatedRecipes(props) {
     const handleDelete = function (id, key) {
         axios.delete(`/recipes/${id}`).then(() => {
             moreFromUser.splice(key, 1)
-
-            const favorites = JSON.parse(localStorage.getItem('favorite'));
-
-            for (const key of favorites) {
-                if (key.id === id) {
-                    const index = favorites.indexOf(key);
-                    favorites.splice(index, 1);
-
-                    localStorage.setItem('favorite', JSON.stringify(favorites));
+            if (localStorage.getItem('favorite')) {
+                const favorites = JSON.parse(localStorage.getItem('favorite'));
+                for (const key of favorites) {
+                    if (key.id === id) {
+                        const index = favorites.indexOf(key);
+                        favorites.splice(index, 1);
+                        localStorage.setItem('favorite', JSON.stringify(favorites));
+                    }
                 }
             }
+
             setMoreFromUser(moreFromUser)
             navigate(`/userRecipes`)
             moreFromUser.length <= 0 &&
