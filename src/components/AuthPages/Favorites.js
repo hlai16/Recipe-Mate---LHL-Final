@@ -3,7 +3,7 @@ import FavoriteItem from './FavoriteItem';
 import './FavoriteItem.scss';
 import { useState, useEffect } from 'react';
 import Buttons from '../Buttons';
-import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { faTrashAlt, faArrowCircleUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Alert } from 'react-bootstrap';
 import { useAlert } from 'react-alert';
@@ -78,6 +78,9 @@ export default function Favorites() {
 
         <div className="favoriteCardsDiv">{mapFavorites}</div>
         <div className="ifNoRecipes">{message}</div>
+      </div>
+      <div className="toTop">
+        <a href="#"><h1><FontAwesomeIcon icon={faArrowCircleUp} /> Back to Top</h1></a>
       </div>
     </>
   );

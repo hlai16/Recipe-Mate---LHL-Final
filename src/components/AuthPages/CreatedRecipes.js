@@ -6,7 +6,7 @@ import { Card } from "react-bootstrap";
 import { useLocation } from "react-router";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { faArrowCircleUp, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import './index.scss';
 import './FavoriteItem.scss';
 import ProfileNav from "./ProfileNav";
@@ -86,6 +86,9 @@ export default function CreatedRecipes(props) {
                 ))}
                 </div>
             </section>
+            <div className="toTop">
+                <a href="#"><h1><FontAwesomeIcon icon={faArrowCircleUp} /> Back to Top</h1></a>
+            </div>
         </>
 
     );

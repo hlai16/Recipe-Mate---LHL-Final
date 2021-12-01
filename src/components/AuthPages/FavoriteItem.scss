@@ -5,7 +5,6 @@
 .createdRecipesDiv {
     max-width: 100%;
     margin: 2.5em;
-    margin-top: 5em;
     display: grid;
     grid-gap: 1em;
     h1 {
@@ -42,5 +41,20 @@
     }
     .recipeUrlDiv--img {
         width: 100%;
+    }
+    
+}
+
+.toTop {
+    max-width: 80%;
+    text-align: right;
+    margin: 2.5em;
+    a {
+        h1 {
+            // color: $accent-color;
+        }
+    }
+    a:hover {
+        text-decoration: none;
     }
 }
